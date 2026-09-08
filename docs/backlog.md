@@ -109,3 +109,20 @@ policies; preinitialize events; qualify replay/capture, launch-delay controls an
 both languages' outputs. Keep profiler durations separate and do not subtract
 unmeasured overhead. Implement on an independently owned worker after the current
 campaign, including explicit unsupported-capture/allocation limits.
+
+## Next-iteration instruction inspection
+
+Issue #13 adds opt-in `artifacts` requests, with static CUDA PTX disassembly and
+native Trainium instruction tables. Status, decoder provenance, missing data
+and output limits are explicit. Default requests and timing paths are preserved.
+Local fake-tool and transport tests cover the contract; real decoder exports and
+Trn1 scheduling remain unqualified. See [instruction artifacts](instruction-artifacts.md).
+The 63-test full suite and an additional version-3 BF16 check pass (64 tests).
+Vendor-free imports and operator command syntax also pass.
+The [offline CUDA procedure](offline-cuda-tools.md)
+pins official archives and checksums; its host commands have not been executed.
+
+Issues #10/#14 have a [proposed measurement contract](measurement-modes.md).
+New device/replay timing is not implemented or qualified. The first campaign,
+its pinned sources and its timing conditions remain unchanged. Issue #12 durable
+request/result recovery stays deferred; the lost b03-p1-S completion is unknown.

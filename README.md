@@ -114,6 +114,11 @@ Read the [example guide](docs/examples.md), [architecture](docs/architecture.md)
 
 BF16 inputs, workload validators, exact output artifacts, and explicit PTX launch
 contracts are described in [the matmul guide](docs/matmul-contract.md).
+For scheduling experiments, opt into
+[lowered instruction artifacts](docs/instruction-artifacts.md) with
+`artifacts=("disassembly",)` for PTX, or `profile=True,
+artifacts=("instruction_timeline",)` for Trainium. Decoder integrations are
+locally tested and remain unqualified on hardware.
 [CUDA qualification](docs/results/cuda/README.md) covers PTX execution and vendor
 baselines. For trusted CUDA jobs, operators can opt into
 [process reuse and bounded assembly caching](docs/process-reuse.md) without changing

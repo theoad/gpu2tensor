@@ -90,7 +90,9 @@ class Result:
         return cls(json.loads((Path(directory) / "record.json").read_text()))
 
 
-def pack_request(candidate, workload, profile, repetitions):
+def pack_request(candidate, workload, profile, repetitions, artifacts=()):
+    from gpu2tensor.instructions import requested
+    artifacts = requested(artifacts, profile)
     encoded = [[input_storage(array) for array in case] for case in workload.cases]
     manifest = {"version": 2, "language": candidate.language, "name": candidate.name,
                 "case_sizes": [len(case) for case in workload.cases],
@@ -100,6 +102,9 @@ def pack_request(candidate, workload, profile, repetitions):
                 "profile": profile, "repetitions": repetitions,
                 "read_only_inputs": workload.read_only_inputs, "poison_outputs": workload.poison_outputs,
                 "launch": candidate.launch.to_dict() if candidate.launch else None}
+    if artifacts:
+        # Older workers must reject options they cannot honor, not ignore them.
+        manifest.update(version=3, artifacts=list(artifacts))
     buffer = io.BytesIO()
     with zipfile.ZipFile(buffer, "w") as archive:
         archive.writestr("request.json", json.dumps(manifest, allow_nan=False))
@@ -141,10 +146,10 @@ class Evaluator:
         self.backend = backend
         self.timeout = timeout
 
-    def evaluate(self, candidate, workload, *, profile=False, repetitions=30):
+    def evaluate(self, candidate, workload, *, profile=False, repetitions=30, artifacts=()):
         if not isinstance(repetitions, int) or not 1 <= repetitions <= 10000:
             raise ValueError("repetitions must be between 1 and 10000.")
-        payload = pack_request(candidate, workload, profile, repetitions)
+        payload = pack_request(candidate, workload, profile, repetitions, artifacts)
         if self.endpoint:
             request = urllib.request.Request(self.endpoint + "/evaluate", data=payload,
                                              headers={"Content-Type": "application/zip"})
@@ -155,7 +160,9 @@ class Evaluator:
             data = evaluate_archive(payload, self.backend, self.timeout)
         return unpack_result(data)
 
-    def observe(self, candidates, workload, *, profile=True, repetitions=30):
+    def observe(self, candidates, workload, *, profile=True, repetitions=30, artifacts=()):
         """Yield each completed result; never buffer the entire candidate corpus."""
+        from gpu2tensor.instructions import requested
+        artifacts = requested(artifacts, profile)
         for candidate in candidates:
-            yield self.evaluate(candidate, workload, profile=profile, repetitions=repetitions)
+            yield self.evaluate(candidate, workload, profile=profile, repetitions=repetitions, artifacts=artifacts)
