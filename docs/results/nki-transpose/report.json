@@ -1,0 +1,90 @@
+{
+  "controls": [
+    {
+      "status": "error",
+      "failure_kind": "candidate_compile",
+      "compiler_diagnostic": {
+        "policy": "nki-0.6-vector-transpose-shape-v1",
+        "provider": "nki_frontend",
+        "exception_type": "AssertionError",
+        "messages": [
+          "- [x1] error: assertion failed: Vector engine transpose requires shape <= [32, 32], got [64, 32]"
+        ]
+      },
+      "source_sha256": "0984c2295845910edd593f06d8f7fef4166e4513ab1580437927dd4c6d206dcf",
+      "request_sha256": "72cf8117523aca4575209d4ca31cd906b065a2b26a722c6bb471d5ae7048b64d",
+      "correctness_cases": 0,
+      "host": "ip-172-31-69-68",
+      "nki": "0.6.0+31049202112.g85070674",
+      "neuronx_cc": "2.27.5334.0+f702b353",
+      "timing_method": null,
+      "measurement_policy": {
+        "warmup_runs": 5,
+        "inputs": "fresh_copy_before_each_call_outside_timing",
+        "outputs": "resident_reused",
+        "cache": "uncontrolled",
+        "working_set": "benchmark_case_0",
+        "synchronization": "blocking_native_runtime_call"
+      },
+      "control": "negative",
+      "latency_present": false,
+      "record_sha256": "a949269defdf5ce2ed8254c2eaef0dbe08b1b5ff9d034bc3e67a0fc970b0fdac"
+    },
+    {
+      "status": "ok",
+      "failure_kind": null,
+      "compiler_diagnostic": null,
+      "source_sha256": "b18cf8de6d985e7572112f96ee7baa336c6333df626aee8542668890a9bcb098",
+      "request_sha256": "ed3063c1f0c24ae0bb14ab452a64d6477cfed2f0dd933ecf9096b638e4067752",
+      "correctness_cases": 6,
+      "host": "ip-172-31-69-68",
+      "nki": "0.6.0+31049202112.g85070674",
+      "neuronx_cc": "2.27.5334.0+f702b353",
+      "timing_method": "neuron_host_round_trip_with_resident_tensors",
+      "measurement_policy": {
+        "warmup_runs": 5,
+        "inputs": "fresh_copy_before_each_call_outside_timing",
+        "outputs": "resident_reused",
+        "cache": "uncontrolled",
+        "working_set": "benchmark_case_0",
+        "synchronization": "blocking_native_runtime_call"
+      },
+      "control": "positive",
+      "latency_present": true,
+      "record_sha256": "632dcab58a509959372c475c99badd887d74067390fa319ee8c9768c90671e1a"
+    }
+  ],
+  "unchanged_methods": [
+    "prepare",
+    "__init__",
+    "identity",
+    "bind",
+    "save_artifacts",
+    "run",
+    "resident",
+    "check",
+    "benchmark",
+    "profile",
+    "keep_compiled_program"
+  ],
+  "original_artifact_files_unchanged": 65,
+  "saved_annotation": {
+    "failure_kind": "candidate_compile",
+    "diagnostic": {
+      "policy": "nki-0.6-vector-transpose-shape-v1",
+      "provider": "nki_frontend",
+      "exception_type": "AssertionError",
+      "messages": [
+        "- [x1] error: assertion failed: Vector engine transpose requires shape <= [32, 32], got [64, 32]"
+      ]
+    },
+    "canonical_record_sha256": "426fb6a917b0f9efdb443392000678237cb715093f1da4f041e67b996c57dc06",
+    "process_log_sha256": "30e1b6734192372cefbb7f5bd9461bc127af4fadc16b711e627b47e601d8619d"
+  },
+  "patch_revision": "6ebf286",
+  "changed_engine_files": [
+    "backends/trainium.py",
+    "failures.py"
+  ],
+  "positive_output_files_equal_to_original": 6
+}

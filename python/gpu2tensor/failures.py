@@ -6,6 +6,9 @@ import re
 
 NKI_BUFFER_POLICY = "nki-0.6-buffer-placement-v1"
 _BUFFER = re.compile(r"- \[x[1-9][0-9]*\] error: assertion failed: (?:nc_transpose data|tensor_copy dst) must be in \[(?:sbuf|psum)(?:, (?:sbuf|psum))*\], got shared_hbm")
+NKI_TRANSPOSE_POLICY = "nki-0.6-vector-transpose-shape-v1"
+# Keep this policy limited to the exact shape rejection in the saved experiment.
+_TRANSPOSE = re.compile(r"- \[x[1-9][0-9]*\] error: assertion failed: Vector engine transpose requires shape <= \[32, 32\], got \[64, 32\]")
 
 
 class CandidateCompilationError(ValueError):
@@ -14,17 +17,26 @@ class CandidateCompilationError(ValueError):
         self.diagnostic = diagnostic
 
 
-def nki_buffer_diagnostic(message):
+def _nki_diagnostic(message, pattern, policy):
     lines = message.strip().splitlines()
     if len(lines) < 3 or lines[0] != "error: failed to compile NKI kernel:":
         return None
     count = re.fullmatch(r"Collected ([1-9][0-9]*) different diagnostics:", lines[1])
     if count is None or int(count[1]) != len(lines) - 2:
         return None
-    if not all(_BUFFER.fullmatch(line) for line in lines[2:]):
+    if not all(pattern.fullmatch(line) for line in lines[2:]):
         return None
-    return {"policy": NKI_BUFFER_POLICY, "provider": "nki_frontend",
+    return {"policy": policy, "provider": "nki_frontend",
             "exception_type": "AssertionError", "messages": lines[2:]}
+
+
+def nki_buffer_diagnostic(message):
+    return _nki_diagnostic(message, _BUFFER, NKI_BUFFER_POLICY)
+
+
+def nki_compile_diagnostic(message):
+    return (nki_buffer_diagnostic(message)
+            or _nki_diagnostic(message, _TRANSPOSE, NKI_TRANSPOSE_POLICY))
 
 
 def classify_saved_nki_failure(record, process_log):
@@ -34,7 +46,7 @@ def classify_saved_nki_failure(record, process_log):
     traceback and the exact terminal assertion as well as the known diagnostic.
     A missing match leaves the outcome unknown.
     """
-    diagnostic = nki_buffer_diagnostic(record.get("message", ""))
+    diagnostic = nki_compile_diagnostic(record.get("message", ""))
     if (record.get("backend") != "trainium" or record.get("language") != "nki"
             or record.get("status") != "error" or not record.get("nki", "").startswith("0.6.")
             or record.get("stage") not in ("correctness", "prepare") or record.get("latency_ms")
