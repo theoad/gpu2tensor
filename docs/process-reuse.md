@@ -8,8 +8,9 @@ GPU2TENSOR_CACHE_DIR=/var/tmp/gpu2tensor-cache gpu2tensor-worker --backend cuda 
 ```
 
 Clients keep using `Evaluator`, `observe`, `Pool`, or `KernelEnv` without changes.
-Each endpoint still owns one device and accepts one evaluation at a time. Reuse
-has been qualified on CUDA; Trainium reuse still needs hardware qualification.
+Each endpoint still owns one device or assigned core and accepts one evaluation at a time. Reuse
+has been qualified on CUDA and on the pinned Trainium NKI environment.
+Torch-Neuron vendor reuse and other SDK versions still need qualification.
 
 The parent enforces each job's deadline. It replaces the child after 32 jobs by
 default, or after any failed evaluation or profile. A crash or timeout kills the
@@ -61,3 +62,25 @@ measurement policy. It warms both workers, alternates request order, saves every
 result and reports whole-request medians. See [CUDA evidence](results/cuda/README.md)
 for the measured result and its limits. Ordinary multi-worker collection still
 requires independently owned devices or partitions.
+
+### Trainium core ownership
+
+A reused Neuron process retains its assigned core even while waiting for another
+request. An idle endpoint is therefore not a released core. Stop the owning worker
+and its child process before giving that core to another endpoint. Keep the
+`NEURON_RT_VISIBLE_CORES` assignment fixed for the worker's entire lifetime.
+
+The comparison example accepts `--backend trainium` and defaults to grouped trials:
+it warms and measures the fresh endpoint first, then warms and measures the reused
+endpoint. The reused worker must not have evaluated anything since it started,
+or it may already own the core. Alternating mode is rejected for this backend.
+Grouped order can be affected by host drift, so its request ratio is descriptive,
+not a randomized estimate. Both endpoints must identify the same physical and
+logical core, inputs, SDK versions and measurement policy.
+
+```bash
+python example/collect/reuse.py --backend trainium --fresh http://127.0.0.1:18006 --reused http://127.0.0.1:18005 --trials 4 --output artifacts/trainium-reuse
+```
+
+See [Trainium results and limits](results/trainium-reuse/README.md). This command
+assumes the operator has prepared and forwarded the two dedicated endpoints.

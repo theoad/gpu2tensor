@@ -1,0 +1,263 @@
+{
+  "comparison": {
+    "host": "ip-172-31-64-161",
+    "device": "trn1",
+    "inputs": [
+      [
+        {
+          "shape": [
+            32,
+            128
+          ],
+          "dtype": "float32",
+          "sha256": "b055c170e185c51dca99c826ea6dc203bcd0beb9ea7be68146e17986e73d3c84"
+        }
+      ],
+      [
+        {
+          "shape": [
+            32,
+            128
+          ],
+          "dtype": "float32",
+          "sha256": "1d921bcaa1e9d102612f8e9dbee1527834247f60c59487bf284ee3c4d019b4cf"
+        }
+      ],
+      [
+        {
+          "shape": [
+            32,
+            128
+          ],
+          "dtype": "float32",
+          "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        }
+      ],
+      [
+        {
+          "shape": [
+            32,
+            128
+          ],
+          "dtype": "float32",
+          "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+        }
+      ]
+    ],
+    "timing_method": "neuron_host_round_trip_with_resident_tensors",
+    "measurement_policy": {
+      "warmup_runs": 5,
+      "inputs": "fresh_copy_before_each_call_outside_timing",
+      "outputs": "resident_reused",
+      "cache": "uncontrolled",
+      "working_set": "benchmark_case_0",
+      "synchronization": "blocking_native_runtime_call"
+    },
+    "backend": "trainium",
+    "torch": "2.11.0+cu130",
+    "nki": "0.6.0+31049202112.g85070674",
+    "neuron_core": 0,
+    "runtime_neuron_core": 0
+  },
+  "order": "grouped",
+  "trials": [
+    {
+      "trial": 0,
+      "mode": "fresh",
+      "request_seconds": 10.351369875017554,
+      "latency_ms": 0.072605,
+      "process": null,
+      "profile_kernels": null,
+      "profile_measurements": {
+        "event_count": 294,
+        "trace_count": 473,
+        "neuroncore_cycle_count": 15345,
+        "hbm_read_bytes": 16384,
+        "hbm_write_bytes": 16384,
+        "sbuf_read_bytes": 82048,
+        "sbuf_write_bytes": 49664,
+        "scalar_engine_instruction_count": 22,
+        "vector_engine_instruction_count": 25,
+        "tensor_engine_instruction_count": 21,
+        "gpsimd_engine_instruction_count": 28,
+        "sync_engine_instruction_count": 16
+      }
+    },
+    {
+      "trial": 1,
+      "mode": "fresh",
+      "request_seconds": 9.5435136249871,
+      "latency_ms": 0.0732985,
+      "process": null,
+      "profile_kernels": null,
+      "profile_measurements": {
+        "event_count": 294,
+        "trace_count": 473,
+        "neuroncore_cycle_count": 15273,
+        "hbm_read_bytes": 16384,
+        "hbm_write_bytes": 16384,
+        "sbuf_read_bytes": 82048,
+        "sbuf_write_bytes": 49664,
+        "scalar_engine_instruction_count": 22,
+        "vector_engine_instruction_count": 25,
+        "tensor_engine_instruction_count": 21,
+        "gpsimd_engine_instruction_count": 28,
+        "sync_engine_instruction_count": 16
+      }
+    },
+    {
+      "trial": 2,
+      "mode": "fresh",
+      "request_seconds": 10.237291208002716,
+      "latency_ms": 0.0728375,
+      "process": null,
+      "profile_kernels": null,
+      "profile_measurements": {
+        "event_count": 294,
+        "trace_count": 473,
+        "neuroncore_cycle_count": 15365,
+        "hbm_read_bytes": 16384,
+        "hbm_write_bytes": 16384,
+        "sbuf_read_bytes": 82048,
+        "sbuf_write_bytes": 49664,
+        "scalar_engine_instruction_count": 22,
+        "vector_engine_instruction_count": 25,
+        "tensor_engine_instruction_count": 21,
+        "gpsimd_engine_instruction_count": 28,
+        "sync_engine_instruction_count": 16
+      }
+    },
+    {
+      "trial": 3,
+      "mode": "fresh",
+      "request_seconds": 11.029811415995937,
+      "latency_ms": 0.071872,
+      "process": null,
+      "profile_kernels": null,
+      "profile_measurements": {
+        "event_count": 294,
+        "trace_count": 473,
+        "neuroncore_cycle_count": 15243,
+        "hbm_read_bytes": 16384,
+        "hbm_write_bytes": 16384,
+        "sbuf_read_bytes": 82048,
+        "sbuf_write_bytes": 49664,
+        "scalar_engine_instruction_count": 22,
+        "vector_engine_instruction_count": 25,
+        "tensor_engine_instruction_count": 21,
+        "gpsimd_engine_instruction_count": 28,
+        "sync_engine_instruction_count": 16
+      }
+    },
+    {
+      "trial": 0,
+      "mode": "reused",
+      "request_seconds": 2.8075061250128783,
+      "latency_ms": 0.071256,
+      "process": {
+        "pid": 14002,
+        "mode": "reused",
+        "evaluation_seconds": 2.05354912599978
+      },
+      "profile_kernels": null,
+      "profile_measurements": {
+        "event_count": 294,
+        "trace_count": 473,
+        "neuroncore_cycle_count": 15263,
+        "hbm_read_bytes": 16384,
+        "hbm_write_bytes": 16384,
+        "sbuf_read_bytes": 82048,
+        "sbuf_write_bytes": 49664,
+        "scalar_engine_instruction_count": 22,
+        "vector_engine_instruction_count": 25,
+        "tensor_engine_instruction_count": 21,
+        "gpsimd_engine_instruction_count": 28,
+        "sync_engine_instruction_count": 16
+      }
+    },
+    {
+      "trial": 1,
+      "mode": "reused",
+      "request_seconds": 2.8168919580057263,
+      "latency_ms": 0.071655,
+      "process": {
+        "pid": 14002,
+        "mode": "reused",
+        "evaluation_seconds": 2.0637167069999123
+      },
+      "profile_kernels": null,
+      "profile_measurements": {
+        "event_count": 294,
+        "trace_count": 473,
+        "neuroncore_cycle_count": 15169,
+        "hbm_read_bytes": 16384,
+        "hbm_write_bytes": 16384,
+        "sbuf_read_bytes": 82048,
+        "sbuf_write_bytes": 49664,
+        "scalar_engine_instruction_count": 22,
+        "vector_engine_instruction_count": 25,
+        "tensor_engine_instruction_count": 21,
+        "gpsimd_engine_instruction_count": 28,
+        "sync_engine_instruction_count": 16
+      }
+    },
+    {
+      "trial": 2,
+      "mode": "reused",
+      "request_seconds": 2.8021943750209175,
+      "latency_ms": 0.07519,
+      "process": {
+        "pid": 14002,
+        "mode": "reused",
+        "evaluation_seconds": 2.047327229000075
+      },
+      "profile_kernels": null,
+      "profile_measurements": {
+        "event_count": 294,
+        "trace_count": 473,
+        "neuroncore_cycle_count": 15211,
+        "hbm_read_bytes": 16384,
+        "hbm_write_bytes": 16384,
+        "sbuf_read_bytes": 82048,
+        "sbuf_write_bytes": 49664,
+        "scalar_engine_instruction_count": 22,
+        "vector_engine_instruction_count": 25,
+        "tensor_engine_instruction_count": 21,
+        "gpsimd_engine_instruction_count": 28,
+        "sync_engine_instruction_count": 16
+      }
+    },
+    {
+      "trial": 3,
+      "mode": "reused",
+      "request_seconds": 2.9410136249498464,
+      "latency_ms": 0.0721565,
+      "process": {
+        "pid": 14002,
+        "mode": "reused",
+        "evaluation_seconds": 2.0583143690000725
+      },
+      "profile_kernels": null,
+      "profile_measurements": {
+        "event_count": 294,
+        "trace_count": 473,
+        "neuroncore_cycle_count": 15028,
+        "hbm_read_bytes": 16384,
+        "hbm_write_bytes": 16384,
+        "sbuf_read_bytes": 82048,
+        "sbuf_write_bytes": 49664,
+        "scalar_engine_instruction_count": 22,
+        "vector_engine_instruction_count": 25,
+        "tensor_engine_instruction_count": 21,
+        "gpsimd_engine_instruction_count": 28,
+        "sync_engine_instruction_count": 16
+      }
+    }
+  ],
+  "median_request_seconds": {
+    "fresh": 10.294330541510135,
+    "reused": 2.8121990415093023
+  },
+  "request_speedup": 3.660598126079008,
+  "scope": "same device, separate idle endpoints, sequential requests after warmup; no kernel speedup claim"
+}

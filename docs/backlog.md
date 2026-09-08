@@ -22,7 +22,7 @@ tests and an isolated wheel install passed. Raw traces and reports are retained.
 
 ## Next small slices
 
-Active branch: `development/measurement-and-workers`. Current acceptance checks:
+The measurement/worker slice is merged to `master`. Its acceptance checks:
 
 - [x] Repeat CUDA profiles, including an input-mutating kernel; measure timing variance and collection overhead.
 - [x] Add a second workload and evaluate held-out program families with repeated permutation controls.
@@ -52,8 +52,9 @@ input families; the frozen experiment corpus remains the client's responsibility
    defaults fail two shapes. Repeated profiles and input restoration pass on RTX 4090.
 2. Qualify trace completeness and missing/dropped events before making completeness
    claims. CUDA currently returns launch aggregates.
-3. Qualify opt-in process reuse on Trainium and consider compilation reuse there
-   after the experiment releases its worker. CUDA reuse and bounded PTX caching
+3. Consider Neuron compilation reuse after qualifying its cache identity and
+   ownership contract. NKI process reuse now passes [Trainium checks](results/trainium-reuse/README.md);
+   vendor Torch-Neuron reuse remains unqualified. CUDA reuse and bounded PTX caching
    are implemented: warmed requests took 2.60 versus 0.54 seconds on the qualified
    RTX 4090 host. Fresh isolation remains default; neither the pool nor reuse makes
    this collection path accelerator-bound. See [reuse](process-reuse.md).

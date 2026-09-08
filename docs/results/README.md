@@ -67,3 +67,6 @@ Trainium profiling path was exercised through the remote Gym endpoint.
 
 [CUDA qualification and process reuse](cuda/README.md) covers Runpod RTX 4090
 profiles, input restoration, BF16/PTX/vendor checks, and request overhead.
+
+[Trainium process reuse](trainium-reuse/README.md) records grouped request trials,
+matching native counters, core ownership and child recycling checks.

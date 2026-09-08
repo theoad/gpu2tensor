@@ -12,3 +12,7 @@ See [the ownership and measurement guide](../../docs/next-slice.md).
 To measure process startup savings, use `reuse.py` with two idle endpoints on the
 same GPU, one fresh and one reused. This comparison submits jobs sequentially.
 See [the reuse setup and command](../../docs/process-reuse.md).
+
+`reuse.py --backend trainium` runs fresh jobs before reused jobs because an idle
+Neuron child retains its core. Start the reused endpoint without any earlier jobs;
+stop it completely before returning the core to another worker.

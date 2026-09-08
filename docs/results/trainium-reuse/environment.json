@@ -1,0 +1,88 @@
+{
+  "host": "ip-172-31-64-161",
+  "device": "trn1",
+  "python": "3.12.3",
+  "torch": "2.11.0+cu130",
+  "nki": "0.6.0+31049202112.g85070674",
+  "neuronx_cc": "2.27.5334.0+f702b353",
+  "neuron_core": 0,
+  "runtime_neuron_core": 0,
+  "backend_sha256": "29892918eb766cc7289db8d758ba9b225a4fd036fc812e16660faf32f2006c75",
+  "engine_sha256": {
+    "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+    "cache.py": "bfa2afaae5961741cdb77fc92c937b161564cc13a944f92f578b62dcf1d26406",
+    "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+    "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+    "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+    "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+    "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+    "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+    "failures.py": "686dd27259621d06737ff9ebf81b32733d495ca7b16bd2934ac00206c051062a",
+    "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+    "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+    "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+    "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+    "execute.py": "d64b0208bfc07f66003a986c417deb7ac2ef85a46019b67776616a7f74752930",
+    "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+    "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+    "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+    "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+    "backends/trainium.py": "29892918eb766cc7289db8d758ba9b225a4fd036fc812e16660faf32f2006c75",
+    "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+    "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7",
+    "backends/ptx.py": "8112bb59dea0b697e03ca4d6ab2446152a1b67bd2e8601df3fd2fbd87fea6bb1"
+  },
+  "source_sha256": "3b1d2e153a326116ed72451fa757ecf9188240de96f550496a8023c3ec0212d2",
+  "request_sha256": "47ee375b3899bd1d9200fd912211dc6199bb37a3519b3a49a97acdd1cb375d56",
+  "inputs": [
+    [
+      {
+        "shape": [
+          32,
+          128
+        ],
+        "dtype": "float32",
+        "sha256": "b055c170e185c51dca99c826ea6dc203bcd0beb9ea7be68146e17986e73d3c84"
+      }
+    ],
+    [
+      {
+        "shape": [
+          32,
+          128
+        ],
+        "dtype": "float32",
+        "sha256": "1d921bcaa1e9d102612f8e9dbee1527834247f60c59487bf284ee3c4d019b4cf"
+      }
+    ],
+    [
+      {
+        "shape": [
+          32,
+          128
+        ],
+        "dtype": "float32",
+        "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+      }
+    ],
+    [
+      {
+        "shape": [
+          32,
+          128
+        ],
+        "dtype": "float32",
+        "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+      }
+    ]
+  ],
+  "measurement_policy": {
+    "warmup_runs": 5,
+    "inputs": "fresh_copy_before_each_call_outside_timing",
+    "outputs": "resident_reused",
+    "cache": "uncontrolled",
+    "working_set": "benchmark_case_0",
+    "synchronization": "blocking_native_runtime_call"
+  }
+}
