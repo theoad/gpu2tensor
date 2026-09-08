@@ -48,6 +48,7 @@ physical core 1 through `NEURON_RT_VISIBLE_CORES=1`, nrtpy must address logical 
 artifacts are preserved. Ownership, bounded consumption, completion order, iterator
 close/error handling and normalization are covered by 14 passing local tests.
 
-Raw artifacts are under ignored `artifacts/next/`. Each new result retains the
+Raw artifacts are under ignored `artifacts/next/` and backed up to the operator's
+`s3://gpu2tensor-dev-artifacts-arqozvlqbtub/next/` prefix. Each new result retains the
 backend source/hash, exact request, diagnostics and native profiles. Native trace
 completeness and dropped-event counts remain unverified.

@@ -71,3 +71,45 @@ The implementation follows the NVIDIA [driver launch API](https://docs.nvidia.co
 and [function resource attributes](https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__TYPES.html).
 CPU assembly is qualified; GPU load/launch and memory checks still require a
 compatible live GPU. No PTX runtime speedup is claimed.
+
+## Vendor baselines
+
+```python
+from gpu2tensor.vendor import matmul
+
+baseline = worker.evaluate(matmul("trainium"), workload, repetitions=30)
+# Use matmul("cuda") on a CUDA worker.
+```
+
+The factory returns an ordinary Candidate with explicit Torch source and language
+`torch`. CUDA preserves Torch matmul defaults and records the effective precision flags.
+Use `matmul("cuda", precision="strict")` for a separately named variant disabling
+TF32 and BF16 reduced-precision reduction. Both must pass the same client
+validator; report a default-baseline contract failure explicitly instead of
+substituting the strict variant without labeling it. Trainium compiles through Torch-Neuron and uses the same resident NRT
+runner and timer as NKI. The adapter does not time Torch's host input/output
+transfers against a resident NKI kernel. Compilation runs in a per-job directory.
+
+Compare `backend`, `host`, `device`, `neuron_core` (or CUDA device identity),
+`inputs` (shape/dtype/hash), `benchmark_case`, `timing_method`, and
+`measurement_policy` before comparing latency samples. The policy includes
+warmup count, input restoration, output allocation/reuse, synchronization, working
+set and cache treatment. Cache state is uncontrolled; a matching policy does not
+mean identical cache contents. CUDA output allocation is inside the call; Neuron
+outputs are resident and reused, for both the baseline and candidate. These are
+same-backend comparisons, not cross-device speedups.
+
+Neuron `programs` includes NEFF hashes, Torch/compiler/dependency versions,
+compiler arguments and precision declarations. HLO, ABI metadata, NEFF and compiler
+logs are retained without profiling. Auto-casting is disabled; accumulation is
+reported as vendor-default and must pass the client validator. Do not infer a
+precision guarantee from a compiler flag alone. CUDA records effective matmul
+precision flags. A baseline tag applies only to the factory's exact source.
+
+The operator sets `GPU2TENSOR_TORCH_NEURON_PYTHON` on the worker to a compatible
+compiler environment with gpu2tensor installed. The package installs no SDK.
+The adapter uses Torch-Neuron's trace frontend before its TorchScript runtime
+wrapper to obtain a NEFF and tensor ABI. That extraction API is version-sensitive;
+see [qualified environments](environments.md). The vendor's
+[trace documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/v2.31.1/frameworks/torch/torch-neuronx/api-reference-guide/inference/api-torch-neuronx-trace.html)
+describes the compilation and artifact work directory.

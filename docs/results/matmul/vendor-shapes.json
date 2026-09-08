@@ -1,0 +1,74 @@
+[
+  {
+    "name": "vendor_matmul",
+    "shape": [
+      32,
+      32,
+      32
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.07270650000000001,
+    "message": null
+  },
+  {
+    "name": "nki_matmul",
+    "shape": [
+      32,
+      32,
+      32
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.0714955,
+    "message": null
+  },
+  {
+    "name": "vendor_matmul",
+    "shape": [
+      128,
+      128,
+      128
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.0748905,
+    "message": null
+  },
+  {
+    "name": "vendor_matmul",
+    "shape": [
+      256,
+      256,
+      256
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.07980100000000001,
+    "message": null
+  },
+  {
+    "name": "vendor_matmul",
+    "shape": [
+      128,
+      256,
+      128
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.07649600000000001,
+    "message": null
+  },
+  {
+    "name": "vendor_matmul",
+    "shape": [
+      127,
+      193,
+      65
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.19901600000000003,
+    "message": null
+  }
+]

@@ -1,6 +1,7 @@
 """Triton execution, CUDA event timing, and a separate Proton profile."""
 
 import json
+from pathlib import Path
 import subprocess
 import time
 
@@ -21,10 +22,17 @@ class Runner:
         self.metadata = {}
 
     def identity(self):
-        return {**self.metadata, "measurement_policy": {"warmup_runs": 5, "inputs": "fresh_copy_before_each_call_outside_timing",
+        from gpu2tensor.vendor import matmul
+        path = getattr(self.module, "__file__", None)
+        source = Path(path).read_text() if path else None
+        baseline = "torch_cuda_matmul" if source == matmul("cuda").source else None
+        if source == matmul("cuda", precision="strict").source:
+            baseline = "torch_cuda_matmul_strict"
+        return {**self.metadata, "vendor_baseline": baseline, "measurement_policy": {"warmup_runs": 5, "inputs": "fresh_copy_before_each_call_outside_timing",
                 "outputs": "allocated_inside_call", "cache": "uncontrolled", "working_set": "benchmark_case_0",
                 "synchronization": "device_before_timing_end_event_after_call"}, "device": torch.cuda.get_device_name(), "cuda": torch.version.cuda,
-                "triton": triton.__version__, "compute_capability": list(torch.cuda.get_device_capability()),
+                "triton": triton.__version__, "precision": {"allow_tf32": torch.backends.cuda.matmul.allow_tf32,
+                "allow_bf16_reduced_precision_reduction": torch.backends.cuda.matmul.allow_bf16_reduced_precision_reduction}, "compute_capability": list(torch.cuda.get_device_capability()),
                 "driver": subprocess.check_output(["nvidia-smi", "--query-gpu=driver_version", "--format=csv,noheader"], text=True).strip()}
 
     def inputs(self, case):

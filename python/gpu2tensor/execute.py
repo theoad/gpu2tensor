@@ -40,8 +40,8 @@ def evaluate(directory, backend):
         raise ValueError("PTX requires a CUDA worker.")
     if backend == "cuda" and request["language"] not in ("triton", "ptx", "torch"):
         raise ValueError("The CUDA adapter accepts Triton, PTX, or Torch candidates.")
-    if backend == "trainium" and request["language"] != "nki":
-        raise ValueError("The Trainium v0 adapter accepts NKI Python modules.")
+    if backend == "trainium" and request["language"] not in ("nki", "torch"):
+        raise ValueError("The Trainium adapter accepts NKI or Torch Python modules.")
     output = directory / "output"
     record = {"version": request["version"], "backend": backend, "language": request["language"],
               "name": request["name"], "status": "error", "profile_status": "not_requested",
@@ -88,7 +88,10 @@ def evaluate(directory, backend):
         if backend == "cuda":
             from gpu2tensor.backends.cuda import prepare
         elif backend == "trainium":
-            from gpu2tensor.backends.trainium import prepare
+            if request["language"] == "torch":
+                from gpu2tensor.backends.vendor_trainium import prepare
+            else:
+                from gpu2tensor.backends.trainium import prepare
         else:
             from gpu2tensor.backends.cpu import prepare
         if request["language"] == "ptx":
@@ -176,6 +179,11 @@ def evaluate(directory, backend):
                 record["profile_seconds"] = time.monotonic() - profile_started
         return record
     except Exception as error:
+        if "runner" in locals() and hasattr(runner, "save_artifacts"):
+            try:
+                record["programs"] = runner.save_artifacts(output)
+            except Exception as artifact_error:
+                record["artifact_error"] = str(artifact_error)
         from gpu2tensor.backends.ptx import AssemblyError
         failure_kind = "candidate_compile" if isinstance(error, AssemblyError) else "runtime_or_infrastructure"
         if isinstance(error, SyntaxError) and error.filename == str(directory / "candidate.py"):

@@ -90,3 +90,28 @@ Trainium uses `NEURON_RT_VISIBLE_CORES=0` and
 `/opt/aws/neuron/bin` to PATH; `start` does this. Neuron Explorer
 2.32.0.498-b1f3998 and runtime 2.34.10 (ac18d) decoded the tested trace. No
 simulator was used for reported accelerator results.
+
+## Matmul baseline compiler environment
+
+On the shared Trainium development host, `/opt/gpu2tensor/vendor-venv/bin/python`
+provides Torch 2.9.0+cpu, Torch-Neuron 2.9.0.2.15.32035+de43f57c,
+Torch-XLA 2.9.0 and neuronx-cc 2.27.5334.0+f702b353. The runtime worker stays in
+its original NKI 0.6 / Torch 2.11 environment. Set
+`GPU2TENSOR_TORCH_NEURON_PYTHON=/opt/gpu2tensor/vendor-venv/bin/python` on that
+worker and install gpu2tensor editable in both environments. This is operator
+setup; no installation occurs in a library call.
+
+Pin `islpy==2026.1` in this compiler environment. Resolving the newer 2026.2.1
+caused an internal `is_subset` compiler error on Torch matmul. Reverting to the
+AMI's 2026.1 allowed compilation and hardware qualification. Other recorded
+compiler dependencies: NumPy 2.5.3, protobuf 7.36.1, libneuronxla
+2.2.17544.0+fb9962bf. The isolated environment leaves the runtime dependencies
+unchanged. Compilation must use a writable per-job directory because the compiler
+also writes a working-directory log.
+
+Core 0's `gpu2tensor-worker.service` currently gets this setting through
+`/etc/systemd/system/gpu2tensor-worker.service.d/vendor.conf`. Core 1 remains an
+NKI worker. Reserve the whole chip when making timing comparisons; no concurrent
+experiment submissions during qualification. The instance terminates on its
+4-hour systemd guard, earlier than the shared campaign hard stop unless the
+operator explicitly changes the lease. Coordinate any change with the campaign.
