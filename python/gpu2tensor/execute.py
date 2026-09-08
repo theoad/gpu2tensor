@@ -192,6 +192,10 @@ def evaluate(directory, backend):
         traceback.print_exc()
         return record
 
+    finally:
+        if "runner" in locals() and hasattr(runner, "close"):
+            runner.close()
+
 
 def main():
     directory = Path(sys.argv[1])

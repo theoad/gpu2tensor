@@ -113,5 +113,8 @@ Read the [example guide](docs/examples.md), [architecture](docs/architecture.md)
 [development recipe](docs/development.md) and [work board](docs/backlog.md).
 
 BF16 inputs, workload validators, exact output artifacts, and explicit PTX launch
-contracts are described in [the matmul guide](docs/matmul-contract.md). PTX GPU
-execution is awaiting hardware qualification.
+contracts are described in [the matmul guide](docs/matmul-contract.md).
+[CUDA qualification](docs/results/cuda/README.md) covers PTX execution and vendor
+baselines. For trusted CUDA jobs, operators can opt into
+[process reuse and bounded assembly caching](docs/process-reuse.md) without changing
+client code.

@@ -2,9 +2,10 @@
 
 All new hardware results below use Trainium1 on `ip-172-31-64-161`, a
 `trn1.2xlarge` in us-east-1f with AMI `ami-0f8b952eba2c08d62`, NKI 0.6 and Neuron
-compiler 2.27.5334.0+f702b353. The CUDA script is implemented but not qualified:
-small G4dn/G5/G6 Spot launches failed, On-Demand GPU quota is zero, and the four
-other checked regions have zero GPU Spot quota. No GPU instance was launched.
+compiler 2.27.5334.0+f702b353. CUDA was initially blocked: small G4dn/G5/G6 Spot
+launches failed, On-Demand GPU quota was zero, and four other checked regions had
+zero GPU Spot quota. Subsequent [CUDA qualification on Runpod](../cuda/README.md)
+completed the deferred checks; these Trainium measurements remain separate.
 G4dn is not suitable for the newly accepted BF16 matmul campaign.
 
 ## Learning

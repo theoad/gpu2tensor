@@ -24,14 +24,15 @@ tests and an isolated wheel install passed. Raw traces and reports are retained.
 
 Active branch: `development/measurement-and-workers`. Current acceptance checks:
 
-- [ ] Repeat CUDA profiles, including an input-mutating kernel; measure timing variance and collection overhead.
+- [x] Repeat CUDA profiles, including an input-mutating kernel; measure timing variance and collection overhead.
 - [x] Add a second workload and evaluate held-out program families with repeated permutation controls.
 - [x] Train a small policy through the Trainium Gym endpoint with measured rewards.
 - [x] Measure collection throughput and add a bounded endpoint pool with ownership/backpressure tests.
 - [x] Save remaining raw results; hand off the reserved worker after matmul qualification.
 
-Evidence: [next-slice results](results/next/README.md). CUDA qualification is
-blocked by GPU Spot capacity; no GPU instance launched. The shared Trainium worker
+Evidence: [next-slice results](results/next/README.md) and
+[CUDA qualification](results/cuda/README.md). AWS GPU Spot remained unavailable;
+the user authorized a bounded Runpod fallback, which completed CUDA qualification. The shared Trainium worker
 is now reserved for integration with the matmul experiment, within its shared
 $100 campaign cap and 2026-09-09 06:00 UTC hard stop. Coordinate new launches.
 
@@ -41,20 +42,21 @@ validation or exact outputs). Keep their qualification evidence separate. Issue 
 
 BF16 transport, fixed validators and exact outputs pass local and Trainium checks;
 read-only input and output poison checks pass on Trainium. Complete PTX launch
-contracts and CPU assembly pass; GPU load/launch remains unqualified. The matched
+contracts, CPU assembly and CUDA device load/launch pass the initial qualification. The matched
 Torch-Neuron baseline passes five shapes with the experiment validator and three
 input families; the frozen experiment corpus remains the client's responsibility. See [contract](matmul-contract.md) and
 [qualification evidence](results/matmul/README.md).
 
-1. Qualify CUDA warmup/input restoration, profile overhead and variance on hardware;
-   then qualify complete PTX load/launch and vendor-default/strict Torch baselines.
-   The latest coordinated g5/g6 Spot retries also failed; avoid capacity loops.
+1. Extend CUDA validation from the initial three families to the experiment-owned
+   frozen corpus. Initial PTX and strict vendor checks pass all five shapes; vendor
+   defaults fail two shapes. Repeated profiles and input restoration pass on RTX 4090.
 2. Qualify trace completeness and missing/dropped events before making completeness
    claims. CUDA currently returns launch aggregates.
-3. Reduce per-request SDK/process startup and compilation cost. Current preparation
-   takes seconds while native calls take about 0.08 ms on the measured Trainium
-   host. Preserve workload isolation, input restoration and bounded ownership when
-   designing reuse; do not infer that the pool makes collection accelerator-bound.
+3. Qualify opt-in process reuse on Trainium and consider compilation reuse there
+   after the experiment releases its worker. CUDA reuse and bounded PTX caching
+   are implemented: warmed requests took 2.60 versus 0.54 seconds on the qualified
+   RTX 4090 host. Fresh isolation remains default; neither the pool nor reuse makes
+   this collection path accelerator-bound. See [reuse](process-reuse.md).
 4. Qualify additional NKI/Torch-Neuron SDK versions. Compiler ABI extraction is
    version-sensitive; keep source, toolchain identity and native artifacts.
 5. Extend input contracts to strides, multiple outputs and Torch graph extraction

@@ -15,7 +15,7 @@ from gpu2tensor.client import MAX_RESULT_BYTES
 MAX_REQUEST_BYTES = 64 * 1024 * 1024
 
 
-def evaluate_archive(payload, backend, timeout=300):
+def evaluate_archive(payload, backend, timeout=300, *, process=None):
     if backend not in {"cuda", "trainium", "cpu"}:
         raise ValueError("Unknown backend.")
     if len(payload) > MAX_REQUEST_BYTES:
@@ -34,25 +34,28 @@ def evaluate_archive(payload, backend, timeout=300):
                 target.write_bytes(archive.read(item))
         output = directory / "output"
         output.mkdir()
-        with (output / "process.log").open("wb") as log:
-            process = subprocess.Popen(
-                [sys.executable, "-m", "gpu2tensor.execute", str(directory), backend],
-                stdout=log, stderr=subprocess.STDOUT, start_new_session=True,
-            )
-            failure = None
-            try:
-                code = process.wait(timeout=timeout)
-                if code:
-                    failure = {"status": "worker_error", "message": f"Candidate process exited with code {code}."}
-            except subprocess.TimeoutExpired:
-                failure = {"status": "timeout", "message": f"Candidate exceeded {timeout} seconds."}
-            finally:
-                # Include descendants such as compiler processes in cleanup.
+        if process is not None:
+            failure = process.run(directory, backend, timeout)
+        else:
+            with (output / "process.log").open("wb") as log:
+                child = subprocess.Popen(
+                    [sys.executable, "-m", "gpu2tensor.execute", str(directory), backend],
+                    stdout=log, stderr=subprocess.STDOUT, start_new_session=True,
+                )
+                failure = None
                 try:
-                    os.killpg(process.pid, signal.SIGKILL)
-                except ProcessLookupError:
-                    pass
-                process.wait()
+                    code = child.wait(timeout=timeout)
+                    if code:
+                        failure = {"status": "worker_error", "message": f"Candidate process exited with code {code}."}
+                except subprocess.TimeoutExpired:
+                    failure = {"status": "timeout", "message": f"Candidate exceeded {timeout} seconds."}
+                finally:
+                    # Include descendants such as compiler processes in cleanup.
+                    try:
+                        os.killpg(child.pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+                    child.wait()
         if failure:
             failure.update({"version": 1, "backend": backend})
             (output / "record.json").write_text(json.dumps(failure))

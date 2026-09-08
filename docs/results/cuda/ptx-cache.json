@@ -1,0 +1,133 @@
+[
+  {
+    "status": "ok",
+    "failure_kind": null,
+    "process": {
+      "pid": 4230,
+      "mode": "reused",
+      "evaluation_seconds": 0.11073056049644947
+    },
+    "profile_status": "ok",
+    "name": "cold",
+    "assembly": {
+      "assembler": "/usr/local/lib/python3.12/dist-packages/triton/backends/nvidia/bin/ptxas",
+      "version": "ptxas: NVIDIA (R) Ptx optimizing assembler\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Fri_Feb_21_20:21:21_PST_2025\nCuda compilation tools, release 12.8, V12.8.93\nBuild cuda_12.8.r12.8/compiler.35583870_0",
+      "command": [
+        "/usr/local/lib/python3.12/dist-packages/triton/backends/nvidia/bin/ptxas",
+        "-arch",
+        "sm_89",
+        "-v",
+        "/tmp/gpu2tensor-m2pas_9x/output/candidate.ptx",
+        "-o",
+        "/tmp/gpu2tensor-m2pas_9x/output/candidate.cubin"
+      ],
+      "architecture": "sm_89",
+      "returncode": 0,
+      "source_sha256": "111a2c8c879b8acffb7bda2b8ed65b726dc3f345c5aff99fbcdcea6a3eeff27b",
+      "cache": {
+        "status": "miss",
+        "key": "a6c78873c44ebe70d5ff0acf610e6794948c8da2644f7595c0e5093372a80c4d"
+      },
+      "assembly_seconds": 0.015974778681993484,
+      "cubin_sha256": "4a67103c323eac87e768c928a2d76651eeb9c78b9ae7cc8d8ab3e3b75c7e49ad"
+    }
+  },
+  {
+    "status": "ok",
+    "failure_kind": null,
+    "process": {
+      "pid": 4230,
+      "mode": "reused",
+      "evaluation_seconds": 0.0883296336978674
+    },
+    "profile_status": "ok",
+    "name": "hit",
+    "assembly": {
+      "assembler": "/usr/local/lib/python3.12/dist-packages/triton/backends/nvidia/bin/ptxas",
+      "version": "ptxas: NVIDIA (R) Ptx optimizing assembler\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Fri_Feb_21_20:21:21_PST_2025\nCuda compilation tools, release 12.8, V12.8.93\nBuild cuda_12.8.r12.8/compiler.35583870_0",
+      "command": [
+        "/usr/local/lib/python3.12/dist-packages/triton/backends/nvidia/bin/ptxas",
+        "-arch",
+        "sm_89",
+        "-v",
+        "/tmp/gpu2tensor-m2pas_9x/output/candidate.ptx",
+        "-o",
+        "/tmp/gpu2tensor-m2pas_9x/output/candidate.cubin"
+      ],
+      "architecture": "sm_89",
+      "returncode": 0,
+      "source_sha256": "111a2c8c879b8acffb7bda2b8ed65b726dc3f345c5aff99fbcdcea6a3eeff27b",
+      "cache": {
+        "status": "hit",
+        "key": "a6c78873c44ebe70d5ff0acf610e6794948c8da2644f7595c0e5093372a80c4d"
+      },
+      "assembly_seconds": 0.00105268694460392,
+      "cubin_sha256": "4a67103c323eac87e768c928a2d76651eeb9c78b9ae7cc8d8ab3e3b75c7e49ad"
+    }
+  },
+  {
+    "status": "error",
+    "failure_kind": "candidate_compile",
+    "process": {
+      "pid": 4230,
+      "mode": "reused",
+      "evaluation_seconds": 0.022319406270980835
+    },
+    "profile_status": "not_requested",
+    "name": "invalid",
+    "assembly": {
+      "assembler": "/usr/local/lib/python3.12/dist-packages/triton/backends/nvidia/bin/ptxas",
+      "version": "ptxas: NVIDIA (R) Ptx optimizing assembler\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Fri_Feb_21_20:21:21_PST_2025\nCuda compilation tools, release 12.8, V12.8.93\nBuild cuda_12.8.r12.8/compiler.35583870_0",
+      "command": [
+        "/usr/local/lib/python3.12/dist-packages/triton/backends/nvidia/bin/ptxas",
+        "-arch",
+        "sm_89",
+        "-v",
+        "/tmp/gpu2tensor-w4674_33/output/candidate.ptx",
+        "-o",
+        "/tmp/gpu2tensor-w4674_33/output/candidate.cubin"
+      ],
+      "architecture": "sm_89",
+      "returncode": 255,
+      "source_sha256": "ec19ca88e6451179a5433f91e66396d1f9c663dbb33be74edc172802b2e1d23d",
+      "cache": {
+        "status": "miss",
+        "key": "491cda6c87961a3556cbc360d05cdcc530fe214c62781cd25079a6206d6c38f6"
+      },
+      "assembly_seconds": 0.009337583556771278
+    }
+  },
+  {
+    "status": "ok",
+    "failure_kind": null,
+    "process": {
+      "pid": 4676,
+      "mode": "reused",
+      "evaluation_seconds": 0.419683501124382
+    },
+    "profile_status": "ok",
+    "name": "recovered",
+    "assembly": {
+      "assembler": "/usr/local/lib/python3.12/dist-packages/triton/backends/nvidia/bin/ptxas",
+      "version": "ptxas: NVIDIA (R) Ptx optimizing assembler\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Fri_Feb_21_20:21:21_PST_2025\nCuda compilation tools, release 12.8, V12.8.93\nBuild cuda_12.8.r12.8/compiler.35583870_0",
+      "command": [
+        "/usr/local/lib/python3.12/dist-packages/triton/backends/nvidia/bin/ptxas",
+        "-arch",
+        "sm_89",
+        "-v",
+        "/tmp/gpu2tensor-m2pas_9x/output/candidate.ptx",
+        "-o",
+        "/tmp/gpu2tensor-m2pas_9x/output/candidate.cubin"
+      ],
+      "architecture": "sm_89",
+      "returncode": 0,
+      "source_sha256": "111a2c8c879b8acffb7bda2b8ed65b726dc3f345c5aff99fbcdcea6a3eeff27b",
+      "cache": {
+        "status": "hit",
+        "key": "a6c78873c44ebe70d5ff0acf610e6794948c8da2644f7595c0e5093372a80c4d"
+      },
+      "assembly_seconds": 0.0011573880910873413,
+      "cubin_sha256": "4a67103c323eac87e768c928a2d76651eeb9c78b9ae7cc8d8ab3e3b75c7e49ad"
+    }
+  }
+]

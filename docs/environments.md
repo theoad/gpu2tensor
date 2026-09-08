@@ -115,3 +115,36 @@ NKI worker. Reserve the whole chip when making timing comparisons; no concurrent
 experiment submissions during qualification. The instance terminates on its
 4-hour systemd guard, earlier than the shared campaign hard stop unless the
 operator explicitly changes the lease. Coordinate any change with the campaign.
+
+## Runpod CUDA fallback
+
+The user authorized the existing $10 Runpod credit when AWS GPU capacity was
+unavailable. Do not add credit or extend a lease implicitly. Keep pod identifiers,
+SSH keys, API credentials, exact price, deadline and ownership in ignored `.local/`;
+never upload operator credentials to the worker. The runtime has no Runpod dependency.
+
+The qualified replacement used one RTX 4090 in US-NC-1 at a quoted $0.74/hour,
+image `runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404`, a 20 GB ephemeral container
+disk and no persistent volume. Request a minimum host CUDA version of 12.8 for
+this image; an unconstrained placement reported 12.4 and was discarded before use.
+Check the actual driver and a real Torch CUDA operation after connecting.
+
+Use a local SSH alias such as `pod-gpu` with an ephemeral key and connection
+multiplexing. Pod IPs and mapped SSH ports change. This image uses an externally
+managed system Python, so create a venv with `--system-site-packages`, then install
+the checkout editable with `--no-deps` to retain its vendor Torch/Triton versions.
+The qualified versions are recorded in [the CUDA environment](results/cuda/environment.json).
+
+The image's nginx already listens on 8001 and proxies 8000. Choose a dedicated
+loopback port, such as 8011, and verify the worker's health JSON through the final
+tunnel. Reuse qualification used 8010 separately. Never run both endpoints
+concurrently on the same GPU; they were used only for sequential comparisons.
+
+Before launch, install an operator cleanup guard with an absolute deadline and
+verify its cloud API access. This session's local launchd guard checks every minute
+and deletes only the named pod in its lease. It depends on the operator Mac being
+awake and online. Keep it active through an explicit experiment handoff; transfer
+the lease, accounting and guard paths together. Back up artifacts before expiry,
+and explicitly delete idle pods when no owner needs them. Deleting an ephemeral
+pod discards its local files. Keep failed placement and deleted-pod costs in the
+same accounting ledger; a replacement does not reset the budget or deadline.

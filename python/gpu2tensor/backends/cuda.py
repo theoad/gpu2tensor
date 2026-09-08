@@ -35,6 +35,11 @@ class Runner:
                 "allow_bf16_reduced_precision_reduction": torch.backends.cuda.matmul.allow_bf16_reduced_precision_reduction}, "compute_capability": list(torch.cuda.get_device_capability()),
                 "driver": subprocess.check_output(["nvidia-smi", "--query-gpu=driver_version", "--format=csv,noheader"], text=True).strip()}
 
+    def close(self):
+        torch.cuda.synchronize()
+        if hasattr(self.module, "close"):
+            self.module.close()
+
     def inputs(self, case):
         return tuple(torch_input(copy_input(value)).cuda() for value in case)
 

@@ -3,6 +3,8 @@
 import ctypes as ct
 import hashlib
 import json
+import os
+import time
 from pathlib import Path
 import shutil
 import subprocess
@@ -27,11 +29,30 @@ def assemble(source, output, architecture, *, assembler=None):
     ptx.write_text(source)
     command = [str(assembler), "-arch", architecture, "-v", str(ptx), "-o", str(cubin)]
     version = subprocess.check_output([str(assembler), "--version"], text=True, timeout=10).strip()
+    from gpu2tensor.cache import ArtifactCache
+    cache_root = os.environ.get("GPU2TENSOR_CACHE_DIR")
+    cache = ArtifactCache(Path(cache_root) / "ptx") if cache_root else None
+    stamp = Path(assembler).stat()
+    key = ArtifactCache.key({"format": 1, "source": source, "architecture": architecture,
+                             "assembler": str(Path(assembler).resolve()), "version": version,
+                             "size": stamp.st_size, "mtime_ns": stamp.st_mtime_ns, "options": ["-v"]})
+    started = time.monotonic()
+    cached = cache.get(key) if cache else None
+    if cached is not None:
+        cubin.write_bytes(cached["candidate.cubin"])
+        (output / "ptxas.log").write_bytes(cached["ptxas.log"])
+        metadata = json.loads(cached["assembly.json"])
+        metadata["cache"] = {"status": "hit", "key": key}
+        metadata["assembly_seconds"] = time.monotonic() - started
+        (output / "assembly.json").write_text(json.dumps(metadata, indent=2))
+        return cubin, metadata
     result = subprocess.run(command, capture_output=True, text=True, timeout=120)
     (output / "ptxas.log").write_text(result.stdout + result.stderr)
     metadata = {"assembler": str(assembler), "version": version, "command": command,
                 "architecture": architecture, "returncode": result.returncode,
-                "source_sha256": hashlib.sha256(ptx.read_bytes()).hexdigest()}
+                "source_sha256": hashlib.sha256(ptx.read_bytes()).hexdigest(),
+                "cache": {"status": "miss" if cache else "disabled", "key": key},
+                "assembly_seconds": time.monotonic() - started}
     if result.returncode == 0:
         metadata["cubin_sha256"] = hashlib.sha256(cubin.read_bytes()).hexdigest()
     (output / "assembly.json").write_text(json.dumps(metadata, indent=2))
@@ -40,6 +61,8 @@ def assemble(source, output, architecture, *, assembler=None):
         if result.returncode > 0 and "error" in result.stderr.lower() and "line " in result.stderr.lower():
             raise AssemblyError(result.stderr[-4000:])
         raise RuntimeError(result.stderr[-4000:])
+    if cache:
+        cache.put(key, {name: (output / name).read_bytes() for name in ("candidate.cubin", "ptxas.log", "assembly.json")})
     return cubin, metadata
 
 
@@ -47,6 +70,7 @@ class Driver:
     def __init__(self):
         self.library = ct.CDLL("libcuda.so.1")
         pointer = ct.c_void_p
+        self.bind("cuModuleUnload", [pointer])
         self.bind("cuModuleLoad", [ct.POINTER(pointer), ct.c_char_p])
         self.bind("cuModuleGetFunction", [ct.POINTER(pointer), pointer, ct.c_char_p])
         self.bind("cuFuncGetAttribute", [ct.POINTER(ct.c_int), ct.c_int, pointer])
@@ -95,6 +119,11 @@ class Program:
         (output / "launch.json").write_text(json.dumps(self.launch.to_dict(), indent=2))
         (output / "resources.json").write_text(json.dumps(self.resources, indent=2))
 
+    def close(self):
+        if self.module.value:
+            self.driver.call("cuModuleUnload", self.module)
+            self.module.value = None
+
     def run(self, *inputs):
         import torch
         values, owned, output = [], [], None
@@ -128,5 +157,5 @@ def prepare(source, launch, output):
     program = Program(source, launch, output)
     runner = Runner(program)
     runner.metadata = {"ptx_launch": program.launch.to_dict(), "assembly": program.assembly,
-                       "resources": program.resources, "cuda_runtime_qualification": "pending"}
+                       "resources": program.resources, "execution_api": "cuda_driver"}
     return runner

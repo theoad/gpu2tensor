@@ -16,7 +16,8 @@ Raw runs are in `artifacts/next/bf16*` in the development checkout.
 The experiment's scalar BF16 PTX seed assembled on the same host's CPU with
 ptxas CUDA 12.8.93 for sm_80. A deliberately invalid instruction produced a
 recognized source diagnostic. Source, cubin, hashes and logs are retained.
-There was no CUDA device execution: GPU Spot capacity remains unavailable.
+That CPU assembly check did not execute on CUDA. Subsequent
+[Runpod qualification](../cuda/README.md) covers device execution.
 
 Local tests cover all 65,536 BF16 storage patterns, exact output retention,
 validator gates and replacement tolerance, legacy float wire compatibility,
@@ -54,9 +55,10 @@ Compilation also now uses a writable per-job directory. Raw request, output,
 NEFF, HLO/ABI metadata, dependencies and compiler logs are retained. The operator
 S3 backup prefix is `s3://gpu2tensor-dev-artifacts-arqozvlqbtub/next/`.
 
-CUDA vendor defaults and the separate `precision="strict"` variant are implemented,
-but neither has new hardware qualification in this slice. Both require the client
-validator; a failing default baseline must not be silently replaced by strict mode.
+[CUDA vendor qualification](../cuda/README.md) now covers both defaults and the
+separate `precision="strict"` variant. Defaults fail two of the five tested shapes
+under the client validator; strict mode passes all five. A failing default baseline
+must not be silently replaced by strict mode.
 
 Final local validation: 39 tests pass. The wheel builds and its client imports
 are checked in an isolated environment without Torch or vendor SDKs.
