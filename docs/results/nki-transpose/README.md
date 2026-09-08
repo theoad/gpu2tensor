@@ -22,9 +22,24 @@ Four focused local tests pass, covering the old policy, the new exact diagnostic
 unknown cases and immutable saved-record handling. The actual saved issue #9
 record/log also match. These are classification checks, not a new hardware result.
 
-Hardware qualification is pending: AWS reclaimed the original Spot runner for
-lack of capacity at 15:24 UTC on 2026-09-08. The deployment command was undeliverable;
-no patch was installed and neither requested control ran. The original request,
-record and logs remain immutable. The required next checks are the exact failed
-request and a saved valid 128x128x128 BF16 request covering all six input families.
-Do not describe this policy as hardware-qualified until those checks succeed.
+Hardware qualification passed on replacement Trainium1 host `ip-172-31-69-68`,
+core 0, at runtime revision `6ebf286`: the exact failed request returned
+`candidate_compile` with this policy and no timing. The saved valid 128³ BF16
+request passed all six input families and buffer diagnostics; its six captured
+output files were byte-identical to the original. Both requests retained their
+source/input/request hashes. See [report](report.json) and
+[the immutable saved classification](saved-classification.json).
+
+Only `failures.py` and the Trainium diagnostic-selector import/call differ in
+returned engine hashes from the original runtime. Normalizing that selector name
+makes the Trainium adapter byte-identical to `ae03dbc`. All successful execution,
+validation, timing and profiling paths are unchanged. Four focused policy tests
+and all 47 integrated tests pass.
+
+AWS reclaimed the original Spot runner for lack of capacity at 15:24 UTC on
+2026-09-08. Its patch command was undeliverable and ran no controls. The replacement
+uses the same pinned AMI and SDK, with a new host identity; these checks are not
+a continuation of the old host's performance experiment. All 65 files across both
+original result directories stayed unchanged. Raw results and interruption
+records are under ignored `artifacts/issue9/` and the operator S3 `issue9/results/`
+prefix. The experiment owns any new baseline and search condition.
