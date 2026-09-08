@@ -22,6 +22,23 @@ tests and an isolated wheel install passed. Raw traces and reports are retained.
 
 ## Next small slices
 
+Active branch: `development/measurement-and-workers`. Current acceptance checks:
+
+- [ ] Repeat CUDA profiles, including an input-mutating kernel; measure timing variance and collection overhead.
+- [x] Add a second workload and evaluate held-out program families with repeated permutation controls.
+- [x] Train a small policy through the Trainium Gym endpoint with measured rewards.
+- [x] Measure collection throughput and add a bounded endpoint pool with ownership/backpressure tests.
+- [ ] Save remaining raw results and coordinate worker handoff to the matmul campaign.
+
+Evidence: [next-slice results](results/next/README.md). CUDA qualification is
+blocked by GPU Spot capacity; no GPU instance launched. The shared Trainium worker
+is now reserved for integration with the matmul experiment, within its shared
+$100 campaign cap and 2026-09-09 06:00 UTC hard stop. Coordinate new launches.
+
+Matmul client requests are tracked as GitHub issues #1 (exact BF16), #2 (PTX
+launch/buffer contract), #3 (matched vendor Torch baselines), and #4 (workload-owned
+validation or exact outputs). Keep their qualification evidence separate.
+
 1. Rerun the final CUDA warmup-input restoration on hardware, then measure timing
    variance and profile overhead. Qualify missing/dropped events before promising
    complete traces. Current CUDA observations are launch aggregates.

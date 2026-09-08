@@ -23,6 +23,11 @@ Operators own machines, credentials, networking, drivers, and SDK installation.
 The user authorized two AWS Spot development runners in us-east-1 using the CLI
 default profile (authenticated as root). Do not put credentials in this repo.
 Keep inventory and launch IDs in ignored `.local/`. See docs/environments.md.
+The active matmul campaign shares a total $100 AWS cap with the experiment thread
+and stops by 2026-09-09 06:00 UTC. Read ignored `.local/campaign.json` for its
+coordinator and live instance. Coordinate before additional launches; there is no
+separate instrumentation budget. Reuse the existing worker and reserve timing
+slots so qualification and experiment workloads do not overlap on the same device.
 
 Measure uninstrumented latency separately from profiles. Record hardware and
 toolchain identity, units, replay, sampling, and missing/dropped data. Do not

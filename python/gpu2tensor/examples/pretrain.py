@@ -12,6 +12,16 @@ from gpu2tensor.data import batches
 from gpu2tensor.examples.softmax import sources, workload
 
 
+def normalize_training_features(features, train):
+    """Fit scale on training data and ignore counters it cannot teach us about."""
+    mean = features[train].mean(0)
+    spread = features[train].std(0)
+    active = spread > 1e-6
+    scale = torch.where(active, spread, torch.ones_like(spread))
+    normalized = torch.where(active, (features - mean) / scale, torch.zeros_like(features))
+    return normalized, mean, scale, active
+
+
 def fit(features, labels, train, test, device):
     torch.manual_seed(19)
     model = torch.nn.Linear(features.shape[1], 2).to(device)
@@ -25,7 +35,9 @@ def fit(features, labels, train, test, device):
     with torch.no_grad():
         predictions = model(features[test]).argmax(1)
         accuracy = float((predictions == labels[test]).float().mean().cpu())
-    return model, {"initial_loss": initial, "final_loss": float(loss.detach().cpu()), "test_accuracy": accuracy}
+        test_loss = float(torch.nn.functional.cross_entropy(model(features[test]), labels[test]).cpu())
+    return model, {"initial_loss": initial, "final_loss": float(loss.detach().cpu()),
+                   "test_accuracy": accuracy, "test_cross_entropy": test_loss}
 
 
 def main():
@@ -83,9 +95,7 @@ def main():
     train = torch.tensor(np.array(seeds) < 4, device=args.device)
     test = ~train
     # Fit normalization on training observations only.
-    mean = features[train].mean(0)
-    scale = features[train].std(0).clamp_min(1e-6)
-    features = (features - mean) / scale
+    features, mean, scale, active = normalize_training_features(features, train)
     model, measured = fit(features, target, train, test, args.device)
     shuffled = target.clone()
     rng = np.random.default_rng(31)
@@ -100,7 +110,7 @@ def main():
               "no_measurements": no_measurements, "majority_accuracy": 0.5}
     (args.output / "report.json").write_text(json.dumps(report, indent=2))
     torch.save({"state_dict": {key: value.cpu() for key, value in model.state_dict().items()},
-                "mean": mean.cpu(), "scale": scale.cpu(), "report": report}, args.output / "classifier.pt")
+                "mean": mean.cpu(), "scale": scale.cpu(), "active": active.cpu(), "report": report}, args.output / "classifier.pt")
     print(json.dumps(report), flush=True)
 
 

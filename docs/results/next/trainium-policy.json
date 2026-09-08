@@ -1,0 +1,193 @@
+{
+  "experiment": "two_supplied_program_bandit",
+  "learner_device": "mps",
+  "backend": "trainium",
+  "target_device": "trn1",
+  "target_host": "ip-172-31-64-161",
+  "initial_probabilities": [
+    0.5,
+    0.5
+  ],
+  "final_probabilities": [
+    0.013033517636358738,
+    0.9869664907455444
+  ],
+  "observed_latency_ms": [
+    0.1791915,
+    0.07174
+  ],
+  "batch_shape": [
+    2,
+    2
+  ],
+  "steps": [
+    {
+      "step": 0,
+      "action": 1,
+      "reward": 0.5966689268185154,
+      "latency_ms": 0.0722735,
+      "correct": true
+    },
+    {
+      "step": 1,
+      "action": 1,
+      "reward": 0.5984407742554754,
+      "latency_ms": 0.07195599999999999,
+      "correct": true
+    },
+    {
+      "step": 2,
+      "action": 1,
+      "reward": 0.5689471877851349,
+      "latency_ms": 0.077241,
+      "correct": true
+    },
+    {
+      "step": 3,
+      "action": 1,
+      "reward": 0.5893890056168959,
+      "latency_ms": 0.073578,
+      "correct": true
+    },
+    {
+      "step": 4,
+      "action": 1,
+      "reward": 0.5558941132810429,
+      "latency_ms": 0.07958,
+      "correct": true
+    },
+    {
+      "step": 5,
+      "action": 1,
+      "reward": 0.5834177402387948,
+      "latency_ms": 0.07464799999999999,
+      "correct": true
+    },
+    {
+      "step": 6,
+      "action": 1,
+      "reward": 0.5969200548017066,
+      "latency_ms": 0.0722285,
+      "correct": true
+    },
+    {
+      "step": 7,
+      "action": 0,
+      "reward": -0.024914686243487916,
+      "latency_ms": 0.18365599999999999,
+      "correct": true
+    },
+    {
+      "step": 8,
+      "action": 0,
+      "reward": 0.01097150255452961,
+      "latency_ms": 0.1772255,
+      "correct": true
+    },
+    {
+      "step": 9,
+      "action": 0,
+      "reward": 0.006015910352890619,
+      "latency_ms": 0.1781135,
+      "correct": true
+    },
+    {
+      "step": 10,
+      "action": 1,
+      "reward": 0.5905218718521805,
+      "latency_ms": 0.073375,
+      "correct": true
+    },
+    {
+      "step": 11,
+      "action": 1,
+      "reward": 0.5972548921126282,
+      "latency_ms": 0.0721685,
+      "correct": true
+    },
+    {
+      "step": 12,
+      "action": 1,
+      "reward": 0.5607855283314219,
+      "latency_ms": 0.07870350000000001,
+      "correct": true
+    },
+    {
+      "step": 13,
+      "action": 1,
+      "reward": 0.6019481950873786,
+      "latency_ms": 0.0713275,
+      "correct": true
+    },
+    {
+      "step": 14,
+      "action": 1,
+      "reward": 0.5938507127849256,
+      "latency_ms": 0.0727785,
+      "correct": true
+    },
+    {
+      "step": 15,
+      "action": 1,
+      "reward": 0.5789337105833703,
+      "latency_ms": 0.0754515,
+      "correct": true
+    },
+    {
+      "step": 16,
+      "action": 1,
+      "reward": 0.5646975442473554,
+      "latency_ms": 0.0780025,
+      "correct": true
+    },
+    {
+      "step": 17,
+      "action": 1,
+      "reward": 0.5972465211798551,
+      "latency_ms": 0.07217,
+      "correct": true
+    },
+    {
+      "step": 18,
+      "action": 1,
+      "reward": 0.6004665399865508,
+      "latency_ms": 0.071593,
+      "correct": true
+    },
+    {
+      "step": 19,
+      "action": 1,
+      "reward": 0.5557685492894473,
+      "latency_ms": 0.07960249999999999,
+      "correct": true
+    },
+    {
+      "step": 20,
+      "action": 1,
+      "reward": 0.575345370734661,
+      "latency_ms": 0.07609450000000001,
+      "correct": true
+    },
+    {
+      "step": 21,
+      "action": 1,
+      "reward": 0.5998777843815136,
+      "latency_ms": 0.0716985,
+      "correct": true
+    },
+    {
+      "step": 22,
+      "action": 1,
+      "reward": 0.5743548103565179,
+      "latency_ms": 0.076272,
+      "correct": true
+    },
+    {
+      "step": 23,
+      "action": 1,
+      "reward": 0.5979747923311094,
+      "latency_ms": 0.0720395,
+      "correct": true
+    }
+  ]
+}

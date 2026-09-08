@@ -34,12 +34,19 @@ class Runner:
         self.Model = SpikeModel
         self.Tensor = SpikeTensor
         self.target = os.environ.get("NEURON_PLATFORM_TARGET_OVERRIDE", "trn1")
+        visible = os.environ.get("NEURON_RT_VISIBLE_CORES", "0")
+        if not visible.isdecimal():
+            raise ValueError("Assign one physical core with NEURON_RT_VISIBLE_CORES.")
+        self.physical_core = int(visible)
+        # Neuron remaps the single visible physical core to logical core zero.
+        self.core_id = 0
         self.compiled = {}
         self.directory = tempfile.TemporaryDirectory(prefix="gpu2tensor-neuron-")
         self.parameter_names = tuple(inspect.signature(module.kernel).parameters)
 
     def identity(self):
-        return {"device": self.target, "nki": self.nki.__version__,
+        return {"device": self.target, "neuron_core": self.physical_core,
+                "runtime_neuron_core": self.core_id, "nki": self.nki.__version__,
                 "neuronx_cc": importlib.metadata.version("neuronx-cc"),
                 "neuron_devices": subprocess.check_output(["/opt/aws/neuron/bin/neuron-ls", "--json-output"], text=True)}
 
@@ -75,17 +82,16 @@ class Runner:
         return self.compiled[key]
 
     def run(self, case):
-        compiled = self.compile(case)
-        output = compiled.prepare_outputs()
-        compiled.execute(self.bind(case), output)
-        return next(iter(output.values()))
+        model, inputs, outputs = self.resident(case)
+        model(inputs, outputs=outputs, save_trace=False)
+        return next(iter(outputs.values())).numpy()
 
     def resident(self, case):
         compiled = self.compile(case)
-        model = self.Model.load_from_neff(neff_path=compiled.neff_path, core_id=0)
-        inputs = {name: self.Tensor.from_numpy(value.copy(), name=name, core_id=0)
+        model = self.Model.load_from_neff(neff_path=compiled.neff_path, core_id=self.core_id)
+        inputs = {name: self.Tensor.from_numpy(value.copy(), name=name, core_id=self.core_id)
                   for name, value in compiled.prepare_inputs(self.bind(case)).items()}
-        outputs = {name: self.Tensor.from_numpy(value, name=name, core_id=0)
+        outputs = {name: self.Tensor.from_numpy(value, name=name, core_id=self.core_id)
                    for name, value in compiled.prepare_outputs().items()}
         return model, inputs, outputs
 
@@ -97,7 +103,7 @@ class Runner:
         for _ in range(repetitions):
             # Restore resident inputs before timing so mutations cannot accumulate.
             compiled = self.compile(case)
-            inputs = {name: self.Tensor.from_numpy(value.copy(), name=name, core_id=0)
+            inputs = {name: self.Tensor.from_numpy(value.copy(), name=name, core_id=self.core_id)
                       for name, value in compiled.prepare_inputs(self.bind(case)).items()}
             start = time.perf_counter_ns()
             model(inputs, outputs=outputs, save_trace=False)

@@ -2,6 +2,7 @@
 
 import json
 import subprocess
+import time
 
 import torch
 import triton
@@ -29,9 +30,8 @@ class Runner:
         return self.module.run(*self.inputs(case))
 
     def benchmark(self, case, repetitions):
-        inputs = self.inputs(case)
         for _ in range(5):
-            self.module.run(*inputs)
+            self.module.run(*self.inputs(case))
         torch.cuda.synchronize()
         samples = []
         for _ in range(repetitions):
@@ -56,19 +56,24 @@ class Runner:
         inputs = self.inputs(case)
         torch.cuda.synchronize()
         name = str(output / "proton")
+        collection_started = time.perf_counter_ns()
         session = proton.start(name, context="shadow", backend="cupti")
+        run_started = time.perf_counter_ns()
         try:
             with proton.scope("candidate"):
                 self.module.run(*inputs)
             torch.cuda.synchronize()
+            run_ms = (time.perf_counter_ns() - run_started) / 1e6
         finally:
             proton.finalize(session)
+        collection_ms = (time.perf_counter_ns() - collection_started) / 1e6
         profile = json.loads((output / "proton.hatchet").read_text())
         kernels = proton_kernels(profile)
         (output / "events.json").write_text(json.dumps(kernels, indent=2))
         return {"provider": "proton_cupti", "collection": "separate_execution",
                 "scope": "kernel_launch_aggregates", "completeness": "not_verified",
                 "replay": "not_requested", "sampling": "not_reported", "dropped_events": None,
+                "profiled_run_wall_ms": run_ms, "capture_wall_ms": collection_ms,
                 "kernels": sum(int(item["metrics"].get("count", 1)) for item in kernels),
                 "kernel_groups": len(kernels),
                 "device_time_ns": sum(item["duration_ns"] for item in kernels),

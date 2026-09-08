@@ -68,6 +68,9 @@ def evaluate(directory, backend):
             from gpu2tensor.backends.cpu import prepare
         runner = prepare(module)
         record.update(runner.identity())
+        backend_source = Path(sys.modules[type(runner).__module__].__file__).read_bytes()
+        record["backend_sha256"] = hashlib.sha256(backend_source).hexdigest()
+        (output / "backend.py").write_bytes(backend_source)
         stage = "correctness"
         started = time.monotonic()
         for case in cases:
@@ -96,6 +99,7 @@ def evaluate(directory, backend):
         record["status"] = "ok"
         if request["profile"]:
             stage = "profile"
+            profile_started = time.monotonic()
             try:
                 record["profile"] = runner.profile(cases[0], output)
                 record["profile_status"] = "ok"
@@ -103,6 +107,8 @@ def evaluate(directory, backend):
                 record["profile_status"] = "error"
                 record["profile_error"] = str(error)
                 traceback.print_exc()
+            finally:
+                record["profile_seconds"] = time.monotonic() - profile_started
         return record
     except Exception as error:
         record.update(status="error", stage=stage, message=str(error))
