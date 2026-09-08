@@ -27,8 +27,10 @@ class Pool:
     def active(self):
         return self._lease.locked()
 
-    def observe(self, candidates, workload, *, profile=True, repetitions=30):
+    def observe(self, candidates, workload, *, profile=True, repetitions=30, artifacts=()):
         """Yield results with backpressure; never enqueue the whole corpus."""
+        from gpu2tensor.instructions import requested
+        artifacts = requested(artifacts, profile)
         if not self._lease.acquire(blocking=False):
             raise RuntimeError("Finish or close this pool's existing iterator first.")
         try:
@@ -41,8 +43,10 @@ class Pool:
                         candidate = next(source)
                     except StopIteration:
                         return
-                    future = executor.submit(worker.evaluate, candidate, workload,
-                                             profile=profile, repetitions=repetitions)
+                    options = {"profile": profile, "repetitions": repetitions}
+                    if artifacts:
+                        options["artifacts"] = artifacts
+                    future = executor.submit(worker.evaluate, candidate, workload, **options)
                     pending[future] = worker
 
                 for worker in self.workers:

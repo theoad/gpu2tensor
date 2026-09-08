@@ -32,7 +32,7 @@ def evaluate(directory, backend):
     import torch
 
     request = json.loads((directory / "request.json").read_text())
-    if request["version"] not in (1, 2):
+    if request["version"] not in (1, 2, 3):
         raise ValueError("Unsupported request version.")
     if not 1 <= request["repetitions"] <= 10000:
         raise ValueError("Invalid repetition count.")
@@ -42,6 +42,10 @@ def evaluate(directory, backend):
         raise ValueError("The CUDA adapter accepts Triton, PTX, or Torch candidates.")
     if backend == "trainium" and request["language"] not in ("nki", "torch"):
         raise ValueError("The Trainium adapter accepts NKI or Torch Python modules.")
+    from gpu2tensor.instructions import capability, collect, requested
+    kinds = requested(request.get("artifacts", ()), request["profile"])
+    if kinds and request["version"] != 3:
+        raise ValueError("Instruction artifacts require request version 3.")
     output = directory / "output"
     record = {"version": request["version"], "backend": backend, "language": request["language"],
               "name": request["name"], "status": "error", "profile_status": "not_requested",
@@ -50,6 +54,8 @@ def evaluate(directory, backend):
               "host": platform.node(), "python": platform.python_version(), "torch": torch.__version__,
               "kernel": platform.release(), "ami": os.environ.get("GPU2TENSOR_AMI"),
               "benchmark_case": 0, "correctness_cases": 0, "max_absolute_error": 0.0}
+    if kinds:
+        record["instruction_artifacts"] = {kind: capability(kind, backend, request["language"]) for kind in kinds}
     stage = "load"
     try:
         package = Path(__file__).parent
@@ -70,7 +76,7 @@ def evaluate(directory, backend):
             case = []
             for index in range(size):
                 storage = np.load(directory / f"inputs/{case_index}-{index}.npy", allow_pickle=False)
-                dtype = request["input_dtypes"][case_index][index] if request["version"] == 2 else storage.dtype.name
+                dtype = request["input_dtypes"][case_index][index] if request["version"] >= 2 else storage.dtype.name
                 case.append(decode_storage(storage, dtype))
             cases.append(tuple(case))
         if not cases or not cases[0]:
@@ -177,6 +183,11 @@ def evaluate(directory, backend):
                 traceback.print_exc()
             finally:
                 record["profile_seconds"] = time.monotonic() - profile_started
+        if kinds:
+            stage = "instruction_artifacts"
+            inspection_started = time.monotonic()
+            record["instruction_artifacts"] = collect(output, backend, request["language"], kinds)
+            record["instruction_artifact_seconds"] = time.monotonic() - inspection_started
         return record
     except Exception as error:
         if "runner" in locals() and hasattr(runner, "save_artifacts"):
