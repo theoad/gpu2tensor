@@ -4,6 +4,7 @@ With a CUDA worker forwarded to local port 8000:
 
 ```bash
 python example/gym/train.py --endpoint http://127.0.0.1:8000 --steps 24 --output artifacts/policy
+python example/gym/train.py --backend trainium --endpoint http://127.0.0.1:18001 --steps 24 --output artifacts/trainium-policy
 ```
 
 The policy chooses between two supplied softmax programs. Each action submits

@@ -43,3 +43,6 @@ summary. `profile.measurements` keeps vendor counter names and explicit byte/cou
 units. Decoder absence is `summary_status=tool_unavailable`; raw trace capture can
 still succeed. GPU profiling currently returns kernel launch aggregates through
 Proton/CUPTI. Both report unverified completeness and unknown dropped events.
+
+Operators may opt into [bounded process reuse and PTX caching](process-reuse.md).
+Fresh processes remain the default; the client and observation-only API stay the same.

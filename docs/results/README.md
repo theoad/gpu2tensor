@@ -64,3 +64,6 @@ The GPU shutdown timer fired after the completed hardware runs. Subsequent CUDA
 changes extracted its tested decoder and restored inputs after profile warmup;
 those changes have local checks but have not been rerun on the A10G. The final
 Trainium profiling path was exercised through the remote Gym endpoint.
+
+[CUDA qualification and process reuse](cuda/README.md) covers Runpod RTX 4090
+profiles, input restoration, BF16/PTX/vendor checks, and request overhead.

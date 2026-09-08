@@ -113,7 +113,11 @@ def status():
                          "InstanceInformationList[].{id:InstanceId,status:PingStatus}"), indent=2))
 
 
-def launch(role, zone):
+def launch(role, zone, instance_type=None):
+    instance_type = instance_type or ("g5.xlarge" if role == "cuda" else "trn1.2xlarge")
+    allowed = {"g4dn.xlarge", "g5.xlarge", "g6.xlarge", "g5.2xlarge", "g6.2xlarge"} if role == "cuda" else {"trn1.2xlarge"}
+    if instance_type not in allowed:
+        raise ValueError("Choose a supported development instance type for this role.")
     state = read_state()
     existing = aws("ec2", "describe-instances", "--filters",
                    f"Name=tag:Name,Values=gpu2tensor-{role}",
@@ -148,7 +152,7 @@ systemctl enable --now gpu2tensor-stop.timer
     root_size = next(mapping["Ebs"]["VolumeSize"] for mapping in image["BlockDeviceMappings"]
                      if mapping["DeviceName"] == image["RootDeviceName"])
     request = {
-        "ImageId": image["ImageId"], "InstanceType": "g5.xlarge" if role == "cuda" else "trn1.2xlarge",
+        "ImageId": image["ImageId"], "InstanceType": instance_type,
         "MinCount": 1, "MaxCount": 1, "ClientToken": str(uuid.uuid4()),
         "InstanceMarketOptions": {"MarketType": "spot", "SpotOptions": {"SpotInstanceType": "one-time", "InstanceInterruptionBehavior": "terminate"}},
         "IamInstanceProfile": {"Name": state["profile"]},
@@ -223,20 +227,26 @@ def sync(role):
     raise RuntimeError(f"Source sync still pending; inspect command {command_id} before running code.")
 
 
-def start(role):
+def start(role, port=8000, core=0):
     """Start the worker in the qualified image's existing SDK environment."""
     state = read_state()
+    if not 1 <= port <= 65535 or core < 0:
+        raise ValueError("Choose a valid port and nonnegative device/core index.")
+    unit = "gpu2tensor-worker" if port == 8000 else f"gpu2tensor-worker-{port}"
     environment = "/opt/pytorch" if role == "cuda" else "/opt/aws_neuronx_venv_pytorch_inference_vllm_0_24_0_1_1_0"
     python = environment + "/bin/python"
-    command = ["systemd-run", "--collect", "--unit=gpu2tensor-worker",
+    command = ["systemd-run", "--collect", f"--unit={unit}",
                "--property=User=ubuntu", "--property=WorkingDirectory=/opt/gpu2tensor/source",
                f"--setenv=GPU2TENSOR_AMI={state['images'][role]['ImageId']}",
                f"--setenv=PATH={environment}/bin:/opt/aws/neuron/bin:/usr/local/bin:/usr/bin:/bin"]
     if role == "trainium":
-        command += ["--setenv=NEURON_RT_VISIBLE_CORES=0", "--setenv=NEURON_PLATFORM_TARGET_OVERRIDE=trn1"]
-    command += [python, "-m", "gpu2tensor.worker", "--backend", role]
+        command += [f"--setenv=NEURON_RT_VISIBLE_CORES={core}",
+                    "--setenv=NEURON_PLATFORM_TARGET_OVERRIDE=trn1"]
+    else:
+        command += [f"--setenv=CUDA_VISIBLE_DEVICES={core}"]
+    command += [python, "-m", "gpu2tensor.worker", "--backend", role, "--port", str(port)]
     execute(role, "set -eu\n" + shlex.join([python, "-m", "pip", "install", "--no-deps", "-e", "/opt/gpu2tensor/source"]) +
-            "\nsystemctl stop gpu2tensor-worker.service || true\n" + shlex.join(command))
+            f"\nsystemctl stop {unit}.service || true\n" + shlex.join(command))
 
 
 def main():
@@ -247,24 +257,29 @@ def main():
     tunnel = commands.add_parser("tunnel")
     tunnel.add_argument("role", choices=["cuda", "trainium"])
     tunnel.add_argument("--port", type=int, default=8000)
+    tunnel.add_argument("--remote-port", type=int, default=8000)
     launch_parser = commands.add_parser("launch")
     launch_parser.add_argument("role", choices=["cuda", "trainium"])
     launch_parser.add_argument("--zone", default="us-east-1f", help="Availability zone, or auto for regional placement")
+    launch_parser.add_argument("--type", dest="instance_type", help="CUDA: g4dn.xlarge, g5/g6 xlarge or 2xlarge; Trainium: trn1.2xlarge")
     for name in ("exec", "sync", "start", "terminate"):
         sub = commands.add_parser(name)
         sub.add_argument("role", choices=["cuda", "trainium"])
         if name == "exec":
             sub.add_argument("shell_command")
+        if name == "start":
+            sub.add_argument("--port", type=int, default=8000)
+            sub.add_argument("--core", type=int, default=0)
     results = commands.add_parser("result")
     results.add_argument("id", nargs="?")
     results.add_argument("--role", choices=["cuda", "trainium"])
     args = parser.parse_args()
     if args.command == "init": initialize()
     elif args.command == "status": status()
-    elif args.command == "launch": launch(args.role, args.zone)
+    elif args.command == "launch": launch(args.role, args.zone, args.instance_type)
     elif args.command == "exec": execute(args.role, args.shell_command)
     elif args.command == "sync": sync(args.role)
-    elif args.command == "start": start(args.role)
+    elif args.command == "start": start(args.role, args.port, args.core)
     elif args.command == "result": result(args.id, args.role)
     elif args.command == "tunnel":
         state = read_state()
@@ -273,7 +288,7 @@ def main():
         subprocess.run(["aws", "ssm", "start-session", "--region", REGION,
                         "--target", state["instances"][args.role],
                         "--document-name", "AWS-StartPortForwardingSession",
-                        "--parameters", json.dumps({"portNumber": ["8000"], "localPortNumber": [str(args.port)]})],
+                        "--parameters", json.dumps({"portNumber": [str(args.remote_port)], "localPortNumber": [str(args.port)]})],
                        env=environment, check=True)
     elif args.command == "terminate":
         state = read_state()

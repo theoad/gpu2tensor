@@ -9,13 +9,14 @@ import torch
 
 from gpu2tensor import Candidate, Evaluator
 from gpu2tensor.data import batches
-from gpu2tensor.examples.softmax import sources, workload
+from gpu2tensor.examples.softmax import sources, trainium_sources, workload
 from gpu2tensor.gym import KernelEnv
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--endpoint", required=True)
+    parser.add_argument("--backend", choices=["cuda", "trainium"], default="cuda")
     parser.add_argument("--device", default="mps" if torch.backends.mps.is_available() else "cpu")
     parser.add_argument("--steps", type=int, default=24)
     parser.add_argument("--output", type=Path, default=Path("artifacts/learn"))
@@ -24,22 +25,24 @@ def main():
     torch.manual_seed(7)
     target = workload()
     evaluator = Evaluator(args.endpoint)
-    programs = sources()
+    programs = sources() if args.backend == "cuda" else trainium_sources()
+    language = "triton" if args.backend == "cuda" else "nki"
 
     # First use observation-only collection, independent of the policy and Gym.
     observed = []
     for index, result in enumerate(evaluator.observe(
-            [Candidate(source, "triton", name) for source, name in zip(programs, ["rowwise", "fused"])], target)):
+            [Candidate(source, language, name) for source, name in zip(programs, ["rowwise", "fused"])], target)):
         result.save(args.output / f"observation-{index}")
         if not result.correct or result.record["profile_status"] != "ok":
             raise RuntimeError(f"Observation failed: {result.record}")
         observed.append(result)
-    batch = next(batches(iter(observed), ["latency_ms", "profile.kernels"], batch_size=2))
+    counter = "profile.kernels" if args.backend == "cuda" else "profile.measurements.scalar_engine_instruction_count"
+    batch = next(batches(iter(observed), ["latency_ms", counter], batch_size=2))
     tensors = batch.tensors(args.device)
     baseline_ms = observed[0].latency_ms
 
     # This is a deliberately tiny two-program bandit, not compiler synthesis.
-    env = KernelEnv(evaluator, target, language="triton", max_steps=args.steps,
+    env = KernelEnv(evaluator, target, language=language, max_steps=args.steps,
                     reward=lambda result: 0.0 if not result.correct else
                     float(np.clip(1.0 - result.latency_ms / baseline_ms, -1.0, 1.0)))
     logits = torch.nn.Parameter(torch.zeros(2, device=args.device))
@@ -63,6 +66,7 @@ def main():
             break
     probabilities = logits.softmax(0).detach().cpu().tolist()
     report = {"experiment": "two_supplied_program_bandit", "learner_device": args.device,
+              "backend": args.backend,
               "target_device": observed[0].record["device"], "target_host": observed[0].record["host"],
               "initial_probabilities": [0.5, 0.5], "final_probabilities": probabilities,
               "observed_latency_ms": [result.latency_ms for result in observed],

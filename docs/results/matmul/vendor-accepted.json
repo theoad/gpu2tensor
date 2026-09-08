@@ -1,0 +1,223 @@
+{
+  "version": 2,
+  "backend": "trainium",
+  "language": "torch",
+  "name": "vendor_matmul",
+  "status": "ok",
+  "profile_status": "ok",
+  "source_sha256": "7c90a95563d5547d2ee33c2c43ee56b3560d271c6ae8b6bcd5a8ec76c09c82af",
+  "request_sha256": "dc2d87e666e6d0e3c53e9e10c7b54bbceed27b7aa99587778c29d66190192110",
+  "host": "ip-172-31-64-161",
+  "python": "3.12.3",
+  "torch": "2.11.0+cu130",
+  "kernel": "6.17.0-1019-aws",
+  "ami": "ami-0f8b952eba2c08d62",
+  "benchmark_case": 0,
+  "correctness_cases": 1,
+  "max_absolute_error": 0.0,
+  "engine_sha256": {
+    "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+    "vendor.py": "613dd55d87e9db612392416038a96072bf394c9935840ebd704d8a0b845e6faf",
+    "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+    "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+    "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+    "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+    "runner.py": "b92fc3cc18b4f58f5955409d421c69b9c00fd3b4acd23a16e36e4d216fc85ba3",
+    "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+    "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+    "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+    "execute.py": "a5cc6d4f22bee47ad852f732763a913bb18be54d4b0e9779229fa438e0910e0d",
+    "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+    "worker.py": "afa961343629505160112509f2749979032d4efa9fdf82fed4fbc79ac85d5221",
+    "backends/cuda.py": "7f54974319705678c8768694d49444d33f552c8e75b4ce83548cfd5c7f23b11d",
+    "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+    "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+    "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+    "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+    "backends/vendor_trainium.py": "9d51def7cdca44b33eacf65254bc18267b39e441b1344fd367df68bfcb096921",
+    "backends/ptx.py": "c1d2aac3e2c4a8327302e560dafc3f19b1ce52534ac46c057b799e813d1c643e"
+  },
+  "inputs": [
+    [
+      {
+        "shape": [
+          32,
+          32
+        ],
+        "dtype": "bfloat16",
+        "sha256": "4d5f7dd05bddcf47b6ac940d1e6127e671991402cb9d649e00cdfcc7fdd3fa04"
+      },
+      {
+        "shape": [
+          32,
+          32
+        ],
+        "dtype": "bfloat16",
+        "sha256": "bed269ad753259c7e03e3300ce8251b88246093333fc8156d10dbfd0bfc412a6"
+      }
+    ]
+  ],
+  "validation_method": "workload_validator",
+  "validation": [
+    {
+      "case": 0,
+      "passed": true,
+      "reason": "Exact BF16 result check",
+      "metrics": {
+        "elements": 1024
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "case": 0,
+      "read_only_inputs": {
+        "status": "passed"
+      },
+      "output_poison": {
+        "status": "passed"
+      },
+      "bounds": {
+        "status": "unsupported"
+      },
+      "lifetime": {
+        "status": "unsupported"
+      },
+      "race_detection": {
+        "status": "unsupported"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "file": "outputs/0.npy",
+      "dtype": "bfloat16",
+      "storage_dtype": "uint16",
+      "shape": [
+        32,
+        32
+      ],
+      "sha256": "b0c6eab688e190e7f83f615a3546c37c80cf4c256a87a198a6bd80469371ef96"
+    }
+  ],
+  "measurement_policy": {
+    "warmup_runs": 5,
+    "inputs": "fresh_copy_before_each_call_outside_timing",
+    "outputs": "resident_reused",
+    "cache": "uncontrolled",
+    "working_set": "benchmark_case_0",
+    "synchronization": "blocking_native_runtime_call"
+  },
+  "device": "trn1",
+  "neuron_core": 0,
+  "runtime_neuron_core": 0,
+  "nki": "0.6.0+31049202112.g85070674",
+  "neuronx_cc": "2.27.5334.0+f702b353",
+  "neuron_devices": "[\n    {\n        \"instance_type\": \"trn1.2xlarge\",\n        \"instance_id\": \"i-031a3f3adf2dd0bf5\",\n        \"neuron_device\": 0,\n        \"bdf\": \"0000:00:1e.0\",\n        \"cpu_affinity\": \"0-7\",\n        \"numa_node\": \"-1\",\n        \"connected_to\": null,\n        \"nc_count\": 2,\n        \"memory_size\": 34359738368,\n        \"neuroncore_ids\": [\n            0,\n            1\n        ],\n        \"neuron_processes\": []\n    }\n]",
+  "vendor_baseline": "torch_neuronx_matmul",
+  "vendor_compiler_python": "/opt/gpu2tensor/vendor-venv/bin/python",
+  "backend_sha256": "9d51def7cdca44b33eacf65254bc18267b39e441b1344fd367df68bfcb096921",
+  "programs": [
+    {
+      "file": "programs/0.neff",
+      "sha256": "7e5ea00094bfcbaaa2da7556cb5864a6a481b296451a4cf9e5c2172ecc5b4722",
+      "neff": "/tmp/gpu2tensor-neuron-prq_wrmt/0/compiler/graph.neff",
+      "inputs": [
+        {
+          "name": "input0",
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "BFLOAT16"
+        },
+        {
+          "name": "input1",
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "BFLOAT16"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output0",
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "BFLOAT16"
+        }
+      ],
+      "torch_neuronx": "2.9.0.2.15.32035+de43f57c",
+      "torch": "2.9.0+cpu",
+      "neuronx_cc": "2.27.5334.0+f702b353",
+      "compiler_args": [
+        "--target=trn1",
+        "--auto-cast=none"
+      ],
+      "frontend": "torch_neuronx_trace",
+      "dependencies": {
+        "islpy": "2026.1",
+        "numpy": "2.5.3",
+        "protobuf": "7.36.1",
+        "torch-xla": "2.9.0",
+        "libneuronxla": "2.2.17544.0+fb9962bf"
+      },
+      "precision": {
+        "inputs": "bfloat16",
+        "outputs": "bfloat16",
+        "auto_cast": "none",
+        "accumulation": "vendor_default"
+      }
+    }
+  ],
+  "prepare_and_check_seconds": 11.492622300999756,
+  "latency_ms": [
+    0.072192,
+    0.073399,
+    0.073273,
+    0.072196,
+    0.073585,
+    0.075199,
+    0.071906,
+    0.071026,
+    0.071071,
+    0.0704
+  ],
+  "timing_method": "neuron_host_round_trip_with_resident_tensors",
+  "profile": {
+    "provider": "neuron_runtime",
+    "collection": "separate_execution",
+    "scope": "device_instruction_trace",
+    "completeness": "not_verified",
+    "replay": "not_requested",
+    "sampling": "not_reported",
+    "dropped_events": null,
+    "artifacts": [
+      "kernel.neff",
+      "kernel.ntff",
+      "explorer.log",
+      "summary.json"
+    ],
+    "measurements": {
+      "event_count": 310,
+      "trace_count": 521,
+      "neuroncore_cycle_count": 14597,
+      "hbm_read_bytes": 4096,
+      "hbm_write_bytes": 2048,
+      "sbuf_read_bytes": 8192,
+      "sbuf_write_bytes": 8192,
+      "scalar_engine_instruction_count": 22,
+      "vector_engine_instruction_count": 21,
+      "tensor_engine_instruction_count": 24,
+      "gpsimd_engine_instruction_count": 29,
+      "sync_engine_instruction_count": 16
+    },
+    "summary_status": "ok",
+    "explorer_version": "2.32.0.498-b1f3998",
+    "runtime_version": "2.34.10 (ac18d)"
+  },
+  "profile_seconds": 0.6207521169999382
+}

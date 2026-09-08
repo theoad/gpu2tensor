@@ -1,0 +1,10 @@
+{
+  "backend": true,
+  "host": true,
+  "device": true,
+  "neuron_core": true,
+  "inputs": true,
+  "benchmark_case": true,
+  "timing_method": true,
+  "measurement_policy": true
+}

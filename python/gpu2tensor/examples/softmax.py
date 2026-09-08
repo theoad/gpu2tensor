@@ -61,6 +61,18 @@ def sources():
     return [rowwise, TRITON]
 
 
+def trainium_sources():
+    # The simple baseline processes one row per tile. The other program uses
+    # all rows in one tile. Both submit complete NKI programs to the same worker.
+    start = NKI.index("    values =")
+    end = NKI.index("    return y")
+    body = NKI[start:end].replace("x.shape", "(1, columns)").replace("(rows, 1)", "(1, 1)")
+    body = body.replace("src=x)", "src=x[row:row+1, :])").replace("dst=y,", "dst=y[row:row+1, :],")
+    body = "".join("    " + line + "\n" for line in body.splitlines())
+    rowwise = NKI[:start] + "    for row in nl.static_range(rows):\n" + body + NKI[end:]
+    return [rowwise, NKI]
+
+
 def workload(rows=32, columns=128, seed=7):
     rng = np.random.default_rng(seed)
     random = rng.normal(size=(rows, columns)).astype(np.float32)

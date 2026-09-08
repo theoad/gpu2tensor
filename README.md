@@ -68,6 +68,11 @@ Timing uses an unprofiled run; profiling is a separate execution. CUDA currently
 exposes launch aggregates. Trainium provides native instruction traces and selected
 byte, cycle and engine counters. Trace completeness is not yet verified.
 
+For multiple workers, `Pool(endpoints).observe(candidates, workload)` keeps one
+job per endpoint and yields completed results with backpressure. Each endpoint
+must own a separate device or assigned partition. See the
+[pool example and measurements](docs/next-slice.md) for setup, ownership and limits.
+
 ## Submit actions through Gym
 
 ```python
@@ -91,6 +96,12 @@ submits a complete program. Incorrect programs receive diagnostics and no timing
 | [Softmax](example/softmax/) | `python example/softmax/run.py --backend cuda --endpoint http://127.0.0.1:8000 --profile` | Torch reference correctness, timing and profiling; also supports Trainium |
 | [Observation-only learning](example/pretrain/) | `python example/pretrain/train.py --endpoint http://127.0.0.1:8000` | Collect profiles and train a small classifier; supports offline replay |
 | [Gym policy learning](example/gym/) | `python example/gym/train.py --endpoint http://127.0.0.1:8000 --steps 24` | Learn to choose between two complete kernels using measured feedback |
+| [Affine workload](example/affine/) | `python example/affine/run.py --backend cpu` | An independent pointwise workload, also supported on CUDA/Trainium |
+| [Worker collection](example/collect/) | `python example/collect/run.py --backend trainium --endpoints http://127.0.0.1:18001 http://127.0.0.1:18002` | Compare serial and bounded parallel observation collection |
+
+The Gym example also accepts `--backend trainium`. The
+[family-held-out experiment](docs/next-slice.md) adds repeated controls and feature
+ablations; its results are more limited than the original input-only split.
 
 These are MNIST-style starter exercises using accelerator measurements, not the
 MNIST image dataset. They validate the learning data path; they do not demonstrate
@@ -100,3 +111,10 @@ control in the initial classifier experiment.
 
 Read the [example guide](docs/examples.md), [architecture](docs/architecture.md),
 [development recipe](docs/development.md) and [work board](docs/backlog.md).
+
+BF16 inputs, workload validators, exact output artifacts, and explicit PTX launch
+contracts are described in [the matmul guide](docs/matmul-contract.md).
+[CUDA qualification](docs/results/cuda/README.md) covers PTX execution and vendor
+baselines. For trusted CUDA jobs, operators can opt into
+[process reuse and bounded assembly caching](docs/process-reuse.md) without changing
+client code.

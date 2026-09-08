@@ -1,0 +1,1472 @@
+[
+  {
+    "name": "scalar_ptx",
+    "shape": [
+      32,
+      32,
+      32
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.04505600035190582,
+    "message": null,
+    "profile_status": "ok",
+    "cache": {
+      "status": "hit",
+      "key": "1cee8d2eb2cf42062a4965419e8b042d9ffac7336269b56ead8c8b3cd0c640d9"
+    },
+    "source_sha256": "df0bf9f407de4b64e95b6a78628222636855bff11b333df67f646e9fa525c3d0",
+    "request_sha256": "c7ea7b92b71cda57189f0300a11fe2ee7fcc682074b91c0659e2944468e14ec7",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "177ce384a3d43a5d46d2c3e157ee0ea166b9bb2d92cd152ec4b61696e1df2f5d"
+        },
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "bcb466860ceaa6679b4fa28c17b5813298cf6e8b16f3f6b28be409c52ed8d560"
+        }
+      ],
+      [
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "e5a00aa9991ac8a5ee3109844d84a55583bd20572ad3ffcd42792f3c36b183ad"
+        },
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "bcb466860ceaa6679b4fa28c17b5813298cf6e8b16f3f6b28be409c52ed8d560"
+        }
+      ],
+      [
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "95fbbe9f3324b7d9f3a3550109772b0060170636c8aabc21e00aebae78594b7e"
+        },
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "2f3bcdc117c65562cad2d15e55f33d410c201b69fd3fcad5be8586e5e811e70a"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "vendor_matmul",
+    "shape": [
+      32,
+      32,
+      32
+    ],
+    "status": "incorrect",
+    "cases": 0,
+    "median_ms": null,
+    "message": "Outside the FP32 accumulation envelope.",
+    "profile_status": "not_requested",
+    "cache": null,
+    "source_sha256": "7c90a95563d5547d2ee33c2c43ee56b3560d271c6ae8b6bcd5a8ec76c09c82af",
+    "request_sha256": "280ddfd8289f4bc7151e9c9acf5d53df550fb1c4805f956910fc860bc06c5012",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "177ce384a3d43a5d46d2c3e157ee0ea166b9bb2d92cd152ec4b61696e1df2f5d"
+        },
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "bcb466860ceaa6679b4fa28c17b5813298cf6e8b16f3f6b28be409c52ed8d560"
+        }
+      ],
+      [
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "e5a00aa9991ac8a5ee3109844d84a55583bd20572ad3ffcd42792f3c36b183ad"
+        },
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "bcb466860ceaa6679b4fa28c17b5813298cf6e8b16f3f6b28be409c52ed8d560"
+        }
+      ],
+      [
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "95fbbe9f3324b7d9f3a3550109772b0060170636c8aabc21e00aebae78594b7e"
+        },
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "2f3bcdc117c65562cad2d15e55f33d410c201b69fd3fcad5be8586e5e811e70a"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "vendor_matmul_strict",
+    "shape": [
+      32,
+      32,
+      32
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.040831999853253365,
+    "message": null,
+    "profile_status": "ok",
+    "cache": null,
+    "source_sha256": "995ab88ae2a9b633720ed2aa3807789fe0d91864f8cea818ec3a33d706c79e9a",
+    "request_sha256": "276b20ef6bf32e84e25c595154c07d6fb1ebf62b6f20cfc3059fd1b8a39cde35",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "177ce384a3d43a5d46d2c3e157ee0ea166b9bb2d92cd152ec4b61696e1df2f5d"
+        },
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "bcb466860ceaa6679b4fa28c17b5813298cf6e8b16f3f6b28be409c52ed8d560"
+        }
+      ],
+      [
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "e5a00aa9991ac8a5ee3109844d84a55583bd20572ad3ffcd42792f3c36b183ad"
+        },
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "bcb466860ceaa6679b4fa28c17b5813298cf6e8b16f3f6b28be409c52ed8d560"
+        }
+      ],
+      [
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "95fbbe9f3324b7d9f3a3550109772b0060170636c8aabc21e00aebae78594b7e"
+        },
+        {
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "bfloat16",
+          "sha256": "2f3bcdc117c65562cad2d15e55f33d410c201b69fd3fcad5be8586e5e811e70a"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "scalar_ptx",
+    "shape": [
+      128,
+      128,
+      128
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.0435199998319149,
+    "message": null,
+    "profile_status": "not_requested",
+    "cache": {
+      "status": "hit",
+      "key": "1cee8d2eb2cf42062a4965419e8b042d9ffac7336269b56ead8c8b3cd0c640d9"
+    },
+    "source_sha256": "df0bf9f407de4b64e95b6a78628222636855bff11b333df67f646e9fa525c3d0",
+    "request_sha256": "ef569bb91be586094d7330ba261208031f62f6b6ec3de41039f6ad77c29a76dd",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "66d9ba0a258d91b6d1d13686afdd927116c75155f431608dcb8e72e7e373a594"
+        },
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "58006663b5eecf252813ad5dafd9ef64d5881cf5a6060e0630ad96e881f0b497"
+        }
+      ],
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+        },
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "58006663b5eecf252813ad5dafd9ef64d5881cf5a6060e0630ad96e881f0b497"
+        }
+      ],
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "98a9a14f351766d2743a1b9d2967cbe2f5993ef7d56889f9d78bb2974269267d"
+        },
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "bad44596b3c5ec4c41fff62002acbf5ed8cb32ece004a6765412deb4f3fd7823"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "vendor_matmul",
+    "shape": [
+      128,
+      128,
+      128
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.03686400130391121,
+    "message": null,
+    "profile_status": "not_requested",
+    "cache": null,
+    "source_sha256": "7c90a95563d5547d2ee33c2c43ee56b3560d271c6ae8b6bcd5a8ec76c09c82af",
+    "request_sha256": "a3756a73bea1d48c9088d32ef0d2da3a599913f044bc61550580451fee0c5772",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "66d9ba0a258d91b6d1d13686afdd927116c75155f431608dcb8e72e7e373a594"
+        },
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "58006663b5eecf252813ad5dafd9ef64d5881cf5a6060e0630ad96e881f0b497"
+        }
+      ],
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+        },
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "58006663b5eecf252813ad5dafd9ef64d5881cf5a6060e0630ad96e881f0b497"
+        }
+      ],
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "98a9a14f351766d2743a1b9d2967cbe2f5993ef7d56889f9d78bb2974269267d"
+        },
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "bad44596b3c5ec4c41fff62002acbf5ed8cb32ece004a6765412deb4f3fd7823"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "vendor_matmul_strict",
+    "shape": [
+      128,
+      128,
+      128
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.03379200026392937,
+    "message": null,
+    "profile_status": "not_requested",
+    "cache": null,
+    "source_sha256": "995ab88ae2a9b633720ed2aa3807789fe0d91864f8cea818ec3a33d706c79e9a",
+    "request_sha256": "2a9afe4485889ea432661d931aea19cbaee66259cbf418fcf6a02f49d6a05ea2",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "66d9ba0a258d91b6d1d13686afdd927116c75155f431608dcb8e72e7e373a594"
+        },
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "58006663b5eecf252813ad5dafd9ef64d5881cf5a6060e0630ad96e881f0b497"
+        }
+      ],
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+        },
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "58006663b5eecf252813ad5dafd9ef64d5881cf5a6060e0630ad96e881f0b497"
+        }
+      ],
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "98a9a14f351766d2743a1b9d2967cbe2f5993ef7d56889f9d78bb2974269267d"
+        },
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "bad44596b3c5ec4c41fff62002acbf5ed8cb32ece004a6765412deb4f3fd7823"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "scalar_ptx",
+    "shape": [
+      256,
+      256,
+      256
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.047280000522732735,
+    "message": null,
+    "profile_status": "not_requested",
+    "cache": {
+      "status": "hit",
+      "key": "1cee8d2eb2cf42062a4965419e8b042d9ffac7336269b56ead8c8b3cd0c640d9"
+    },
+    "source_sha256": "df0bf9f407de4b64e95b6a78628222636855bff11b333df67f646e9fa525c3d0",
+    "request_sha256": "fe59a2842e76c5c3089dd49efe185dca58e3b57067c1daf22c8a65997290ebce",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "5d50f39ad885ff40d91faa71d17687ea404efcb53ae26c9d617046fe4abf944a"
+        },
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "8d601118b7f9f914122ed6d425d7635744d07569d39c7b7be3f020923d713b19"
+        }
+      ],
+      [
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "fa43239bcee7b97ca62f007cc68487560a39e19f74f3dde7486db3f98df8e471"
+        },
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "8d601118b7f9f914122ed6d425d7635744d07569d39c7b7be3f020923d713b19"
+        }
+      ],
+      [
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "58244dcacbb6c50dafd5f3bec9acfb6acffb5b27cec19dd9caa17b6cc0f20788"
+        },
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "00884cb35da41f4036a3b4adaa6436f0cc4648fb73979098e3c9c6492224a392"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "vendor_matmul",
+    "shape": [
+      256,
+      256,
+      256
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.03487999923527241,
+    "message": null,
+    "profile_status": "not_requested",
+    "cache": null,
+    "source_sha256": "7c90a95563d5547d2ee33c2c43ee56b3560d271c6ae8b6bcd5a8ec76c09c82af",
+    "request_sha256": "a3756a73bea1d48c9088d32ef0d2da3a599913f044bc61550580451fee0c5772",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "5d50f39ad885ff40d91faa71d17687ea404efcb53ae26c9d617046fe4abf944a"
+        },
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "8d601118b7f9f914122ed6d425d7635744d07569d39c7b7be3f020923d713b19"
+        }
+      ],
+      [
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "fa43239bcee7b97ca62f007cc68487560a39e19f74f3dde7486db3f98df8e471"
+        },
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "8d601118b7f9f914122ed6d425d7635744d07569d39c7b7be3f020923d713b19"
+        }
+      ],
+      [
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "58244dcacbb6c50dafd5f3bec9acfb6acffb5b27cec19dd9caa17b6cc0f20788"
+        },
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "00884cb35da41f4036a3b4adaa6436f0cc4648fb73979098e3c9c6492224a392"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "vendor_matmul_strict",
+    "shape": [
+      256,
+      256,
+      256
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.03425600007176399,
+    "message": null,
+    "profile_status": "not_requested",
+    "cache": null,
+    "source_sha256": "995ab88ae2a9b633720ed2aa3807789fe0d91864f8cea818ec3a33d706c79e9a",
+    "request_sha256": "2a9afe4485889ea432661d931aea19cbaee66259cbf418fcf6a02f49d6a05ea2",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "5d50f39ad885ff40d91faa71d17687ea404efcb53ae26c9d617046fe4abf944a"
+        },
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "8d601118b7f9f914122ed6d425d7635744d07569d39c7b7be3f020923d713b19"
+        }
+      ],
+      [
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "fa43239bcee7b97ca62f007cc68487560a39e19f74f3dde7486db3f98df8e471"
+        },
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "8d601118b7f9f914122ed6d425d7635744d07569d39c7b7be3f020923d713b19"
+        }
+      ],
+      [
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "58244dcacbb6c50dafd5f3bec9acfb6acffb5b27cec19dd9caa17b6cc0f20788"
+        },
+        {
+          "shape": [
+            256,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "00884cb35da41f4036a3b4adaa6436f0cc4648fb73979098e3c9c6492224a392"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "scalar_ptx",
+    "shape": [
+      128,
+      256,
+      128
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.04964800179004669,
+    "message": null,
+    "profile_status": "not_requested",
+    "cache": {
+      "status": "hit",
+      "key": "1cee8d2eb2cf42062a4965419e8b042d9ffac7336269b56ead8c8b3cd0c640d9"
+    },
+    "source_sha256": "df0bf9f407de4b64e95b6a78628222636855bff11b333df67f646e9fa525c3d0",
+    "request_sha256": "1c69dea7ac81c13db0002d0c74d8ce501da2b191e947d4e825ca8a789a3cc5e0",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "66d9ba0a258d91b6d1d13686afdd927116c75155f431608dcb8e72e7e373a594"
+        },
+        {
+          "shape": [
+            128,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "16a44e6cfedf225659283a3b477473c5704bf73e813f87153379cbd6d1678e75"
+        }
+      ],
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+        },
+        {
+          "shape": [
+            128,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "16a44e6cfedf225659283a3b477473c5704bf73e813f87153379cbd6d1678e75"
+        }
+      ],
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "98a9a14f351766d2743a1b9d2967cbe2f5993ef7d56889f9d78bb2974269267d"
+        },
+        {
+          "shape": [
+            128,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "18755acd9679eeba88354758226ef1117b7b21f2bd108d62633f817c612a7442"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "vendor_matmul",
+    "shape": [
+      128,
+      256,
+      128
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.03683200106024742,
+    "message": null,
+    "profile_status": "not_requested",
+    "cache": null,
+    "source_sha256": "7c90a95563d5547d2ee33c2c43ee56b3560d271c6ae8b6bcd5a8ec76c09c82af",
+    "request_sha256": "a3756a73bea1d48c9088d32ef0d2da3a599913f044bc61550580451fee0c5772",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "66d9ba0a258d91b6d1d13686afdd927116c75155f431608dcb8e72e7e373a594"
+        },
+        {
+          "shape": [
+            128,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "16a44e6cfedf225659283a3b477473c5704bf73e813f87153379cbd6d1678e75"
+        }
+      ],
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+        },
+        {
+          "shape": [
+            128,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "16a44e6cfedf225659283a3b477473c5704bf73e813f87153379cbd6d1678e75"
+        }
+      ],
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "98a9a14f351766d2743a1b9d2967cbe2f5993ef7d56889f9d78bb2974269267d"
+        },
+        {
+          "shape": [
+            128,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "18755acd9679eeba88354758226ef1117b7b21f2bd108d62633f817c612a7442"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "vendor_matmul_strict",
+    "shape": [
+      128,
+      256,
+      128
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.035840000957250595,
+    "message": null,
+    "profile_status": "not_requested",
+    "cache": null,
+    "source_sha256": "995ab88ae2a9b633720ed2aa3807789fe0d91864f8cea818ec3a33d706c79e9a",
+    "request_sha256": "2a9afe4485889ea432661d931aea19cbaee66259cbf418fcf6a02f49d6a05ea2",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "66d9ba0a258d91b6d1d13686afdd927116c75155f431608dcb8e72e7e373a594"
+        },
+        {
+          "shape": [
+            128,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "16a44e6cfedf225659283a3b477473c5704bf73e813f87153379cbd6d1678e75"
+        }
+      ],
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+        },
+        {
+          "shape": [
+            128,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "16a44e6cfedf225659283a3b477473c5704bf73e813f87153379cbd6d1678e75"
+        }
+      ],
+      [
+        {
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "bfloat16",
+          "sha256": "98a9a14f351766d2743a1b9d2967cbe2f5993ef7d56889f9d78bb2974269267d"
+        },
+        {
+          "shape": [
+            128,
+            256
+          ],
+          "dtype": "bfloat16",
+          "sha256": "18755acd9679eeba88354758226ef1117b7b21f2bd108d62633f817c612a7442"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "scalar_ptx",
+    "shape": [
+      127,
+      193,
+      65
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.04288000054657459,
+    "message": null,
+    "profile_status": "not_requested",
+    "cache": {
+      "status": "hit",
+      "key": "1cee8d2eb2cf42062a4965419e8b042d9ffac7336269b56ead8c8b3cd0c640d9"
+    },
+    "source_sha256": "df0bf9f407de4b64e95b6a78628222636855bff11b333df67f646e9fa525c3d0",
+    "request_sha256": "0f80b5859b2c2b82409b3fbe4f87f2406bc26e5ba8f5ec2fff77317d8fac2d54",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            127,
+            65
+          ],
+          "dtype": "bfloat16",
+          "sha256": "2f4e850bd072955548bba2a1a2a41dab7f6c45ce746fce039cd357ce4feb00f8"
+        },
+        {
+          "shape": [
+            65,
+            193
+          ],
+          "dtype": "bfloat16",
+          "sha256": "91854fe0c52927d8869eeac2542c6c2a72b00f6c750565c69c741af9cfda57c3"
+        }
+      ],
+      [
+        {
+          "shape": [
+            127,
+            65
+          ],
+          "dtype": "bfloat16",
+          "sha256": "da80190cf2cee06a15dbcb18d14304db42aa238bcf27e42062b66e5b520cc573"
+        },
+        {
+          "shape": [
+            65,
+            193
+          ],
+          "dtype": "bfloat16",
+          "sha256": "91854fe0c52927d8869eeac2542c6c2a72b00f6c750565c69c741af9cfda57c3"
+        }
+      ],
+      [
+        {
+          "shape": [
+            127,
+            65
+          ],
+          "dtype": "bfloat16",
+          "sha256": "819816e93a3d2c84f866fc6fbd311f35061b25474153445d4e5d72943e314781"
+        },
+        {
+          "shape": [
+            65,
+            193
+          ],
+          "dtype": "bfloat16",
+          "sha256": "b7bc1a1b9a6e2a0d2a2a6b619be444d94b8c3c3c4a568d4d850ed54c00c09d66"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "vendor_matmul",
+    "shape": [
+      127,
+      193,
+      65
+    ],
+    "status": "incorrect",
+    "cases": 0,
+    "median_ms": null,
+    "message": "Outside the FP32 accumulation envelope.",
+    "profile_status": "not_requested",
+    "cache": null,
+    "source_sha256": "7c90a95563d5547d2ee33c2c43ee56b3560d271c6ae8b6bcd5a8ec76c09c82af",
+    "request_sha256": "a3756a73bea1d48c9088d32ef0d2da3a599913f044bc61550580451fee0c5772",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            127,
+            65
+          ],
+          "dtype": "bfloat16",
+          "sha256": "2f4e850bd072955548bba2a1a2a41dab7f6c45ce746fce039cd357ce4feb00f8"
+        },
+        {
+          "shape": [
+            65,
+            193
+          ],
+          "dtype": "bfloat16",
+          "sha256": "91854fe0c52927d8869eeac2542c6c2a72b00f6c750565c69c741af9cfda57c3"
+        }
+      ],
+      [
+        {
+          "shape": [
+            127,
+            65
+          ],
+          "dtype": "bfloat16",
+          "sha256": "da80190cf2cee06a15dbcb18d14304db42aa238bcf27e42062b66e5b520cc573"
+        },
+        {
+          "shape": [
+            65,
+            193
+          ],
+          "dtype": "bfloat16",
+          "sha256": "91854fe0c52927d8869eeac2542c6c2a72b00f6c750565c69c741af9cfda57c3"
+        }
+      ],
+      [
+        {
+          "shape": [
+            127,
+            65
+          ],
+          "dtype": "bfloat16",
+          "sha256": "819816e93a3d2c84f866fc6fbd311f35061b25474153445d4e5d72943e314781"
+        },
+        {
+          "shape": [
+            65,
+            193
+          ],
+          "dtype": "bfloat16",
+          "sha256": "b7bc1a1b9a6e2a0d2a2a6b619be444d94b8c3c3c4a568d4d850ed54c00c09d66"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "vendor_matmul_strict",
+    "shape": [
+      127,
+      193,
+      65
+    ],
+    "status": "ok",
+    "cases": 3,
+    "median_ms": 0.04249599948525429,
+    "message": null,
+    "profile_status": "not_requested",
+    "cache": null,
+    "source_sha256": "995ab88ae2a9b633720ed2aa3807789fe0d91864f8cea818ec3a33d706c79e9a",
+    "request_sha256": "2a9afe4485889ea432661d931aea19cbaee66259cbf418fcf6a02f49d6a05ea2",
+    "engine_sha256": {
+      "cache.py": "691033210e002b50ef77ae38b1ff15bf40fa58b3d7da418d72c6a24b7dbf8386",
+      "process.py": "92a426b47962b5265de03933cb0290335b9e84ba2b0eb828913ebf3353d77bac",
+      "__init__.py": "0b02638b95ead4a9fa7827a1024dc719250b4677ee27cf64a7c41e9b7b2343e9",
+      "client.py": "2d2decf4e3b132c6d78b9cb18480d20c8cd1df4ca22ea75e1b20401fd70ce0e8",
+      "data.py": "e0e493c76f47a3be5eff390a9b99adefd07f651ca64202f977fddbeb39e34b7a",
+      "diagnostics.py": "c47f8ca6551a90f457ca4312fd2693ac4e9787c5121190fe2ef9778d5fb71393",
+      "execute.py": "f2ceb6063f342791ba121fa01d63a42479ce8ba903c955c90f9837093d7e7853",
+      "gym.py": "e86f1987b342a18293f4b9ba926ed7a7cd5cacaaaadd357916add6d74031b4c6",
+      "pool.py": "c932fc6b572a52405f0c47f8f611f10a2cc348ba45c31180630b0545780a5a4b",
+      "profiles.py": "894d08c609f3186a11b99dc2db43eb7463312f09be17c02f36cf3dfe5a6a0726",
+      "ptx.py": "931c3fce49eda0e3b83ac14eacdec4a790a0e17b8c6b5ba6dbdbe445c3660bbe",
+      "runner.py": "e426707989dee739af5795486d1b22146938fda65bf0656d5b53691ec85df36f",
+      "tensors.py": "83d58f68d955cba59cef34f2e5724f84c1ddc157f0bae6952274a77c5e6e4634",
+      "vendor.py": "5aee6f440422085d4f1c41260605f8dc14776409fc9acd571566c04bfc8a7602",
+      "worker.py": "0bdaf44b7308498c2bed04e48ae7dd7f1762a184f3d9018dba98e13a531b1b94",
+      "backends/__init__.py": "7fa2b15b05542bc1788f827e48a22c5438f24b337c3c153bd4f3f3d321119b6c",
+      "backends/cpu.py": "6488906e5e29e92e882ee5be52a8f226f77a5bdebc4702eeca594154ee4d7977",
+      "backends/cuda.py": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+      "backends/ptx.py": "98f400423daec5bc8d53334ded9fe0a7530b558c54787a1882a9b2ec5cd80f58",
+      "backends/trainium.py": "5b85e53c2b0f717c1ec51c04313c052c066b07e1031ea4b80ae759775dabf5ff",
+      "backends/vendor_compile.py": "2425329b5224f60d3a0a7865ca6c9acc808c3231deefd0cfc007af4c39a70acf",
+      "backends/vendor_trainium.py": "2497d256e81d330550760f95e5add2db5512c05309f9224a44394a919e71caf7"
+    },
+    "backend_sha256": "bed38cc1b669f0cc5f96bb9a0fee582284dc017a870d2062f3a985e445e29e88",
+    "inputs": [
+      [
+        {
+          "shape": [
+            127,
+            65
+          ],
+          "dtype": "bfloat16",
+          "sha256": "2f4e850bd072955548bba2a1a2a41dab7f6c45ce746fce039cd357ce4feb00f8"
+        },
+        {
+          "shape": [
+            65,
+            193
+          ],
+          "dtype": "bfloat16",
+          "sha256": "91854fe0c52927d8869eeac2542c6c2a72b00f6c750565c69c741af9cfda57c3"
+        }
+      ],
+      [
+        {
+          "shape": [
+            127,
+            65
+          ],
+          "dtype": "bfloat16",
+          "sha256": "da80190cf2cee06a15dbcb18d14304db42aa238bcf27e42062b66e5b520cc573"
+        },
+        {
+          "shape": [
+            65,
+            193
+          ],
+          "dtype": "bfloat16",
+          "sha256": "91854fe0c52927d8869eeac2542c6c2a72b00f6c750565c69c741af9cfda57c3"
+        }
+      ],
+      [
+        {
+          "shape": [
+            127,
+            65
+          ],
+          "dtype": "bfloat16",
+          "sha256": "819816e93a3d2c84f866fc6fbd311f35061b25474153445d4e5d72943e314781"
+        },
+        {
+          "shape": [
+            65,
+            193
+          ],
+          "dtype": "bfloat16",
+          "sha256": "b7bc1a1b9a6e2a0d2a2a6b619be444d94b8c3c3c4a568d4d850ed54c00c09d66"
+        }
+      ]
+    ]
+  }
+]
