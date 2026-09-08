@@ -72,8 +72,8 @@ class Runner:
                 ir = self.compile_ir(self.nki.jit(self.module.kernel), inputs=inputs,
                                      compile_opts=options, frontend=self.frontend(), enable_cache=False)
             except AssertionError as error:
-                from gpu2tensor.failures import CandidateCompilationError, nki_buffer_diagnostic
-                diagnostic = nki_buffer_diagnostic(str(error))
+                from gpu2tensor.failures import CandidateCompilationError, nki_compile_diagnostic
+                diagnostic = nki_compile_diagnostic(str(error))
                 if diagnostic is not None:
                     raise CandidateCompilationError(str(error), diagnostic) from error
                 raise

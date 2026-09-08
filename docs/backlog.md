@@ -91,3 +91,10 @@ faults. Exact negative replays and a valid control passed on the reserved
 Trainium slot. Timing/execution/profile methods are unchanged. See
 [policy and evidence](results/nki-diagnostics/README.md). Existing records can be
 classified into separate hashed annotations without mutation or redispatch.
+
+## NKI vector-transpose classification
+
+Issue #9 adds a narrow saved-failure/compiler policy for the observed [64, 32]
+vector-transpose rejection. Local checks pass; exact replay and a valid 128³ BF16
+control are pending because AWS reclaimed the Spot worker before deployment.
+See [policy and qualification status](results/nki-transpose/README.md).
