@@ -95,6 +95,17 @@ classified into separate hashed annotations without mutation or redispatch.
 ## NKI vector-transpose classification
 
 Issue #9 adds a narrow saved-failure/compiler policy for the observed [64, 32]
-vector-transpose rejection. Local checks pass; exact replay and a valid 128³ BF16
-control are pending because AWS reclaimed the Spot worker before deployment.
+vector-transpose rejection. Local checks and both controls pass on a newly qualified replacement after AWS
+reclaimed the original Spot worker. The exact negative has no timing; the valid
+128³ BF16 control passes six families with identical captured output files.
 See [policy and qualification status](results/nki-transpose/README.md).
+
+## Deferred CUDA timing condition
+
+Issue #10 requests an optional, separately named controlled-launch replay/device
+measurement for PTX and vendor Torch. Preserve the current event interval and
+frozen campaign. Define matching allocation, restoration/residency and cache
+policies; preinitialize events; qualify replay/capture, launch-delay controls and
+both languages' outputs. Keep profiler durations separate and do not subtract
+unmeasured overhead. Implement on an independently owned worker after the current
+campaign, including explicit unsupported-capture/allocation limits.

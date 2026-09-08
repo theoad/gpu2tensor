@@ -1,0 +1,13 @@
+{
+  "failure_kind": "candidate_compile",
+  "diagnostic": {
+    "policy": "nki-0.6-vector-transpose-shape-v1",
+    "provider": "nki_frontend",
+    "exception_type": "AssertionError",
+    "messages": [
+      "- [x1] error: assertion failed: Vector engine transpose requires shape <= [32, 32], got [64, 32]"
+    ]
+  },
+  "canonical_record_sha256": "426fb6a917b0f9efdb443392000678237cb715093f1da4f041e67b996c57dc06",
+  "process_log_sha256": "30e1b6734192372cefbb7f5bd9461bc127af4fadc16b711e627b47e601d8619d"
+}
