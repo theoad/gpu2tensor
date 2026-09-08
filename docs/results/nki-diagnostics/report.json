@@ -1,0 +1,52 @@
+[
+  {
+    "control": "negative-0",
+    "status": "error",
+    "failure_kind": "candidate_compile",
+    "compiler_diagnostic": {
+      "policy": "nki-0.6-buffer-placement-v1",
+      "provider": "nki_frontend",
+      "exception_type": "AssertionError",
+      "messages": [
+        "- [x1] error: assertion failed: nc_transpose data must be in [sbuf, psum], got shared_hbm"
+      ]
+    },
+    "source_sha256": "6226099772613c3044c828f3441ef080f7d4505b3aeacf344ef1cdee22cdab69",
+    "request_sha256": "60f0784ba9d42468e4f820fa3ba1e9aca09cf3f00b2f1aae7b29b72d95a81851",
+    "host": "ip-172-31-64-161",
+    "latency_present": false,
+    "record_sha256": "37a2b9b8c3464a2804916dc69982eb8ada6b0872eb7b2b3b6892473c76016d8b",
+    "process_log_sha256": "769359739d5a1589983a57cb79cdbbb70a1708b5ab1125ef19a3c1c38eb0a582"
+  },
+  {
+    "control": "negative-1",
+    "status": "error",
+    "failure_kind": "candidate_compile",
+    "compiler_diagnostic": {
+      "policy": "nki-0.6-buffer-placement-v1",
+      "provider": "nki_frontend",
+      "exception_type": "AssertionError",
+      "messages": [
+        "- [x1] error: assertion failed: tensor_copy dst must be in [sbuf, psum], got shared_hbm"
+      ]
+    },
+    "source_sha256": "e086a3b888ecb77bcd4d31e0b5b86256162fe0e5d005c47fec2edecf1c7683ff",
+    "request_sha256": "9a3f10a56f4f8de5c2c360bde497d62e065c4cf794acc900cb20704bb33f3543",
+    "host": "ip-172-31-64-161",
+    "latency_present": false,
+    "record_sha256": "763bd95cd9481c5b6bbb0be2bd0599d205a8b704a395747bbf8fd9397aece4ec",
+    "process_log_sha256": "62ccd238d998494d102e680c37db4bdc14857ede522834c803eb9dbe8758758d"
+  },
+  {
+    "control": "positive",
+    "status": "ok",
+    "failure_kind": null,
+    "compiler_diagnostic": null,
+    "source_sha256": "e51b363ec655a9710714ce569bea086d5fb0eb50d2f1b7e2b5cfd93072408131",
+    "request_sha256": "6bfe54e7699501bb5049651aecb21aaba5c198abf04fb6ec4391d25fb0eb90b7",
+    "host": "ip-172-31-64-161",
+    "latency_present": true,
+    "record_sha256": "6d76885349ae6a27017f31f50e195cdba1acc1ced0a0e5e285bab967bc8e22fe",
+    "process_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

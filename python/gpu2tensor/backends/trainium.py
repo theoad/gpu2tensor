@@ -68,8 +68,15 @@ class Runner:
             options = self.CompileOptions(target=self.target, artifacts_dir=str(directory),
                                           output_path=str(directory / "kernel.neff"))
             inputs = self.bind(case)
-            ir = self.compile_ir(self.nki.jit(self.module.kernel), inputs=inputs,
-                                 compile_opts=options, frontend=self.frontend(), enable_cache=False)
+            try:
+                ir = self.compile_ir(self.nki.jit(self.module.kernel), inputs=inputs,
+                                     compile_opts=options, frontend=self.frontend(), enable_cache=False)
+            except AssertionError as error:
+                from gpu2tensor.failures import CandidateCompilationError, nki_buffer_diagnostic
+                diagnostic = nki_buffer_diagnostic(str(error))
+                if diagnostic is not None:
+                    raise CandidateCompilationError(str(error), diagnostic) from error
+                raise
             compiled_results = []
 
             def keep_compiled_program(compiled, inputs, outputs):
