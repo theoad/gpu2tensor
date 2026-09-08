@@ -79,3 +79,12 @@ quickstart passed all four cases, the Gym launcher exposes its CLI, ten tests pa
 and documentation links resolve. Ignored local state, credentials, raw artifacts
 and virtual environments are excluded from the source release. No AWS workers
 were launched for publication.
+
+## NKI classification repair
+
+Issue #7: the scoped `nki-0.6-buffer-placement-v1` policy now distinguishes two
+confirmed frontend buffer-placement assertions from unknown runtime/compiler
+faults. Exact negative replays and a valid control passed on the reserved
+Trainium slot. Timing/execution/profile methods are unchanged. See
+[policy and evidence](results/nki-diagnostics/README.md). Existing records can be
+classified into separate hashed annotations without mutation or redispatch.

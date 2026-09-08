@@ -185,7 +185,10 @@ def evaluate(directory, backend):
             except Exception as artifact_error:
                 record["artifact_error"] = str(artifact_error)
         from gpu2tensor.backends.ptx import AssemblyError
-        failure_kind = "candidate_compile" if isinstance(error, AssemblyError) else "runtime_or_infrastructure"
+        from gpu2tensor.failures import CandidateCompilationError
+        if isinstance(error, CandidateCompilationError):
+            record["compiler_diagnostic"] = error.diagnostic
+        failure_kind = "candidate_compile" if isinstance(error, (AssemblyError, CandidateCompilationError)) else "runtime_or_infrastructure"
         if isinstance(error, SyntaxError) and error.filename == str(directory / "candidate.py"):
             failure_kind = "candidate_compile"
         record.update(status="error", stage=stage, failure_kind=failure_kind, message=str(error))
