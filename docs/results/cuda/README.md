@@ -75,3 +75,11 @@ the reported comparison. The corrected example asserts actual process mode and
 uses dedicated worker ports 8011 and 8010 (`reuse-verified/`). An initial pod with
 an older host driver never became usable and was deleted; only the replacement
 with a CUDA 12.8 minimum was used for these results.
+
+Final combined validation: 45 local tests pass, including deadline/crash recycling,
+precision restoration, cache integrity/eviction and conservative NKI diagnostics.
+The wheel builds and imports the client in an isolated environment without Torch,
+Triton or operator tooling. A final fresh-process PTX smoke run at `ed530ad` passed
+correctness, diagnostics and profiling, and all returned engine hashes matched the
+committed source. GPU ownership was then explicitly transferred to the experiment
+with its original deadline and cleanup guard; no concurrent qualification remains.
