@@ -1,0 +1,571 @@
+[
+  {
+    "status": "ok",
+    "failure_kind": null,
+    "process": {
+      "pid": 14002,
+      "mode": "reused",
+      "evaluation_seconds": 2.087837105998915
+    },
+    "profile_status": "ok",
+    "source_sha256": "3b1d2e153a326116ed72451fa757ecf9188240de96f550496a8023c3ec0212d2",
+    "request_sha256": "28c0b2d408907439554572aa3720465767d1d577ab8fed07c1648d81bfc7d5cf",
+    "diagnostics": [
+      {
+        "case": 0,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 1,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 2,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 3,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      }
+    ],
+    "name": "valid-0"
+  },
+  {
+    "status": "ok",
+    "failure_kind": null,
+    "process": {
+      "pid": 14002,
+      "mode": "reused",
+      "evaluation_seconds": 2.0966738860006444
+    },
+    "profile_status": "ok",
+    "source_sha256": "3b1d2e153a326116ed72451fa757ecf9188240de96f550496a8023c3ec0212d2",
+    "request_sha256": "c3937be26f078baa9f5ba1d250816a770099aafd0de75385cef6714c1967a89a",
+    "diagnostics": [
+      {
+        "case": 0,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 1,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 2,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 3,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      }
+    ],
+    "name": "valid-1"
+  },
+  {
+    "status": "ok",
+    "failure_kind": null,
+    "process": {
+      "pid": 14002,
+      "mode": "reused",
+      "evaluation_seconds": 2.0758527260004485
+    },
+    "profile_status": "ok",
+    "source_sha256": "3b1d2e153a326116ed72451fa757ecf9188240de96f550496a8023c3ec0212d2",
+    "request_sha256": "696b085e0c789adeb60d577e52896eca8f2fbc5b72077c8efecaf877c3bd7fc5",
+    "diagnostics": [
+      {
+        "case": 0,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 1,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 2,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 3,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      }
+    ],
+    "name": "valid-2"
+  },
+  {
+    "status": "ok",
+    "failure_kind": null,
+    "process": {
+      "pid": 14412,
+      "mode": "reused",
+      "evaluation_seconds": 8.961190343999988
+    },
+    "profile_status": "ok",
+    "source_sha256": "3b1d2e153a326116ed72451fa757ecf9188240de96f550496a8023c3ec0212d2",
+    "request_sha256": "e9410edb3c39041d357277e8bf2a0da8ae31d4565cb040de09435a92448ab125",
+    "diagnostics": [
+      {
+        "case": 0,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 1,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 2,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 3,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      }
+    ],
+    "name": "valid-3"
+  },
+  {
+    "status": "error",
+    "failure_kind": "candidate_compile",
+    "process": {
+      "pid": 14412,
+      "mode": "reused",
+      "evaluation_seconds": 0.19716177800000878
+    },
+    "profile_status": "not_requested",
+    "source_sha256": "0725fa4999f6a494b9e14250f349a1847cd95e052376897b6efa3494b663b033",
+    "request_sha256": "acfe3ae3eb43c4452613a95b94974e0836a92ada8e18c7a7979f67d9b2321e56",
+    "diagnostics": [],
+    "name": "invalid-storage"
+  },
+  {
+    "status": "ok",
+    "failure_kind": null,
+    "process": {
+      "pid": 14489,
+      "mode": "reused",
+      "evaluation_seconds": 7.184011797999119
+    },
+    "profile_status": "ok",
+    "source_sha256": "3b1d2e153a326116ed72451fa757ecf9188240de96f550496a8023c3ec0212d2",
+    "request_sha256": "3e626e94c048ba80cfb5b7f5782dfb404fd0b6931ae05651d3fa21414285fbc6",
+    "diagnostics": [
+      {
+        "case": 0,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 1,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 2,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 3,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      }
+    ],
+    "name": "after-compile-error"
+  },
+  {
+    "status": "incorrect",
+    "failure_kind": "validation",
+    "process": {
+      "pid": 14489,
+      "mode": "reused",
+      "evaluation_seconds": 1.4256822360002843
+    },
+    "profile_status": "not_requested",
+    "source_sha256": "f201926bcfd22ccf94df7bdb721a8f6003b7ef2b300c4b2598c8534fdca8b0f5",
+    "request_sha256": "838b356dd2feaf1f4c7311ccd67a20c0d791ff2bbf4765c66adb23fe35f1374d",
+    "diagnostics": [
+      {
+        "case": 0,
+        "read_only_inputs": {
+          "status": "failed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      }
+    ],
+    "name": "mutates-input"
+  },
+  {
+    "status": "ok",
+    "failure_kind": null,
+    "process": {
+      "pid": 14591,
+      "mode": "reused",
+      "evaluation_seconds": 7.805636125000092
+    },
+    "profile_status": "ok",
+    "source_sha256": "3b1d2e153a326116ed72451fa757ecf9188240de96f550496a8023c3ec0212d2",
+    "request_sha256": "494469431726df7a095f91267a04074f8e9fddedf7d31ffef5b7bfc9546d9919",
+    "diagnostics": [
+      {
+        "case": 0,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 1,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 2,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      },
+      {
+        "case": 3,
+        "read_only_inputs": {
+          "status": "passed"
+        },
+        "output_poison": {
+          "status": "passed"
+        },
+        "bounds": {
+          "status": "unsupported"
+        },
+        "lifetime": {
+          "status": "unsupported"
+        },
+        "race_detection": {
+          "status": "unsupported"
+        }
+      }
+    ],
+    "name": "after-mutation"
+  }
+]
