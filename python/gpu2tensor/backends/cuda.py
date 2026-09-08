@@ -8,6 +8,7 @@ import torch
 import triton
 
 from gpu2tensor.profiles import proton_kernels
+from gpu2tensor.tensors import copy_input, torch_input
 
 
 class Runner:
@@ -17,17 +18,41 @@ class Runner:
         if not torch.cuda.is_available():
             raise RuntimeError("CUDA is unavailable in this worker environment.")
         self.module = module
+        self.metadata = {}
 
     def identity(self):
-        return {"device": torch.cuda.get_device_name(), "cuda": torch.version.cuda,
+        return {**self.metadata, "measurement_policy": {"warmup_runs": 5, "inputs": "fresh_copy_before_each_call_outside_timing",
+                "outputs": "allocated_inside_call", "cache": "uncontrolled", "working_set": "benchmark_case_0",
+                "synchronization": "device_before_timing_end_event_after_call"}, "device": torch.cuda.get_device_name(), "cuda": torch.version.cuda,
                 "triton": triton.__version__, "compute_capability": list(torch.cuda.get_device_capability()),
                 "driver": subprocess.check_output(["nvidia-smi", "--query-gpu=driver_version", "--format=csv,noheader"], text=True).strip()}
 
     def inputs(self, case):
-        return tuple(torch.from_numpy(value.copy()).cuda() for value in case)
+        return tuple(torch_input(copy_input(value)).cuda() for value in case)
 
     def run(self, case):
         return self.module.run(*self.inputs(case))
+
+    def check(self, case, *, read_only_inputs, poison_outputs):
+        from gpu2tensor.diagnostics import fingerprint, report
+        can_poison = hasattr(self.module, "output_poison")
+        unchanged, results = True, []
+        for poison in ([0x3f, 0xbf] if poison_outputs and can_poison else [None]):
+            inputs = self.inputs(case)
+            before = [fingerprint(value.cpu()) for value in inputs]
+            if can_poison:
+                self.module.output_poison = poison
+            try:
+                actual = self.module.run(*inputs)
+                torch.cuda.synchronize()
+            finally:
+                if can_poison:
+                    self.module.output_poison = None
+            if read_only_inputs:
+                unchanged &= before == [fingerprint(value.cpu()) for value in inputs]
+            results.append(fingerprint(actual.detach().cpu().contiguous()))
+        return report(read_only_inputs=read_only_inputs, poison_outputs=poison_outputs,
+                      inputs_unchanged=unchanged, outputs_match=results[0] == results[-1] if can_poison else None)
 
     def benchmark(self, case, repetitions):
         for _ in range(5):

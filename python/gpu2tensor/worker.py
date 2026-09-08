@@ -10,7 +10,7 @@ from gpu2tensor.runner import MAX_REQUEST_BYTES, evaluate_archive
 def serve(backend, port, timeout=300):
     class Handler(BaseHTTPRequestHandler):
         def do_GET(self):
-            body = json.dumps({"backend": backend, "protocol": 1}).encode()
+            body = json.dumps({"backend": backend, "protocol": 2}).encode()
             self.send_response(200)
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()

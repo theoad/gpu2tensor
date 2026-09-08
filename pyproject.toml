@@ -19,6 +19,7 @@ Issues = "https://github.com/theoad/gpu2tensor/issues"
 learning = ["torch>=2.2"]
 gym = ["gymnasium>=1.0"]
 test = ["pytest>=8"]
+neuron = ["ml-dtypes>=0.5"]
 
 [project.scripts]
 gpu2tensor-worker = "gpu2tensor.worker:main"

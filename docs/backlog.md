@@ -37,7 +37,13 @@ $100 campaign cap and 2026-09-09 06:00 UTC hard stop. Coordinate new launches.
 
 Matmul client requests are tracked as GitHub issues #1 (exact BF16), #2 (PTX
 launch/buffer contract), #3 (matched vendor Torch baselines), and #4 (workload-owned
-validation or exact outputs). Keep their qualification evidence separate.
+validation or exact outputs). Keep their qualification evidence separate. Issue #5 adds opt-in buffer diagnostics.
+
+BF16 transport, fixed validators and exact outputs pass local and Trainium checks;
+read-only input and output poison checks pass on Trainium. Complete PTX launch
+contracts and CPU assembly pass; GPU load/launch remains unqualified. The matched
+Torch-Neuron baseline is in progress. See [contract](matmul-contract.md) and
+[qualification evidence](results/matmul/README.md).
 
 1. Rerun the final CUDA warmup-input restoration on hardware, then measure timing
    variance and profile overhead. Qualify missing/dropped events before promising

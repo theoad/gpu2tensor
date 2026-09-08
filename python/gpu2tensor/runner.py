@@ -60,6 +60,8 @@ def evaluate_archive(payload, backend, timeout=300):
             raise RuntimeError("Candidate process returned no result.")
         for name in ("candidate.py", "reference.py", "request.json"):
             (output / name).write_bytes((directory / name).read_bytes())
+        if (directory / "validator.py").is_file():
+            (output / "validator.py").write_bytes((directory / "validator.py").read_bytes())
         # Retain exact inputs and source so an interrupted run can be replayed.
         (output / "request.zip").write_bytes(payload)
         if sum(path.stat().st_size for path in output.rglob("*") if path.is_file()) > MAX_RESULT_BYTES:

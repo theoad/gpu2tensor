@@ -1,5 +1,6 @@
 """NKI compilation and Neuron runtime execution, with separate NTFF capture."""
 
+import hashlib
 import importlib.metadata
 import inspect
 import json
@@ -9,6 +10,8 @@ import shutil
 import subprocess
 import tempfile
 import time
+
+from gpu2tensor.tensors import numpy_input
 
 
 class Runner:
@@ -45,7 +48,9 @@ class Runner:
         self.parameter_names = tuple(inspect.signature(module.kernel).parameters)
 
     def identity(self):
-        return {"device": self.target, "neuron_core": self.physical_core,
+        return {"measurement_policy": {"warmup_runs": 5, "inputs": "fresh_copy_before_each_call_outside_timing",
+                "outputs": "resident_reused", "cache": "uncontrolled", "working_set": "benchmark_case_0",
+                "synchronization": "blocking_native_runtime_call"}, "device": self.target, "neuron_core": self.physical_core,
                 "runtime_neuron_core": self.core_id, "nki": self.nki.__version__,
                 "neuronx_cc": importlib.metadata.version("neuronx-cc"),
                 "neuron_devices": subprocess.check_output(["/opt/aws/neuron/bin/neuron-ls", "--json-output"], text=True)}
@@ -81,23 +86,56 @@ class Runner:
             self.compiled[key] = compiled
         return self.compiled[key]
 
+    def save_artifacts(self, output):
+        programs = []
+        for index, compiled in enumerate(self.compiled.values()):
+            name = f"programs/{index}.neff"
+            (output / "programs").mkdir(exist_ok=True)
+            shutil.copyfile(compiled.neff_path, output / name)
+            programs.append({"file": name, "sha256": hashlib.sha256((output / name).read_bytes()).hexdigest(),
+                             **getattr(compiled, "metadata", {})})
+        return programs
+
     def run(self, case):
+        case = tuple(numpy_input(value) for value in case)
         model, inputs, outputs = self.resident(case)
         model(inputs, outputs=outputs, save_trace=False)
         return next(iter(outputs.values())).numpy()
 
-    def resident(self, case):
+    def resident(self, case, output_poison=None):
         compiled = self.compile(case)
         model = self.Model.load_from_neff(neff_path=compiled.neff_path, core_id=self.core_id)
         inputs = {name: self.Tensor.from_numpy(value.copy(), name=name, core_id=self.core_id)
                   for name, value in compiled.prepare_inputs(self.bind(case)).items()}
+        arrays = compiled.prepare_outputs()
+        if output_poison is not None:
+            for value in arrays.values():
+                value.view("uint8").fill(output_poison)
         outputs = {name: self.Tensor.from_numpy(value, name=name, core_id=self.core_id)
-                   for name, value in compiled.prepare_outputs().items()}
+                   for name, value in arrays.items()}
         return model, inputs, outputs
 
+    def check(self, case, *, read_only_inputs, poison_outputs):
+        from gpu2tensor.diagnostics import fingerprint, report
+        case = tuple(numpy_input(value) for value in case)
+        unchanged, results = True, []
+        for poison in ([0x3f, 0xbf] if poison_outputs else [None]):
+            model, inputs, outputs = self.resident(case, output_poison=poison)
+            before = {name: fingerprint(value.numpy()) for name, value in inputs.items()}
+            model(inputs, outputs=outputs, save_trace=False)
+            if read_only_inputs:
+                unchanged &= before == {name: fingerprint(value.numpy()) for name, value in inputs.items()}
+            results.append(fingerprint(next(iter(outputs.values())).numpy()))
+        return report(read_only_inputs=read_only_inputs, poison_outputs=poison_outputs,
+                      inputs_unchanged=unchanged, outputs_match=results[0] == results[-1])
+
     def benchmark(self, case, repetitions):
+        case = tuple(numpy_input(value) for value in case)
         model, inputs, outputs = self.resident(case)
         for _ in range(5):
+            compiled = self.compile(case)
+            inputs = {name: self.Tensor.from_numpy(value.copy(), name=name, core_id=self.core_id)
+                      for name, value in compiled.prepare_inputs(self.bind(case)).items()}
             model(inputs, outputs=outputs, save_trace=False)
         samples = []
         for _ in range(repetitions):
@@ -111,6 +149,7 @@ class Runner:
         return samples
 
     def profile(self, case, output):
+        case = tuple(numpy_input(value) for value in case)
         compiled = self.compile(case)
         model, inputs, outputs = self.resident(case)
         model(inputs, outputs=outputs, save_trace=True, ntff_name=str(output / "kernel.ntff"))

@@ -9,6 +9,8 @@ import zipfile
 
 import numpy as np
 
+from gpu2tensor.tensors import input_storage
+
 MAX_RESULT_BYTES = 256 * 1024 * 1024
 
 
@@ -17,11 +19,19 @@ class Candidate:
     source: str
     language: str
     name: str = "candidate"
+    launch: object | None = None
+
+    def __post_init__(self):
+        from gpu2tensor.ptx import Launch
+        if self.language == "ptx" and not isinstance(self.launch, Launch):
+            raise ValueError("A PTX candidate requires an explicit Launch.")
+        if self.language != "ptx" and self.launch is not None:
+            raise ValueError("Launch applies only to PTX candidates.")
 
     @classmethod
-    def from_file(cls, path, language):
+    def from_file(cls, path, language, *, launch=None):
         path = Path(path)
-        return cls(path.read_text(), language, path.stem)
+        return cls(path.read_text(), language, path.stem, launch)
 
 
 @dataclass
@@ -29,19 +39,20 @@ class Workload:
     """A reference module defining reference(*inputs), and independent test cases."""
 
     reference: str
-    cases: list[tuple[np.ndarray, ...]]
+    cases: list[tuple[object, ...]]
     rtol: float = 1e-4
     atol: float = 1e-5
+    validator: str | None = None
+    capture_outputs: bool = False
+    read_only_inputs: bool = False
+    poison_outputs: bool = False
 
     def __post_init__(self):
         if not self.cases or not all(case for case in self.cases):
             raise ValueError("Provide at least one nonempty input case.")
         for case in self.cases:
             for array in case:
-                if not isinstance(array, np.ndarray) or array.dtype.kind not in "biuf":
-                    raise TypeError("Inputs must be real numeric NumPy arrays.")
-                if not array.flags.c_contiguous:
-                    raise ValueError("The v0 input contract requires C-contiguous arrays.")
+                input_storage(array)
         if self.rtol < 0 or self.atol < 0:
             raise ValueError("Correctness tolerances cannot be negative.")
 
@@ -80,17 +91,24 @@ class Result:
 
 
 def pack_request(candidate, workload, profile, repetitions):
-    manifest = {"version": 1, "language": candidate.language, "name": candidate.name,
+    encoded = [[input_storage(array) for array in case] for case in workload.cases]
+    manifest = {"version": 2, "language": candidate.language, "name": candidate.name,
                 "case_sizes": [len(case) for case in workload.cases],
+                "input_dtypes": [[dtype for _, dtype in case] for case in encoded],
                 "rtol": workload.rtol, "atol": workload.atol,
-                "profile": profile, "repetitions": repetitions}
+                "validator": workload.validator is not None, "capture_outputs": workload.capture_outputs,
+                "profile": profile, "repetitions": repetitions,
+                "read_only_inputs": workload.read_only_inputs, "poison_outputs": workload.poison_outputs,
+                "launch": candidate.launch.to_dict() if candidate.launch else None}
     buffer = io.BytesIO()
     with zipfile.ZipFile(buffer, "w") as archive:
         archive.writestr("request.json", json.dumps(manifest, allow_nan=False))
         archive.writestr("candidate.py", candidate.source)
         archive.writestr("reference.py", workload.reference)
-        for case_index, case in enumerate(workload.cases):
-            for input_index, array in enumerate(case):
+        if workload.validator is not None:
+            archive.writestr("validator.py", workload.validator)
+        for case_index, case in enumerate(encoded):
+            for input_index, (array, _) in enumerate(case):
                 array_buffer = io.BytesIO()
                 np.save(array_buffer, array, allow_pickle=False)
                 archive.writestr(f"inputs/{case_index}-{input_index}.npy", array_buffer.getvalue())
