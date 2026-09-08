@@ -1,0 +1,48 @@
+{
+  "steps": [
+    {
+      "name": "incorrect",
+      "status": "incorrect",
+      "reward": 0.0,
+      "terminated": false,
+      "truncated": false
+    },
+    {
+      "name": "correct",
+      "status": "ok",
+      "reward": 1.0,
+      "terminated": true,
+      "truncated": false
+    }
+  ],
+  "columns": [
+    "latency_ms",
+    "profile.kernels",
+    "profile.measurements.hbm_read_bytes"
+  ],
+  "device": "mps:0",
+  "values": [
+    [
+      0.05119999870657921,
+      1.0,
+      0.0
+    ],
+    [
+      0.07391799986362457,
+      0.0,
+      16384.0
+    ]
+  ],
+  "valid": [
+    [
+      true,
+      true,
+      false
+    ],
+    [
+      true,
+      false,
+      true
+    ]
+  ]
+}

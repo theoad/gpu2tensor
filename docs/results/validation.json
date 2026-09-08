@@ -1,0 +1,14 @@
+{
+  "local_tests": {
+    "passed": 10,
+    "command": "python -m pytest -q"
+  },
+  "wheel": "gpu2tensor-0.1.0-py3-none-any.whl",
+  "wheel_sha256": "d13d51d2f42da17fe5e3a07a7532e85a121bc51611be353e2229eb0518e47ee4",
+  "client_environment": "fresh NumPy-only venv outside checkout",
+  "excludes": [
+    "tests",
+    "gpu2tensor.dev"
+  ],
+  "checked_at": "2026-09-08T05:17:01.794439+00:00"
+}

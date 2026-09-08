@@ -1,0 +1,5770 @@
+{
+  "version": 1,
+  "description": "Recorded A10G profile metadata; raw vendor artifacts are not included.",
+  "classes": [
+    "one launch per row",
+    "one launch for all rows"
+  ],
+  "samples": [
+    {
+      "seed": 0,
+      "rows": 8,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "2076690d68521bc28ec2cad06589340ab1f5858ddbfdc701b67428e70a86e143"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "cf237fde891523f90becfcb74103f40fd3710b3be200da814ce053adf5d3bc13"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c54aabc539f25b53b7d888909b88852f5567ebfb57db98e29391b071d828c57e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45080358499990325,
+        "latency_ms": [
+          0.2754560112953186,
+          0.24268800020217896,
+          0.3164159953594208,
+          0.2385919988155365,
+          0.23552000522613525,
+          0.29286399483680725,
+          0.2528960108757019,
+          0.24780799448490143,
+          0.2764799892902374,
+          0.27241599559783936,
+          0.2529279887676239,
+          0.2815999984741211,
+          0.26419198513031006,
+          0.2590720057487488,
+          0.26419198513031006,
+          0.25088000297546387,
+          0.2539519965648651,
+          0.2540160119533539,
+          0.2529279887676239,
+          0.2826240062713623,
+          0.2529279887676239,
+          0.25088000297546387,
+          0.27852800488471985,
+          0.24985599517822266,
+          0.2540160119533539,
+          0.3123199939727783,
+          0.2529279887676239,
+          0.2467840015888214,
+          0.30720001459121704,
+          0.2529279887676239
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 8,
+          "kernel_groups": 1,
+          "device_time_ns": 13375,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "rows": 8,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "2076690d68521bc28ec2cad06589340ab1f5858ddbfdc701b67428e70a86e143"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "cf237fde891523f90becfcb74103f40fd3710b3be200da814ce053adf5d3bc13"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c54aabc539f25b53b7d888909b88852f5567ebfb57db98e29391b071d828c57e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45560851200002617,
+        "latency_ms": [
+          0.09113600105047226,
+          0.05427199974656105,
+          0.05734400078654289,
+          0.050175998359918594,
+          0.050144001841545105,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.07577600330114365,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.048128001391887665,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.053247999399900436,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.05939200147986412,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.11366400122642517,
+          0.05427199974656105,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.04918399825692177
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1887,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "rows": 16,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "128fb79384e32f741b0f520a9e57d8d1bff614da16c2111b1578bde443de8ac4"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "7fd9504dd204038153ccace2bd47444d672a87467fd4b7bb29353acf7d29d389"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "631e6033bb2c2cf0126d5ae2ed5807521afaf8de0346a6a422b1a202c3bfbb51"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4539056639998762,
+        "latency_ms": [
+          0.4833280146121979,
+          0.4413439929485321,
+          0.43724799156188965,
+          0.4341759979724884,
+          0.4536319971084595,
+          0.4792320132255554,
+          0.4331519901752472,
+          0.46489599347114563,
+          0.4270080029964447,
+          0.4700160026550293,
+          0.4270080029964447,
+          0.5038080215454102,
+          0.43929600715637207,
+          0.46694400906562805,
+          0.43219199776649475,
+          0.4556800127029419,
+          0.42905598878860474,
+          0.4403199851512909,
+          0.43007999658584595,
+          0.45158401131629944,
+          0.506879985332489,
+          0.42396798729896545,
+          0.4679679870605469,
+          0.42905598878860474,
+          0.4567039906978607,
+          0.4249599874019623,
+          0.45875200629234314,
+          0.4536319971084595,
+          0.49561598896980286,
+          0.4270080029964447
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 16,
+          "kernel_groups": 1,
+          "device_time_ns": 26368,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "rows": 16,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "128fb79384e32f741b0f520a9e57d8d1bff614da16c2111b1578bde443de8ac4"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "7fd9504dd204038153ccace2bd47444d672a87467fd4b7bb29353acf7d29d389"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "631e6033bb2c2cf0126d5ae2ed5807521afaf8de0346a6a422b1a202c3bfbb51"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4510164599998916,
+        "latency_ms": [
+          0.05939200147986412,
+          0.053247999399900436,
+          0.053247999399900436,
+          0.050175998359918594,
+          0.04816000163555145,
+          0.050175998359918594,
+          0.05427199974656105,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.04918399825692177,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.07161600142717361,
+          0.053247999399900436,
+          0.04915200173854828,
+          0.05116799846291542,
+          0.050175998359918594,
+          0.04918399825692177,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.05939200147986412,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.048128001391887665,
+          0.04915200173854828,
+          0.04816000163555145
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1888,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "rows": 32,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "afb9825a6df7150ed3c35dbaed712813eced3e3fd34175de6ef3db4921f6127a"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "3d487aa84f5d7fd218a9ada44e60555512ca81559ce8b52f61a4c23684a1fac8"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45423016800009464,
+        "latency_ms": [
+          0.839680016040802,
+          0.8212479948997498,
+          0.8540160059928894,
+          0.8837119936943054,
+          0.8775680065155029,
+          0.8407040238380432,
+          0.8561279773712158,
+          0.894976019859314,
+          0.8806399703025818,
+          0.8601599931716919,
+          0.8499199748039246,
+          0.8919039964675903,
+          0.8468480110168457,
+          0.8499199748039246,
+          0.8447999954223633,
+          0.8847360014915466,
+          0.8468480110168457,
+          0.8161280155181885,
+          0.8242560029029846,
+          0.826367974281311,
+          0.881663978099823,
+          0.8355839848518372,
+          0.8407040238380432,
+          0.8560640215873718,
+          0.881663978099823,
+          0.8560640215873718,
+          0.8458240032196045,
+          0.8468480110168457,
+          0.92467200756073,
+          0.8427519798278809
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 32,
+          "kernel_groups": 1,
+          "device_time_ns": 52189,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "rows": 32,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "afb9825a6df7150ed3c35dbaed712813eced3e3fd34175de6ef3db4921f6127a"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "3d487aa84f5d7fd218a9ada44e60555512ca81559ce8b52f61a4c23684a1fac8"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45541263399991294,
+        "latency_ms": [
+          0.06143999844789505,
+          0.05427199974656105,
+          0.07791999727487564,
+          0.05427199974656105,
+          0.050175998359918594,
+          0.05222399905323982,
+          0.05222399905323982,
+          0.05427199974656105,
+          0.051231998950242996,
+          0.050175998359918594,
+          0.08396799862384796,
+          0.05222399905323982,
+          0.05119999870657921,
+          0.05119999870657921,
+          0.05222399905323982,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.05119999870657921,
+          0.09216000139713287,
+          0.05734400078654289,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.053247999399900436,
+          0.050175998359918594,
+          0.049215998500585556,
+          0.09110400080680847,
+          0.05423999950289726,
+          0.05119999870657921,
+          0.050175998359918594
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1921,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "rows": 64,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "8c90f9bba6e0f25858b1cb325df794e06e446a576a5559118242e9e0071dd1df"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "8b3fe6cbf9d662f6d0ccda1239390bfdc07adc257dbff33f77ef87a2f89c37c4"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e51bf9cfe57b929cf87feceb0694887b19e3891f348503784f3823e30490fc30"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.453578324000091,
+        "latency_ms": [
+          1.6885759830474854,
+          1.6834559440612793,
+          1.696768045425415,
+          1.6814080476760864,
+          1.7080320119857788,
+          1.6506880521774292,
+          1.7315839529037476,
+          1.7541120052337646,
+          1.8053439855575562,
+          1.7950719594955444,
+          1.814527988433838,
+          1.7541120052337646,
+          1.844223976135254,
+          1.7592320442199707,
+          1.7295360565185547,
+          1.743872046470642,
+          1.7479679584503174,
+          1.7960959672927856,
+          1.837056040763855,
+          1.7571840286254883,
+          1.7408000230789185,
+          1.7367039918899536,
+          1.7203199863433838,
+          1.7356799840927124,
+          1.7418240308761597,
+          1.7397760152816772,
+          1.7479679584503174,
+          1.8606079816818237,
+          1.7479679584503174,
+          1.7582080364227295
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 64,
+          "kernel_groups": 1,
+          "device_time_ns": 104161,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "rows": 64,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "8c90f9bba6e0f25858b1cb325df794e06e446a576a5559118242e9e0071dd1df"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "8b3fe6cbf9d662f6d0ccda1239390bfdc07adc257dbff33f77ef87a2f89c37c4"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e51bf9cfe57b929cf87feceb0694887b19e3891f348503784f3823e30490fc30"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.44941396200010786,
+        "latency_ms": [
+          0.05939200147986412,
+          0.05222399905323982,
+          0.07372800260782242,
+          0.053247999399900436,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.05222399905323982,
+          0.04915200173854828,
+          0.05222399905323982,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.05939200147986412,
+          0.05222399905323982,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.048128001391887665,
+          0.050175998359918594,
+          0.06969600170850754,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04912000149488449
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1952,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "rows": 8,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "165af17f8aefe581407e8a258574032d6b60a14ee5e8e8827ef1ef7a2857d721"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "8c204dc21385a3f4f48d0601017204fba1324976c13af791236d2a3034252283"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c54aabc539f25b53b7d888909b88852f5567ebfb57db98e29391b071d828c57e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4455932670000493,
+        "latency_ms": [
+          0.2539519965648651,
+          0.2467840015888214,
+          0.30003198981285095,
+          0.24166400730609894,
+          0.24883200228214264,
+          0.2478400021791458,
+          0.24268800020217896,
+          0.24268800020217896,
+          0.26419198513031006,
+          0.2549760043621063,
+          0.24166400730609894,
+          0.27136000990867615,
+          0.24063999950885773,
+          0.24268800020217896,
+          0.3092480003833771,
+          0.24473600089550018,
+          0.24268800020217896,
+          0.27750399708747864,
+          0.24063999950885773,
+          0.24166400730609894,
+          0.26521599292755127,
+          0.25705599784851074,
+          0.24166400730609894,
+          0.27238398790359497,
+          0.24166400730609894,
+          0.24063999950885773,
+          0.30003198981285095,
+          0.24268800020217896,
+          0.24063999950885773,
+          0.27238398790359497
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 8,
+          "kernel_groups": 1,
+          "device_time_ns": 13441,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "rows": 8,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "165af17f8aefe581407e8a258574032d6b60a14ee5e8e8827ef1ef7a2857d721"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "8c204dc21385a3f4f48d0601017204fba1324976c13af791236d2a3034252283"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c54aabc539f25b53b7d888909b88852f5567ebfb57db98e29391b071d828c57e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4468399040001714,
+        "latency_ms": [
+          0.05939200147986412,
+          0.053247999399900436,
+          0.05222399905323982,
+          0.05830400064587593,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.050144001841545105,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.05222399905323982,
+          0.0490880012512207,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.05119999870657921,
+          0.049215998500585556,
+          0.07065600156784058,
+          0.050175998359918594,
+          0.048128001391887665,
+          0.048128001391887665,
+          0.04915200173854828,
+          0.0490880012512207,
+          0.050144001841545105,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.062463998794555664,
+          0.050175998359918594
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1920,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "rows": 16,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "f5df66c815d8553dc8618775e12c47e2daa17105991f6fd3ba6de67aa0d56faf"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c01531a3ee92bff75d537a4ecb7287238849daba8ec3084d0bd4b6c9cc7914a0"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "631e6033bb2c2cf0126d5ae2ed5807521afaf8de0346a6a422b1a202c3bfbb51"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4532712069999434,
+        "latency_ms": [
+          0.44543999433517456,
+          0.4628480076789856,
+          0.43007999658584595,
+          0.42905598878860474,
+          0.43007999658584595,
+          0.4536319971084595,
+          0.4853760004043579,
+          0.43110400438308716,
+          0.45875200629234314,
+          0.43007999658584595,
+          0.4700480103492737,
+          0.4249599874019623,
+          0.5079039931297302,
+          0.4403199851512909,
+          0.48127999901771545,
+          0.4341759979724884,
+          0.4618239998817444,
+          0.43007999658584595,
+          0.4556800127029419,
+          0.4259839951992035,
+          0.4607999920845032,
+          0.48633599281311035,
+          0.43827199935913086,
+          0.4700160026550293,
+          0.4270080029964447,
+          0.4536319971084595,
+          0.42393600940704346,
+          0.4628480076789856,
+          0.43932801485061646,
+          0.4986880123615265
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 16,
+          "kernel_groups": 1,
+          "device_time_ns": 26143,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "rows": 16,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "f5df66c815d8553dc8618775e12c47e2daa17105991f6fd3ba6de67aa0d56faf"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c01531a3ee92bff75d537a4ecb7287238849daba8ec3084d0bd4b6c9cc7914a0"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "631e6033bb2c2cf0126d5ae2ed5807521afaf8de0346a6a422b1a202c3bfbb51"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4473160550001012,
+        "latency_ms": [
+          0.060416001826524734,
+          0.055296000093221664,
+          0.05427199974656105,
+          0.05222399905323982,
+          0.05119999870657921,
+          0.05427199974656105,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.05023999884724617,
+          0.05023999884724617,
+          0.07475200295448303,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.060416001826524734,
+          0.05222399905323982,
+          0.050175998359918594,
+          0.051231998950242996,
+          0.050175998359918594,
+          0.04918399825692177,
+          0.050175998359918594,
+          0.05119999870657921
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1888,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "rows": 32,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "81b95ad35ae40207bf9d58c1ac22161034eab4823e33bc91bebee40ddda2ac8d"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e6f2c49851182909b503fc22db9ff22d550cdd002947caddcf15e7c9d5653a4f"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45001736500012157,
+        "latency_ms": [
+          0.8591359853744507,
+          0.8407040238380432,
+          0.8468800187110901,
+          0.8898559808731079,
+          0.8765439987182617,
+          0.8642560243606567,
+          0.8611840009689331,
+          0.8888319730758667,
+          0.899071991443634,
+          0.8632320165634155,
+          0.8478720188140869,
+          0.8468480110168457,
+          0.9042559862136841,
+          0.8509439826011658,
+          0.8386560082435608,
+          0.8437759876251221,
+          0.8970239758491516,
+          0.92876797914505,
+          0.92467200756073,
+          0.8878080248832703,
+          0.8919039964675903,
+          0.9041919708251953,
+          0.8837119936943054,
+          0.8908799886703491,
+          0.8704000115394592,
+          0.891871988773346,
+          0.8673279881477356,
+          0.9820160269737244,
+          0.8673279881477356,
+          0.8857600092887878
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 32,
+          "kernel_groups": 1,
+          "device_time_ns": 52128,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "rows": 32,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "81b95ad35ae40207bf9d58c1ac22161034eab4823e33bc91bebee40ddda2ac8d"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e6f2c49851182909b503fc22db9ff22d550cdd002947caddcf15e7c9d5653a4f"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4487109659999078,
+        "latency_ms": [
+          0.05939200147986412,
+          0.053247999399900436,
+          0.05222399905323982,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.053247999399900436,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.05222399905323982,
+          0.050175998359918594,
+          0.048128001391887665,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.05427199974656105,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.05116799846291542,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.053247999399900436,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.050144001841545105,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1920,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "rows": 64,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 2.384185791015625e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "0c063e7d6c062779007f924eeffb93146c544f5a141bd74200c7c602a9f5549d"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "785f93fdcca22795a4617cd079cfb42d1b8deae7d412920694b9a079daf5e106"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e51bf9cfe57b929cf87feceb0694887b19e3891f348503784f3823e30490fc30"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.459170198000038,
+        "latency_ms": [
+          1.6414719820022583,
+          1.614848017692566,
+          1.6926720142364502,
+          1.6353280544281006,
+          1.6547839641571045,
+          1.6721919775009155,
+          1.7059839963912964,
+          1.6752640008926392,
+          1.670143961906433,
+          1.632256031036377,
+          1.6046080589294434,
+          1.8206720352172852,
+          1.6261119842529297,
+          1.669119954109192,
+          1.6138240098953247,
+          1.6977920532226562,
+          1.6855039596557617,
+          1.7182719707489014,
+          1.6783360242843628,
+          1.6035840511322021,
+          1.649664044380188,
+          1.6506880521774292,
+          1.6312320232391357,
+          1.619968056678772,
+          1.6486400365829468,
+          1.670143961906433,
+          1.644544005393982,
+          1.6179200410842896,
+          1.628159999847412,
+          1.6209919452667236
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 64,
+          "kernel_groups": 1,
+          "device_time_ns": 104160,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "rows": 64,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 2.384185791015625e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "0c063e7d6c062779007f924eeffb93146c544f5a141bd74200c7c602a9f5549d"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "785f93fdcca22795a4617cd079cfb42d1b8deae7d412920694b9a079daf5e106"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e51bf9cfe57b929cf87feceb0694887b19e3891f348503784f3823e30490fc30"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.44972477200008143,
+        "latency_ms": [
+          0.06239999830722809,
+          0.053247999399900436,
+          0.05632000043988228,
+          0.05222399905323982,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.053247999399900436,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.0490880012512207,
+          0.05222399905323982,
+          0.06860800087451935,
+          0.05222399905323982,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.05427199974656105,
+          0.050175998359918594,
+          0.050144001841545105,
+          0.07782399654388428,
+          0.05632000043988228,
+          0.05222399905323982,
+          0.05119999870657921,
+          0.05427199974656105
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1728,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "rows": 8,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "1562a07963cd7175d487215031a427e76dc5e9c364bd2d631a61cb689bcaeeb6"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "07074cb5f376cba0bcf416df8f1c32258e6f3edb5a92ccd4e0fbdc8b0ba1a497"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c54aabc539f25b53b7d888909b88852f5567ebfb57db98e29391b071d828c57e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45548135000012735,
+        "latency_ms": [
+          0.26927998661994934,
+          0.24166400730609894,
+          0.3102720081806183,
+          0.24063999950885773,
+          0.23756800591945648,
+          0.29183998703956604,
+          0.24166400730609894,
+          0.2396160066127777,
+          0.2662400007247925,
+          0.2385919988155365,
+          0.24166400730609894,
+          0.2672640085220337,
+          0.2529279887676239,
+          0.23958399891853333,
+          0.3112959861755371,
+          0.23756800591945648,
+          0.24063999950885773,
+          0.29900801181793213,
+          0.23654399812221527,
+          0.23654399812221527,
+          0.26419198513031006,
+          0.2396160066127777,
+          0.2396160066127777,
+          0.26214399933815,
+          0.23756800591945648,
+          0.24371199309825897,
+          0.3020159900188446,
+          0.24166400730609894,
+          0.23654399812221527,
+          0.2887040078639984
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 8,
+          "kernel_groups": 1,
+          "device_time_ns": 13440,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "rows": 8,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "1562a07963cd7175d487215031a427e76dc5e9c364bd2d631a61cb689bcaeeb6"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "07074cb5f376cba0bcf416df8f1c32258e6f3edb5a92ccd4e0fbdc8b0ba1a497"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c54aabc539f25b53b7d888909b88852f5567ebfb57db98e29391b071d828c57e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4505125200000748,
+        "latency_ms": [
+          0.0655359998345375,
+          0.053247999399900436,
+          0.06143999844789505,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.07372800260782242,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.048128001391887665,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.05939200147986412,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.05222399905323982,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.048128001391887665,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.08191999793052673,
+          0.05222399905323982,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1728,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "rows": 16,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 2.384185791015625e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "85d1114f41cc942c9c53aedcc0050364598929d6a1e9813aee6b9566433654e7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "79996831af8372d29eb954ccca9f78eef283d435937691f6342b30062ccb6480"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "631e6033bb2c2cf0126d5ae2ed5807521afaf8de0346a6a422b1a202c3bfbb51"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.450090100999887,
+        "latency_ms": [
+          0.4331519901752472,
+          0.4638719856739044,
+          0.4362559914588928,
+          0.4700160026550293,
+          0.4341759979724884,
+          0.45260798931121826,
+          0.4280320107936859,
+          0.4546560049057007,
+          0.42905598878860474,
+          0.45158401131629944,
+          0.42905598878860474,
+          0.4352000057697296,
+          0.4270080029964447,
+          0.43212801218032837,
+          0.45158401131629944,
+          0.43004798889160156,
+          0.45260798931121826,
+          0.44950398802757263,
+          0.4679679870605469,
+          0.4270080029964447,
+          0.4679679870605469,
+          0.4249599874019623,
+          0.4618239998817444,
+          0.42399999499320984,
+          0.4628480076789856,
+          0.4403199851512909,
+          0.4638719856739044,
+          0.4566720128059387,
+          0.4546560049057007,
+          0.4290879964828491
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 16,
+          "kernel_groups": 1,
+          "device_time_ns": 26432,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "rows": 16,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 2.384185791015625e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "85d1114f41cc942c9c53aedcc0050364598929d6a1e9813aee6b9566433654e7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "79996831af8372d29eb954ccca9f78eef283d435937691f6342b30062ccb6480"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "631e6033bb2c2cf0126d5ae2ed5807521afaf8de0346a6a422b1a202c3bfbb51"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.44746822399997654,
+        "latency_ms": [
+          0.060416001826524734,
+          0.10035199671983719,
+          0.055296000093221664,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.04918399825692177,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.0727040022611618,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.05222399905323982,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.06143999844789505,
+          0.04915200173854828,
+          0.05011200159788132,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.06860800087451935,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.04915200173854828
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1888,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "rows": 32,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 2.384185791015625e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "97f8d601b28bda1eaa43d4939f6214afe07558d5e7ae9b908bcb8f6a2454af40"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "308fb2d4a505145e9871b60c1ab4ec629a53ad765e496cedbc9312d343713ba9"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45355943699996715,
+        "latency_ms": [
+          0.8632320165634155,
+          0.8304640054702759,
+          0.9041919708251953,
+          0.8355839848518372,
+          0.8120319843292236,
+          0.8191999793052673,
+          0.857088029384613,
+          0.9041919708251953,
+          0.8857600092887878,
+          0.8519359827041626,
+          0.8561279773712158,
+          0.8366079926490784,
+          0.8796160221099854,
+          0.8366079926490784,
+          0.8704000115394592,
+          0.8560640215873718,
+          0.9031680226325989,
+          0.8663039803504944,
+          0.8919039964675903,
+          0.8489279747009277,
+          0.8447999954223633,
+          0.8376320004463196,
+          0.8499199748039246,
+          0.8346239924430847,
+          0.8160960078239441,
+          0.8325120210647583,
+          0.8632320165634155,
+          0.8980479836463928,
+          0.8499199748039246,
+          0.8427519798278809
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 32,
+          "kernel_groups": 1,
+          "device_time_ns": 51936,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "rows": 32,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 2.384185791015625e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "97f8d601b28bda1eaa43d4939f6214afe07558d5e7ae9b908bcb8f6a2454af40"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "308fb2d4a505145e9871b60c1ab4ec629a53ad765e496cedbc9312d343713ba9"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4528502779999144,
+        "latency_ms": [
+          0.05939200147986412,
+          0.06143999844789505,
+          0.053247999399900436,
+          0.05215999856591225,
+          0.05020799860358238,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.04918399825692177,
+          0.04915200173854828,
+          0.05222399905323982,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.055296000093221664,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.048128001391887665,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.11062400043010712,
+          0.05427199974656105,
+          0.050175998359918594,
+          0.062463998794555664,
+          0.04915200173854828
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1920,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "rows": 64,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 2.384185791015625e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "f06c522374b6402a04e6269150f49dea6855270e41d061fcda8325f1d735e339"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "f94fa1b72ca181583e76b94c7cfab8a69bdc1f7c6f9afc83ea662ee37cc1e41b"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e51bf9cfe57b929cf87feceb0694887b19e3891f348503784f3823e30490fc30"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.46194719899995107,
+        "latency_ms": [
+          1.7428480386734009,
+          1.6640000343322754,
+          1.6844799518585205,
+          1.6855039596557617,
+          1.773568034172058,
+          1.661952018737793,
+          1.6567679643630981,
+          1.6229759454727173,
+          1.6373759508132935,
+          1.679360032081604,
+          1.6312320232391357,
+          1.652735948562622,
+          1.6383999586105347,
+          1.6455680131912231,
+          1.6332800388336182,
+          1.6117759943008423,
+          1.667072057723999,
+          1.6711679697036743,
+          1.649664044380188,
+          1.629248023033142,
+          1.6312320232391357,
+          1.6435199975967407,
+          1.6414719820022583,
+          1.6240639686584473,
+          1.6189440488815308,
+          1.6588799953460693,
+          1.6465920209884644,
+          1.6393920183181763,
+          1.6209919452667236,
+          1.6609280109405518
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 64,
+          "kernel_groups": 1,
+          "device_time_ns": 103809,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "rows": 64,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 2.384185791015625e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "f06c522374b6402a04e6269150f49dea6855270e41d061fcda8325f1d735e339"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "f94fa1b72ca181583e76b94c7cfab8a69bdc1f7c6f9afc83ea662ee37cc1e41b"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e51bf9cfe57b929cf87feceb0694887b19e3891f348503784f3823e30490fc30"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45830402799992953,
+        "latency_ms": [
+          0.060416001826524734,
+          0.05427199974656105,
+          0.05427199974656105,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.055296000093221664,
+          0.05119999870657921,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.05020799860358238,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.050144001841545105,
+          0.07676800340414047,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.050335999578237534,
+          0.04915200173854828,
+          0.09935999661684036,
+          0.05427199974656105,
+          0.04915200173854828,
+          0.06047999858856201,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.056384000927209854
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1951,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "rows": 8,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.7881393432617188e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "73f32561e8cdb8ec7e9e29973dd8011a1c96518d5f2d7d9f58937ec4842ecc80"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c68d7da7a4ab4c09cf926d7707102113a59c0ac6c479adc752e37b9e3c3f34f3"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c54aabc539f25b53b7d888909b88852f5567ebfb57db98e29391b071d828c57e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4494666530001723,
+        "latency_ms": [
+          0.24985599517822266,
+          0.25804799795150757,
+          0.24166400730609894,
+          0.24063999950885773,
+          0.2457599937915802,
+          0.2396160066127777,
+          0.24371199309825897,
+          0.24268800020217896,
+          0.2662400007247925,
+          0.2539519965648651,
+          0.2549760043621063,
+          0.25088000297546387,
+          0.32153600454330444,
+          0.2611199915409088,
+          0.24883200228214264,
+          0.29183998703956604,
+          0.25600001215934753,
+          0.25702399015426636,
+          0.27955201268196106,
+          0.26316800713539124,
+          0.25088000297546387,
+          0.27955201268196106,
+          0.2519040107727051,
+          0.2539519965648651,
+          0.32252800464630127,
+          0.2539519965648651,
+          0.2528640031814575,
+          0.29183998703956604,
+          0.2529279887676239,
+          0.2519040107727051
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 8,
+          "kernel_groups": 1,
+          "device_time_ns": 13440,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "rows": 8,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.7881393432617188e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "73f32561e8cdb8ec7e9e29973dd8011a1c96518d5f2d7d9f58937ec4842ecc80"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c68d7da7a4ab4c09cf926d7707102113a59c0ac6c479adc752e37b9e3c3f34f3"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c54aabc539f25b53b7d888909b88852f5567ebfb57db98e29391b071d828c57e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45164357100020425,
+        "latency_ms": [
+          0.05939200147986412,
+          0.05225599929690361,
+          0.05222399905323982,
+          0.050175998359918594,
+          0.05113599821925163,
+          0.09932799637317657,
+          0.05427199974656105,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.048128001391887665,
+          0.04915200173854828,
+          0.055296000093221664,
+          0.050175998359918594,
+          0.048128001391887665,
+          0.053247999399900436,
+          0.049215998500585556,
+          0.04912000149488449,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.04819199815392494,
+          0.05222399905323982,
+          0.048128001391887665,
+          0.04915200173854828,
+          0.048128001391887665,
+          0.048128001391887665
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1920,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "rows": 16,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.7881393432617188e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "3e258e53c3165cc209a8a8d78f5914492b602f2a3c00007c287ed1f51eb56a7e"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e35f20a0d544bf8c9c4165b29179825e271f63ca673887ef10da3e40f568e603"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "631e6033bb2c2cf0126d5ae2ed5807521afaf8de0346a6a422b1a202c3bfbb51"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.44696706800004904,
+        "latency_ms": [
+          0.47308799624443054,
+          0.44543999433517456,
+          0.4556800127029419,
+          0.43110400438308716,
+          0.44947201013565063,
+          0.47513601183891296,
+          0.45158401131629944,
+          0.48947200179100037,
+          0.48947200179100037,
+          0.45977601408958435,
+          0.43212801218032837,
+          0.4567039906978607,
+          0.44543999433517456,
+          0.49561598896980286,
+          0.43007999658584595,
+          0.46592000126838684,
+          0.43724799156188965,
+          0.47414401173591614,
+          0.434112012386322,
+          0.4433920085430145,
+          0.4536319971084595,
+          0.4352000057697296,
+          0.45875200629234314,
+          0.43007999658584595,
+          0.4556800127029419,
+          0.43212801218032837,
+          0.4505600035190582,
+          0.4413439929485321,
+          0.4618239998817444,
+          0.42905598878860474
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 16,
+          "kernel_groups": 1,
+          "device_time_ns": 26336,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "rows": 16,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.7881393432617188e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "3e258e53c3165cc209a8a8d78f5914492b602f2a3c00007c287ed1f51eb56a7e"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e35f20a0d544bf8c9c4165b29179825e271f63ca673887ef10da3e40f568e603"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "631e6033bb2c2cf0126d5ae2ed5807521afaf8de0346a6a422b1a202c3bfbb51"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.44190666800000145,
+        "latency_ms": [
+          0.059328000992536545,
+          0.060416001826524734,
+          0.05321599915623665,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.048128001391887665,
+          0.05011200159788132,
+          0.048128001391887665,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.06348799914121628,
+          0.05119999870657921,
+          0.053247999399900436,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.07065600156784058,
+          0.04915200173854828,
+          0.04912000149488449,
+          0.048128001391887665,
+          0.048128001391887665,
+          0.05119999870657921,
+          0.048128001391887665,
+          0.048128001391887665,
+          0.050175998359918594,
+          0.058368001133203506,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.048128001391887665
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1696,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "rows": 32,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.7881393432617188e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "b12a6eb8eab5a30fbe4e2887c0dcbb98730bd745e440f825991c6facfc0e4245"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "d89f785e9f16f0335b66bd0b931647d72dcfce0293a97067dfea26acc22c02ac"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.44822794800006704,
+        "latency_ms": [
+          0.886784017086029,
+          0.8325120210647583,
+          0.8376320004463196,
+          0.8130879998207092,
+          0.8304640054702759,
+          0.8673279881477356,
+          0.8632320165634155,
+          0.8325120210647583,
+          0.8725119829177856,
+          0.8806399703025818,
+          0.8826879858970642,
+          0.826367974281311,
+          0.8673279881477356,
+          0.8335360288619995,
+          0.8284159898757935,
+          0.839743971824646,
+          0.8632320165634155,
+          0.8447359800338745,
+          0.8007680177688599,
+          0.809984028339386,
+          0.8632320165634155,
+          0.8744959831237793,
+          0.8386880159378052,
+          0.8355839848518372,
+          0.8304640054702759,
+          0.8724480271339417,
+          0.834559977054596,
+          0.8406720161437988,
+          0.8366079926490784,
+          0.8663039803504944
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 32,
+          "kernel_groups": 1,
+          "device_time_ns": 52384,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "rows": 32,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.7881393432617188e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "b12a6eb8eab5a30fbe4e2887c0dcbb98730bd745e440f825991c6facfc0e4245"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "d89f785e9f16f0335b66bd0b931647d72dcfce0293a97067dfea26acc22c02ac"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4493767740000294,
+        "latency_ms": [
+          0.062463998794555664,
+          0.055296000093221664,
+          0.058368001133203506,
+          0.053247999399900436,
+          0.06348799914121628,
+          0.05427199974656105,
+          0.07782399654388428,
+          0.05632000043988228,
+          0.053247999399900436,
+          0.07782399654388428,
+          0.053247999399900436,
+          0.05222399905323982,
+          0.050175998359918594,
+          0.054368000477552414,
+          0.05222399905323982,
+          0.053247999399900436,
+          0.050175998359918594,
+          0.10342399775981903,
+          0.055296000093221664,
+          0.05119999870657921,
+          0.05222399905323982,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.05843200162053108,
+          0.05222399905323982,
+          0.051263999193906784,
+          0.053247999399900436,
+          0.05119999870657921
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1920,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "rows": 64,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.7881393432617188e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "0884249ce51390dbd22d2afa62b90e57901f9d9b656c790f5708b18625da1552"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e91f4a6667f3306acc8b3fe552f6a3c2bdf6952634620acd25d2c543971ff571"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e51bf9cfe57b929cf87feceb0694887b19e3891f348503784f3823e30490fc30"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.46306393700001536,
+        "latency_ms": [
+          1.7418240308761597,
+          1.7315839529037476,
+          1.6660480499267578,
+          1.656831979751587,
+          1.7418240308761597,
+          1.6926720142364502,
+          1.8206720352172852,
+          1.6639679670333862,
+          1.7080639600753784,
+          1.632256031036377,
+          1.7111040353775024,
+          1.6803840398788452,
+          1.732640027999878,
+          1.6680959463119507,
+          1.6465920209884644,
+          1.6353280544281006,
+          1.6517119407653809,
+          1.6312320232391357,
+          1.6588799953460693,
+          1.6138559579849243,
+          1.6476160287857056,
+          1.6383999586105347,
+          1.6506880521774292,
+          1.6517119407653809,
+          1.6599040031433105,
+          1.6967040300369263,
+          1.6353280544281006,
+          1.6250879764556885,
+          1.6465920209884644,
+          1.6609280109405518
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 64,
+          "kernel_groups": 1,
+          "device_time_ns": 104159,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "rows": 64,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.7881393432617188e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "0884249ce51390dbd22d2afa62b90e57901f9d9b656c790f5708b18625da1552"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e91f4a6667f3306acc8b3fe552f6a3c2bdf6952634620acd25d2c543971ff571"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e51bf9cfe57b929cf87feceb0694887b19e3891f348503784f3823e30490fc30"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4501894610000363,
+        "latency_ms": [
+          0.06143999844789505,
+          0.05427199974656105,
+          0.05523199960589409,
+          0.051263999193906784,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.09216000139713287,
+          0.05225599929690361,
+          0.04918399825692177,
+          0.05119999870657921,
+          0.05119999870657921,
+          0.05113599821925163,
+          0.050175998359918594,
+          0.05116799846291542,
+          0.07680000364780426,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.05119999870657921,
+          0.04918399825692177,
+          0.050175998359918594,
+          0.08505599945783615,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.050175998359918594
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1952,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "rows": 8,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "8d64618fb28fd9b8911d66ceb7fa0fec7d06adae11e3337a36608b6620957d82"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "000c26534e87b435e6dd7829f5008a6536ca081e7fe2e22bf07bcd8485428e45"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c54aabc539f25b53b7d888909b88852f5567ebfb57db98e29391b071d828c57e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4551874830001452,
+        "latency_ms": [
+          0.25600001215934753,
+          0.24473600089550018,
+          0.2396160066127777,
+          0.24268800020217896,
+          0.23759999871253967,
+          0.24063999950885773,
+          0.2539519965648651,
+          0.24883200228214264,
+          0.23654399812221527,
+          0.24063999950885773,
+          0.23756800591945648,
+          0.23552000522613525,
+          0.2662400007247925,
+          0.23756800591945648,
+          0.23552000522613525,
+          0.2805759906768799,
+          0.2396160066127777,
+          0.24063999950885773,
+          0.30720001459121704,
+          0.24883200228214264,
+          0.23759999871253967,
+          0.2651839852333069,
+          0.23552000522613525,
+          0.23552000522613525,
+          0.26214399933815,
+          0.23552000522613525,
+          0.23763200640678406,
+          0.2826240062713623,
+          0.23756800591945648,
+          0.2385919988155365
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 8,
+          "kernel_groups": 1,
+          "device_time_ns": 13408,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "rows": 8,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "8d64618fb28fd9b8911d66ceb7fa0fec7d06adae11e3337a36608b6620957d82"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "000c26534e87b435e6dd7829f5008a6536ca081e7fe2e22bf07bcd8485428e45"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c54aabc539f25b53b7d888909b88852f5567ebfb57db98e29391b071d828c57e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.44524618199989163,
+        "latency_ms": [
+          0.058368001133203506,
+          0.055296000093221664,
+          0.05119999870657921,
+          0.05011200159788132,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.05318399891257286,
+          0.05222399905323982,
+          0.04915200173854828,
+          0.062463998794555664,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.048128001391887665,
+          0.07264000177383423,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.048128001391887665,
+          0.048128001391887665,
+          0.050175998359918594,
+          0.048128001391887665,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.053247999399900436,
+          0.051231998950242996,
+          0.04915200173854828,
+          0.04915200173854828
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1920,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "rows": 16,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ffb083e7d8c520f15f5c890dd770656fbf753102bad04ddd7267255b478af468"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "da86f657750af51849d59585c2db8e9222d6f2791d6b765854cbec6ddf5f26bb"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "631e6033bb2c2cf0126d5ae2ed5807521afaf8de0346a6a422b1a202c3bfbb51"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4455651589998979,
+        "latency_ms": [
+          0.44441598653793335,
+          0.4536319971084595,
+          0.42393600940704346,
+          0.49663999676704407,
+          0.44646400213241577,
+          0.5058559775352478,
+          0.4331519901752472,
+          0.4607999920845032,
+          0.45267200469970703,
+          0.4249599874019623,
+          0.4536319971084595,
+          0.4208639860153198,
+          0.49663999676704407,
+          0.42188799381256104,
+          0.4833280146121979,
+          0.4413439929485321,
+          0.4556800127029419,
+          0.4249599874019623,
+          0.4505600035190582,
+          0.42188799381256104,
+          0.4935680031776428,
+          0.42393600940704346,
+          0.449535995721817,
+          0.4259839951992035,
+          0.4536319971084595,
+          0.4249599874019623,
+          0.45158401131629944,
+          0.4259839951992035,
+          0.4484480023384094,
+          0.4485119879245758
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 16,
+          "kernel_groups": 1,
+          "device_time_ns": 26239,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "rows": 16,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ffb083e7d8c520f15f5c890dd770656fbf753102bad04ddd7267255b478af468"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "da86f657750af51849d59585c2db8e9222d6f2791d6b765854cbec6ddf5f26bb"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "631e6033bb2c2cf0126d5ae2ed5807521afaf8de0346a6a422b1a202c3bfbb51"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45553760999996484,
+        "latency_ms": [
+          0.060416001826524734,
+          0.0798719972372055,
+          0.053247999399900436,
+          0.05119999870657921,
+          0.05011200159788132,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.0727040022611618,
+          0.05222399905323982,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.05011200159788132,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.06758400052785873,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.05020799860358238,
+          0.05734400078654289,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.05119999870657921
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1727,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "rows": 32,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "b9969767445e9bd31815dcd599a6df9368f36372b12fb823d6c6e231016dbd1c"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4575264937999354ee5fc9fd8d95f2a7093f20eb1f7f1eef1d1d304a6c25c095"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4514289489998191,
+        "latency_ms": [
+          0.8970239758491516,
+          0.8458240032196045,
+          0.8447679877281189,
+          0.8796160221099854,
+          0.8683519959449768,
+          0.8478720188140869,
+          0.8611840009689331,
+          0.8232960104942322,
+          0.8284159898757935,
+          0.8335360288619995,
+          0.8826879858970642,
+          0.857088029384613,
+          0.9041919708251953,
+          0.8591359853744507,
+          0.8858240246772766,
+          0.8755199909210205,
+          0.9185280203819275,
+          0.8765439987182617,
+          0.8796160221099854,
+          0.8622080087661743,
+          0.9154559969902039,
+          0.8601599931716919,
+          0.8724480271339417,
+          0.8560640215873718,
+          0.9144319891929626,
+          0.8704000115394592,
+          0.8560640215873718,
+          0.8581119775772095,
+          0.9021440148353577,
+          0.8550400137901306
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 32,
+          "kernel_groups": 1,
+          "device_time_ns": 52195,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "rows": 32,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "b9969767445e9bd31815dcd599a6df9368f36372b12fb823d6c6e231016dbd1c"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4575264937999354ee5fc9fd8d95f2a7093f20eb1f7f1eef1d1d304a6c25c095"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45388606400001663,
+        "latency_ms": [
+          0.062463998794555664,
+          0.053247999399900436,
+          0.053247999399900436,
+          0.05119999870657921,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.0798719972372055,
+          0.05222399905323982,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.07065600156784058,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.05011200159788132,
+          0.0490880012512207,
+          0.06860800087451935,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.05222399905323982,
+          0.0490880012512207,
+          0.04915200173854828,
+          0.04915200173854828
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1920,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "rows": 64,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.7881393432617188e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "8dba566d2d0892daffd0c1a107ba5391c83f7543a8601df4ea6d0b48db378320"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "a86435c730b6cfb88ab64035cdb7cb505c524b55847ebe9555d9f63a33105394"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e51bf9cfe57b929cf87feceb0694887b19e3891f348503784f3823e30490fc30"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45742164399985086,
+        "latency_ms": [
+          1.6906239986419678,
+          1.6680320501327515,
+          1.678272008895874,
+          1.6599040031433105,
+          1.6465920209884644,
+          1.6721919775009155,
+          1.7049599885940552,
+          1.6435199975967407,
+          1.7070080041885376,
+          1.6158720254898071,
+          1.669119954109192,
+          1.6506880521774292,
+          1.6506880521774292,
+          1.691648006439209,
+          1.6250879764556885,
+          1.6690880060195923,
+          1.656831979751587,
+          1.6609280109405518,
+          1.661952018737793,
+          1.6383999586105347,
+          1.644544005393982,
+          1.667072057723999,
+          1.628159999847412,
+          1.6128000020980835,
+          1.610751986503601,
+          1.632256031036377,
+          1.6762880086898804,
+          1.6240639686584473,
+          1.627135992050171,
+          1.6373759508132935
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 64,
+          "kernel_groups": 1,
+          "device_time_ns": 103998,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "rows": 64,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.7881393432617188e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "8dba566d2d0892daffd0c1a107ba5391c83f7543a8601df4ea6d0b48db378320"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "a86435c730b6cfb88ab64035cdb7cb505c524b55847ebe9555d9f63a33105394"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e51bf9cfe57b929cf87feceb0694887b19e3891f348503784f3823e30490fc30"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4510034219999852,
+        "latency_ms": [
+          0.06143999844789505,
+          0.05427199974656105,
+          0.053247999399900436,
+          0.05222399905323982,
+          0.07475200295448303,
+          0.05222399905323982,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.0727040022611618,
+          0.05222399905323982,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.05222399905323982,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.08495999872684479,
+          0.051263999193906784,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.07372800260782242,
+          0.05119999870657921
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1952,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "rows": 8,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "d7cc3019678116428f60488d1eb5fc3772088335a96f12c0cfb1f0be55bfba7a"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "60a73520ecd5596ce8a0a98051b5e2dbbcb9a6724accf6e4ef385635bafcfbf3"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c54aabc539f25b53b7d888909b88852f5567ebfb57db98e29391b071d828c57e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.449815406000198,
+        "latency_ms": [
+          0.2529279887676239,
+          0.32051199674606323,
+          0.23756800591945648,
+          0.23449599742889404,
+          0.26316800713539124,
+          0.24780799448490143,
+          0.23552000522613525,
+          0.26214399933815,
+          0.23244799673557281,
+          0.2385919988155365,
+          0.2590720057487488,
+          0.23552000522613525,
+          0.23654399812221527,
+          0.3112959861755371,
+          0.24268800020217896,
+          0.23756800591945648,
+          0.2693119943141937,
+          0.23756800591945648,
+          0.2385919988155365,
+          0.26214399933815,
+          0.2385919988155365,
+          0.2396160066127777,
+          0.23958399891853333,
+          0.2396160066127777,
+          0.23756800591945648,
+          0.23654399812221527,
+          0.26316800713539124,
+          0.23756800591945648,
+          0.23756800591945648,
+          0.26316800713539124
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 8,
+          "kernel_groups": 1,
+          "device_time_ns": 13183,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "rows": 8,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "d7cc3019678116428f60488d1eb5fc3772088335a96f12c0cfb1f0be55bfba7a"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "60a73520ecd5596ce8a0a98051b5e2dbbcb9a6724accf6e4ef385635bafcfbf3"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+            }
+          ],
+          [
+            {
+              "shape": [
+                8,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c54aabc539f25b53b7d888909b88852f5567ebfb57db98e29391b071d828c57e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4580819079999401,
+        "latency_ms": [
+          0.05939200147986412,
+          0.053247999399900436,
+          0.05119999870657921,
+          0.05427199974656105,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.048128001391887665,
+          0.04915200173854828,
+          0.048128001391887665,
+          0.07475200295448303,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.048128001391887665,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.070592001080513,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.05119999870657921,
+          0.05020799860358238,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.05734400078654289,
+          0.04915200173854828
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1920,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "rows": 16,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "7ff7f04d083e06c74a1f766f3303a26195d2e895bb04e03c7a1c92734c720d3f"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "a946f8159086879dbae0791960ce459bddbddbcf4512a930167a13a0a88b244b"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "631e6033bb2c2cf0126d5ae2ed5807521afaf8de0346a6a422b1a202c3bfbb51"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45496507899997596,
+        "latency_ms": [
+          0.4976640045642853,
+          0.45875200629234314,
+          0.48947200179100037,
+          0.4618239998817444,
+          0.5140479803085327,
+          0.48742398619651794,
+          0.4536319971084595,
+          0.48742398619651794,
+          0.4567039906978607,
+          0.4843519926071167,
+          0.4700160026550293,
+          0.5181440114974976,
+          0.4567039906978607,
+          0.4618239998817444,
+          0.4853760004043579,
+          0.4536319971084595,
+          0.48230400681495667,
+          0.477183997631073,
+          0.5171200037002563,
+          0.4546560049057007,
+          0.48947200179100037,
+          0.4536319971084595,
+          0.5038080215454102,
+          0.47411200404167175,
+          0.47308799624443054,
+          0.4997119903564453,
+          0.4556800127029419,
+          0.48230400681495667,
+          0.4485119879245758,
+          0.48230400681495667
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 16,
+          "kernel_groups": 1,
+          "device_time_ns": 26143,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "rows": 16,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "7ff7f04d083e06c74a1f766f3303a26195d2e895bb04e03c7a1c92734c720d3f"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "a946f8159086879dbae0791960ce459bddbddbcf4512a930167a13a0a88b244b"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+            }
+          ],
+          [
+            {
+              "shape": [
+                16,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "631e6033bb2c2cf0126d5ae2ed5807521afaf8de0346a6a422b1a202c3bfbb51"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4557984979999219,
+        "latency_ms": [
+          0.060416001826524734,
+          0.053247999399900436,
+          0.05222399905323982,
+          0.05427199974656105,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.050144001841545105,
+          0.07372800260782242,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.048128001391887665,
+          0.05119999870657921,
+          0.04912000149488449,
+          0.048128001391887665,
+          0.060416001826524734,
+          0.05116799846291542,
+          0.050144001841545105,
+          0.050175998359918594,
+          0.048128001391887665,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.06963200122117996,
+          0.05119999870657921,
+          0.04915200173854828
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1888,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "rows": 32,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bdfd5b5afd4022c9f9bc49bb4d717fa71bba98e5357f592339c30fa72583fa63"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "2b65e5ef53a0a9392d989ca5a74fe0d2702e767b0c3ddb97544c77dbc62b06d5"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.45137324999996054,
+        "latency_ms": [
+          0.8970239758491516,
+          0.8673279881477356,
+          0.8386560082435608,
+          0.886784017086029,
+          0.8786240220069885,
+          0.8673279881477356,
+          0.839680016040802,
+          0.8765119910240173,
+          0.8591359853744507,
+          0.8458240032196045,
+          0.8294399976730347,
+          0.8765439987182617,
+          0.8325120210647583,
+          0.8263360261917114,
+          0.8017920255661011,
+          0.8304640054702759,
+          0.9042239785194397,
+          0.8765439987182617,
+          0.8355839848518372,
+          0.8295360207557678,
+          0.8734719753265381,
+          0.8386560082435608,
+          0.834559977054596,
+          0.8325440287590027,
+          0.881663978099823,
+          0.8478720188140869,
+          0.8427519798278809,
+          0.8294399976730347,
+          0.8069120049476624,
+          0.8191999793052673
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 32,
+          "kernel_groups": 1,
+          "device_time_ns": 52191,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "rows": 32,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bdfd5b5afd4022c9f9bc49bb4d717fa71bba98e5357f592339c30fa72583fa63"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "2b65e5ef53a0a9392d989ca5a74fe0d2702e767b0c3ddb97544c77dbc62b06d5"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+            }
+          ],
+          [
+            {
+              "shape": [
+                32,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "bce15179a1a7c5a211864b910184a7fc149c5fbdc8fb6a8d6149f00f4e8c685e"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4514242299999296,
+        "latency_ms": [
+          0.060416001826524734,
+          0.05225599929690361,
+          0.05222399905323982,
+          0.05113599821925163,
+          0.07583999633789062,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.0522879995405674,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04912000149488449,
+          0.07372800260782242,
+          0.05427199974656105,
+          0.05222399905323982,
+          0.05119999870657921,
+          0.054207999259233475,
+          0.05119999870657921,
+          0.05222399905323982,
+          0.06656000018119812,
+          0.07782399654388428
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1728,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "rows": 64,
+      "label": 0,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "rowwise",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "04941cb7cdc4b12153de7ef483af60c4f4d896328264194897a308179f3a8fd9",
+        "request_sha256": "a6a143631c47c482bd1202c286df4e1ce878223b9d8c427cc8e1e2826f427a92",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4b68c73af0ef202c1cb6dcbb8655a6ed7085f84260bb99d4ea31b93f61521224"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "cf64c0ad5c199f6c8bb525960af31cd8b91a487ebca0f6dbcff9d908db073bd0"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e51bf9cfe57b929cf87feceb0694887b19e3891f348503784f3823e30490fc30"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.4604175199999645,
+        "latency_ms": [
+          1.6486400365829468,
+          1.6864639520645142,
+          1.6332800388336182,
+          1.6885759830474854,
+          1.667072057723999,
+          1.6128000020980835,
+          1.640447974205017,
+          1.623039960861206,
+          1.6035840511322021,
+          1.5974400043487549,
+          1.6486400365829468,
+          1.6158720254898071,
+          1.6281919479370117,
+          1.714176058769226,
+          1.691648006439209,
+          1.686527967453003,
+          1.6016000509262085,
+          1.6179200410842896,
+          1.6045440435409546,
+          1.6414719820022583,
+          1.6291840076446533,
+          1.6414400339126587,
+          1.674239993095398,
+          1.6476160287857056,
+          1.6189440488815308,
+          1.6239999532699585,
+          1.661952018737793,
+          1.6588799953460693,
+          1.6312960386276245,
+          1.6383999586105347
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 64,
+          "kernel_groups": 1,
+          "device_time_ns": 104321,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "rows": 64,
+      "label": 1,
+      "record": {
+        "version": 1,
+        "backend": "cuda",
+        "language": "triton",
+        "name": "fused",
+        "status": "ok",
+        "profile_status": "ok",
+        "source_sha256": "e93b20bf2c665c8b3be3315975b6673e76569e9d9b64bfd92c5bfd8b6cf9ce9e",
+        "request_sha256": "8cfa1e4bd72f623eaeb507b6aae896873217d6395a220e9ded35d437b38a47bf",
+        "host": "ip-172-31-65-170",
+        "python": "3.13.15",
+        "torch": "2.10.0+cu130",
+        "kernel": "6.17.0-1020-aws",
+        "ami": "ami-09a2a137d5bacdb1c",
+        "benchmark_case": 0,
+        "correctness_cases": 4,
+        "max_absolute_error": 1.1920928955078125e-07,
+        "inputs": [
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "4b68c73af0ef202c1cb6dcbb8655a6ed7085f84260bb99d4ea31b93f61521224"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "cf64c0ad5c199f6c8bb525960af31cd8b91a487ebca0f6dbcff9d908db073bd0"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+            }
+          ],
+          [
+            {
+              "shape": [
+                64,
+                128
+              ],
+              "dtype": "float32",
+              "sha256": "e51bf9cfe57b929cf87feceb0694887b19e3891f348503784f3823e30490fc30"
+            }
+          ]
+        ],
+        "device": "NVIDIA A10G",
+        "cuda": "13.0",
+        "triton": "3.6.0",
+        "compute_capability": [
+          8,
+          6
+        ],
+        "driver": "595.91.07",
+        "prepare_and_check_seconds": 0.46017906499992023,
+        "latency_ms": [
+          0.06143999844789505,
+          0.07884799689054489,
+          0.053247999399900436,
+          0.05119999870657921,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.05116799846291542,
+          0.050175998359918594,
+          0.05119999870657921,
+          0.05632000043988228,
+          0.05119999870657921,
+          0.05020799860358238,
+          0.06857600063085556,
+          0.05119999870657921,
+          0.05119999870657921,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.06451199948787689,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.050175998359918594,
+          0.04915200173854828,
+          0.07782399654388428,
+          0.05632000043988228,
+          0.04915200173854828,
+          0.04915200173854828,
+          0.050144001841545105,
+          0.050175998359918594
+        ],
+        "timing_method": "cuda_events_including_launch_gaps",
+        "profile": {
+          "provider": "proton_cupti",
+          "collection": "separate_execution",
+          "scope": "kernel_launch_aggregates",
+          "completeness": "not_verified",
+          "kernels": 1,
+          "kernel_groups": 1,
+          "device_time_ns": 1760,
+          "artifacts": [
+            "proton.hatchet",
+            "events.json"
+          ]
+        }
+      }
+    }
+  ]
+}

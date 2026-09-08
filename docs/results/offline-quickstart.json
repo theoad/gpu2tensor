@@ -1,0 +1,29 @@
+{
+  "experiment": "profile_classification_smoke_check",
+  "learner_device": "cpu",
+  "target_device": "NVIDIA A10G",
+  "target_host": "ip-172-31-65-170",
+  "columns": [
+    "profile.kernels",
+    "profile.device_time_ns"
+  ],
+  "train_samples": 32,
+  "test_samples": 16,
+  "split": "seeds 0-3 train; seeds 4-5 test; both program classes at every shape",
+  "measured": {
+    "initial_loss": 0.9744101762771606,
+    "final_loss": 0.011484403163194656,
+    "test_accuracy": 1.0
+  },
+  "shuffled_training_labels": {
+    "initial_loss": 0.7363430261611938,
+    "final_loss": 0.6798067688941956,
+    "test_accuracy": 0.875
+  },
+  "no_measurements": {
+    "initial_loss": 0.6954936385154724,
+    "final_loss": 0.6931471824645996,
+    "test_accuracy": 0.5
+  },
+  "majority_accuracy": 0.5
+}

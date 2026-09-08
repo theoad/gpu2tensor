@@ -1,0 +1,192 @@
+{
+  "experiment": "two_supplied_program_bandit",
+  "learner_device": "mps",
+  "target_device": "NVIDIA A10G",
+  "target_host": "ip-172-31-65-170",
+  "initial_probabilities": [
+    0.5,
+    0.5
+  ],
+  "final_probabilities": [
+    0.012324229814112186,
+    0.9876757860183716
+  ],
+  "observed_latency_ms": [
+    0.8550400137901306,
+    0.05119999870657921
+  ],
+  "batch_shape": [
+    2,
+    2
+  ],
+  "steps": [
+    {
+      "step": 0,
+      "action": 1,
+      "reward": 0.9419161685438695,
+      "latency_ms": 0.04966400004923344,
+      "correct": true
+    },
+    {
+      "step": 1,
+      "action": 1,
+      "reward": 0.9389221577809594,
+      "latency_ms": 0.05222399905323982,
+      "correct": true
+    },
+    {
+      "step": 2,
+      "action": 1,
+      "reward": 0.9413173681340318,
+      "latency_ms": 0.050175998359918594,
+      "correct": true
+    },
+    {
+      "step": 3,
+      "action": 1,
+      "reward": 0.9413173681340318,
+      "latency_ms": 0.050175998359918594,
+      "correct": true
+    },
+    {
+      "step": 4,
+      "action": 1,
+      "reward": 0.9425149689537072,
+      "latency_ms": 0.04915200173854828,
+      "correct": true
+    },
+    {
+      "step": 5,
+      "action": 1,
+      "reward": 0.9413173681340318,
+      "latency_ms": 0.050175998359918594,
+      "correct": true
+    },
+    {
+      "step": 6,
+      "action": 1,
+      "reward": 0.9424214097253916,
+      "latency_ms": 0.04923199862241745,
+      "correct": true
+    },
+    {
+      "step": 7,
+      "action": 0,
+      "reward": -0.026347296456352476,
+      "latency_ms": 0.8775680065155029,
+      "correct": true
+    },
+    {
+      "step": 8,
+      "action": 0,
+      "reward": -0.0449101723358023,
+      "latency_ms": 0.8934400081634521,
+      "correct": true
+    },
+    {
+      "step": 9,
+      "action": 0,
+      "reward": 0.017964068934320898,
+      "latency_ms": 0.839680016040802,
+      "correct": true
+    },
+    {
+      "step": 10,
+      "action": 1,
+      "reward": 0.9389221577809594,
+      "latency_ms": 0.05222399905323982,
+      "correct": true
+    },
+    {
+      "step": 11,
+      "action": 1,
+      "reward": 0.9424775456980671,
+      "latency_ms": 0.04918400011956692,
+      "correct": true
+    },
+    {
+      "step": 12,
+      "action": 1,
+      "reward": 0.9424775478764974,
+      "latency_ms": 0.04918399825692177,
+      "correct": true
+    },
+    {
+      "step": 13,
+      "action": 1,
+      "reward": 0.9413173681340318,
+      "latency_ms": 0.050175998359918594,
+      "correct": true
+    },
+    {
+      "step": 14,
+      "action": 1,
+      "reward": 0.9413173681340318,
+      "latency_ms": 0.050175998359918594,
+      "correct": true
+    },
+    {
+      "step": 15,
+      "action": 1,
+      "reward": 0.9413173681340318,
+      "latency_ms": 0.050175998359918594,
+      "correct": true
+    },
+    {
+      "step": 16,
+      "action": 1,
+      "reward": 0.9412799426999613,
+      "latency_ms": 0.05020799860358238,
+      "correct": true
+    },
+    {
+      "step": 17,
+      "action": 1,
+      "reward": 0.9413173681340318,
+      "latency_ms": 0.050175998359918594,
+      "correct": true
+    },
+    {
+      "step": 18,
+      "action": 1,
+      "reward": 0.9389221577809594,
+      "latency_ms": 0.05222399905323982,
+      "correct": true
+    },
+    {
+      "step": 19,
+      "action": 1,
+      "reward": 0.938360780626762,
+      "latency_ms": 0.05270399898290634,
+      "correct": true
+    },
+    {
+      "step": 20,
+      "action": 1,
+      "reward": 0.9413173681340318,
+      "latency_ms": 0.050175998359918594,
+      "correct": true
+    },
+    {
+      "step": 21,
+      "action": 1,
+      "reward": 0.9419161685438695,
+      "latency_ms": 0.04966400004923344,
+      "correct": true
+    },
+    {
+      "step": 22,
+      "action": 1,
+      "reward": 0.9413173681340318,
+      "latency_ms": 0.050175998359918594,
+      "correct": true
+    },
+    {
+      "step": 23,
+      "action": 1,
+      "reward": 0.9413173681340318,
+      "latency_ms": 0.050175998359918594,
+      "correct": true
+    }
+  ]
+}

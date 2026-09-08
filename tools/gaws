@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+tool_directory=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+exec "$tool_directory/../.venv/bin/python" "$tool_directory/../python/gpu2tensor/dev/aws.py" "$@"
