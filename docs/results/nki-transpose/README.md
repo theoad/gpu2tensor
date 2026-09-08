@@ -43,3 +43,8 @@ a continuation of the old host's performance experiment. All 65 files across bot
 original result directories stayed unchanged. Raw results and interruption
 records are under ignored `artifacts/issue9/` and the operator S3 `issue9/results/`
 prefix. The experiment owns any new baseline and search condition.
+
+The separate vendor compiler environment was restored at its recorded versions.
+[A vendor 128³ BF16 control](vendor-control.json) also passed all six cases on the
+replacement. This checks dependency readiness; the experiment still collects a
+new matched baseline for its new seed/host condition.

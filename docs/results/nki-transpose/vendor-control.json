@@ -1,0 +1,72 @@
+{
+  "host": "ip-172-31-69-68",
+  "status": "ok",
+  "correctness_cases": 6,
+  "source_sha256": "7c90a95563d5547d2ee33c2c43ee56b3560d271c6ae8b6bcd5a8ec76c09c82af",
+  "request_sha256": "ed233a01529342da5e19c8c08cad24127bfc71ee2b4b4ee2bf1007cabcee7e93",
+  "measurement_policy": {
+    "warmup_runs": 5,
+    "inputs": "fresh_copy_before_each_call_outside_timing",
+    "outputs": "resident_reused",
+    "cache": "uncontrolled",
+    "working_set": "benchmark_case_0",
+    "synchronization": "blocking_native_runtime_call"
+  },
+  "timing_method": "neuron_host_round_trip_with_resident_tensors",
+  "torch": "2.11.0+cu130",
+  "nki": "0.6.0+31049202112.g85070674",
+  "neuronx_cc": "2.27.5334.0+f702b353",
+  "compiler_python": null,
+  "compiler": {
+    "neff": "/tmp/gpu2tensor-neuron-idw2r41p/0/compiler/graph.neff",
+    "inputs": [
+      {
+        "name": "input0",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "BFLOAT16"
+      },
+      {
+        "name": "input1",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "BFLOAT16"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "output0",
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "BFLOAT16"
+      }
+    ],
+    "torch_neuronx": "2.9.0.2.15.32035+de43f57c",
+    "torch": "2.9.0+cpu",
+    "neuronx_cc": "2.27.5334.0+f702b353",
+    "compiler_args": [
+      "--target=trn1",
+      "--auto-cast=none"
+    ],
+    "frontend": "torch_neuronx_trace",
+    "dependencies": {
+      "islpy": "2026.1",
+      "numpy": "2.5.3",
+      "protobuf": "7.36.1",
+      "torch-xla": "2.9.0",
+      "libneuronxla": "2.2.17544.0+fb9962bf"
+    },
+    "precision": {
+      "inputs": "bfloat16",
+      "outputs": "bfloat16",
+      "auto_cast": "none",
+      "accumulation": "vendor_default"
+    }
+  }
+}
